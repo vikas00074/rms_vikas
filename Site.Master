@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RMS.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+
+        .style1
+        {
+            font-family: "Helvetica Neue";
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    <span class="style1"><span class="style49">Result Management Portal</span></span>
+                </h1>
+            </div>
+            <div class="loginDisplay">
+
+            <script language="c#" runat="server">
+                    public void Page_Load(object sender, EventArgs e)
+                    {
+                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                        Response.Cache.SetNoStore();
+                        Response.Cache.SetExpires(DateTime.Now.AddSeconds(60));
+
+                        string a;
+                        a = (string)(Session["Value"]);
+                        lblLogUser.Text = a;
+
+                        if (lblLogUser.Text == "")
+                        {
+                            Response.Redirect("Default.aspx");
+                        }
+                    }
+
+                    public void lnkLogout_Click(object sender, EventArgs e)
+                    {                        
+                        lblLogUser.Text = "";
+                        Session.Abandon();
+                        Session.Clear();
+
+                    }              
+                </script>
+
+                <asp:Label ID="lblLogUser" runat="server"></asp:Label>
+                <br />
+                <asp:LinkButton ID="lnkLogout" runat="server" Font-Underline="False" 
+                    onclick="lnkLogout_Click" PostBackUrl="~/Default.aspx">Logout</asp:LinkButton>
+                <br />
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Home" NavigateUrl="~/Homepage.aspx"/>
+                        <asp:MenuItem Text="Users" Value="Users">
+                            <asp:MenuItem NavigateUrl="~/New_User.aspx" Text="New User" Value="New User">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Users.aspx" Text="CIT Users" Value="CIT Users">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Students" Value="Students">
+                            <asp:MenuItem NavigateUrl="~/New_Student.aspx" Text="New Student" 
+                                Value="New Student"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/View_Students.aspx" Text="View Students" 
+                                Value="View Students"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Courses" Value="Courses">
+                            <asp:MenuItem NavigateUrl="~/Add_Course.aspx" Text="Add New Course" 
+                                Value="Add New Course"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/View_Courses.aspx" Text="View Courses" 
+                                Value="View Courses"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Registered Courses" Value="Registered Courses">
+                            <asp:MenuItem NavigateUrl="~/Register_Courses.aspx" Text="Register Courses" 
+                                Value="Register Courses"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" 
+                                Text="View Registered Courses" Value="View Registered Courses">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Results" Value="Results">
+                            <asp:MenuItem NavigateUrl="~/New_Result.aspx" Text="New Result" 
+                                Value="New Result"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Update_Results.aspx" Text="Update Results" 
+                                Value="Update Results"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/View_Results.aspx" Text="View Results" 
+                                Value="View Results"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Send Notification" Value="Send Notification" 
+                            NavigateUrl="~/Send_Mail.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

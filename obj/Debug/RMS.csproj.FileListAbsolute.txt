@@ -1,0 +1,5 @@
+c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\bin\RMS.dll
+c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\bin\RMS.pdb
+c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\ResolveAssemblyReference.cache
+c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\RMS.dll
+c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\RMS.pdb
