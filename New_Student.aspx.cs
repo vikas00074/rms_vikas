@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Web.UI;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class New_Student : Page
     {
-        MySqlConnection con;
-        MySqlCommand cmd;
+        SqlConnection con;
+        SqlCommand cmd;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
 
             }

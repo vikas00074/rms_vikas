@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Web.UI;
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class Register_Courses : Page
     {
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
+        SqlDataReader dr;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter adap;
         DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
 
             }
@@ -36,10 +36,10 @@ namespace RMS
             {
                 if (txtStudID.Text != string.Empty)
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "rms");
 
@@ -50,10 +50,10 @@ namespace RMS
                 }
                 else
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT * FROM students";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "rms");
 
@@ -87,10 +87,10 @@ namespace RMS
 
                 string a = txtStudID.Text;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from students where student_id = '" + a + "' ";
 
-                adap = new MySqlDataAdapter(cmd);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "students");
                 dr = cmd.ExecuteReader();
@@ -128,7 +128,7 @@ namespace RMS
                 drpCourse1.Items.Clear();
                 drpCourse2.Items.Clear();
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from courses where course_level = '" + txtStudentLevel.Text + "' ";
 
 

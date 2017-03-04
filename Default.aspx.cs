@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class Default : Page
     {
-        MySqlConnection con;
-        MySqlDataReader dr;
-        MySqlCommand cmd;
+        SqlConnection con;
+        SqlDataReader dr;
+        SqlCommand cmd;
 
         string a, b, c;
 
@@ -17,7 +17,7 @@ namespace RMS
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
                 txtUsername.Focus();
             }
@@ -68,7 +68,6 @@ namespace RMS
                     con.Close();
                     con.Open();
                 }
-
             }
             catch (Exception err)
             {

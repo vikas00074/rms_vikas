@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Web.UI;
-using System.Data;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class Add_Course : Page
     {
-        MySqlConnection con;
+        SqlConnection con;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
             }
             catch (Exception err)
@@ -29,7 +28,7 @@ namespace RMS
         {
             try
             {
-                MySqlCommand cmd;
+                SqlCommand cmd;
                 con.Open();
                 txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
@@ -70,6 +69,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 

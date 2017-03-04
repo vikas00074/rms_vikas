@@ -2,16 +2,16 @@
 using System.Web.UI;
 
 using System.Data;
-using MySql.Data.MySqlClient;
 
 using System.Net.Mail;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class Send_Mail : Page
     {
-        MySqlConnection con;
-        MySqlDataAdapter adap;
+        SqlConnection con;
+        SqlDataAdapter adap;
         DataSet ds1;
         DataRow drow;
         int inc;
@@ -21,7 +21,7 @@ namespace RMS
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
 
             }
@@ -45,10 +45,10 @@ namespace RMS
 
                 if (DropDownListGroup.Text == "CIT-Users")
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT email FROM cit_users where User_Group like " + "'" + DropDownListGroup.Text + "%' ";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "emailAdd");
                     inc = 0;
@@ -66,10 +66,10 @@ namespace RMS
 
                 else if (DropDownListGroup.Text == "Management")
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT email FROM cit_users where User_Group like " + "'" + DropDownListGroup.Text + "%' ";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "emailAdd");
 
@@ -157,10 +157,10 @@ namespace RMS
 
                 if (DropDownListGroup.Text == "CIT-Users")
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT email FROM cit_users where User_Group like " + "'" + DropDownListGroup.Text + "%' ";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "emailAdd");
 
@@ -182,10 +182,10 @@ namespace RMS
 
                 else if (DropDownListGroup.Text == "Management")
                 {
-                    MySqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT email FROM cit_users where User_Group like " + "'" + DropDownListGroup.Text + "%' ";
 
-                    adap = new MySqlDataAdapter(cmd);
+                    adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
                     adap.Fill(ds1, "emailAdd");
 
@@ -213,7 +213,7 @@ namespace RMS
 
                 txtDateEmail.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                MySqlCommand cmd1 = con.CreateCommand();
+                SqlCommand cmd1 = con.CreateCommand();
                 cmd1.CommandText = "INSERT INTO emails(from_email, from_name, to_email, to_name, cc_email, cc_name, subject, body, date_sent)VALUES(@from_email, @from_name, @to_email, @to_name, @cc_email, @cc_name, @subject, @body, @date_sent)";
 
                 cmd1.Parameters.AddWithValue("@from_email", txtFrom.Text);

@@ -3,25 +3,25 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using System.Data;
-using MySql.Data.MySqlClient;
 
 using System.Net.Mail;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class Users : Page
     {
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
+        SqlDataReader dr;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter adap;
         DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
 
                 txtUsername.Focus();
@@ -42,10 +42,10 @@ namespace RMS
                 con.Open();
                 Panel3.Visible = false;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "SELECT * FROM cit_users where surname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or user_id like " + "'" + txtSearch.Text + "%' or username like " + "'" + txtSearch.Text + "%'";
 
-                adap = new MySqlDataAdapter(cmd);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "rms");
 
@@ -75,7 +75,7 @@ namespace RMS
 
                 string a = txtID.Text;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from cit_users where user_id = '" + a + "' ";
                 dr = cmd.ExecuteReader();
 
@@ -128,7 +128,7 @@ namespace RMS
         {
             try
             {
-                MySqlCommand cmd;
+                SqlCommand cmd;
                 con.Open();
                 txtAmendDate.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 

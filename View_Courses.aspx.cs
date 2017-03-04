@@ -2,22 +2,22 @@
 using System.Web.UI;
 
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class View_Courses : Page
     {
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlDataAdapter adap;
+        SqlDataReader dr;
+        SqlConnection con;
+        SqlDataAdapter adap;
         DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
             }
             catch (Exception err)
@@ -37,10 +37,10 @@ namespace RMS
                 con.Open();
                 Panel3.Visible = false;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "SELECT * FROM courses where course_id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
 
-                adap = new MySqlDataAdapter(cmd);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "rms");
 
@@ -67,10 +67,10 @@ namespace RMS
                 con.Open();
                 Panel3.Visible = false;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "SELECT * FROM courses where course_id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
 
-                adap = new MySqlDataAdapter(cmd);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "rms");
 
@@ -100,7 +100,7 @@ namespace RMS
 
                 string a = txtCseID.Text;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from courses where course_id = '" + a + "' ";
                 dr = cmd.ExecuteReader();
 
@@ -130,7 +130,7 @@ namespace RMS
         {
             try
             {
-                MySqlCommand cmd;
+                SqlCommand cmd;
                 con.Open();
                 txtDateUpdated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 

@@ -2,24 +2,24 @@
 using System.Web.UI;
 
 using System.Data;
-using MySql.Data.MySqlClient;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class View_Students : Page
     {
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
+        SqlDataReader dr;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter adap;
         DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
                 con.Open();
             }
             catch (Exception err)
@@ -36,11 +36,11 @@ namespace RMS
             try
             {
                 con.Open();
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
 
                 cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or student_id = " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
 
-                adap = new MySqlDataAdapter(cmd);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "student");
 
@@ -73,7 +73,7 @@ namespace RMS
 
                 string a = txtStudID0.Text;
 
-                MySqlCommand cmd = con.CreateCommand();
+                SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from students where Student_ID = '" + a + "' ";
                 dr = cmd.ExecuteReader();
 
@@ -124,8 +124,8 @@ namespace RMS
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("Select photo from students where Student_ID = '" + txtStudID0.Text + "' ;", con);
-                adap = new MySqlDataAdapter(cmd);
+                cmd = new SqlCommand("Select photo from students where Student_ID = '" + txtStudID0.Text + "' ;", con);
+                adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "photo");
                 int c = ds1.Tables["photo"].Rows.Count;
@@ -170,7 +170,7 @@ namespace RMS
                 byte[] imagebyte = new byte[FileUpload1.PostedFile.InputStream.Length + 1];
                 FileUpload1.PostedFile.InputStream.Read(imagebyte, 0, imagebyte.Length);
 
-                cmd = new MySqlCommand("update students set photo =@image where Student_ID = '" + txtStudID0.Text + "'", con);
+                cmd = new SqlCommand("update students set photo =@image where Student_ID = '" + txtStudID0.Text + "'", con);
 
                 cmd.Parameters.AddWithValue("@image", imagebyte);
 
