@@ -7,7 +7,7 @@ using System.Web.SessionState;
 
 namespace RMS
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
 
         void Application_Start(object sender, EventArgs e)
