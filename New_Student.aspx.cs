@@ -1,41 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class New_Student : System.Web.UI.Page
+    public partial class New_Student : Page
     {
-        string connectionString;
-        MySqlDataReader dr;
-
         MySqlConnection con;
         MySqlCommand cmd;
-        MySqlDataAdapter adap;
-        DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-                                
+
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -46,13 +33,26 @@ namespace RMS
                 con.Open();
                 txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-
-                if (txtStudID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's ID"; }
-                else if (txtSname.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Patient's Surname"; }
-                else if (txtProgram.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Program"; }
-                else if (txtLevel.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Level"; }
-                else if (txtSession.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session"; }
-
+                if (txtStudID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's ID";
+                }
+                else if (txtSname.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Patient's Surname";
+                }
+                else if (txtProgram.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Program";
+                }
+                else if (txtLevel.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Level";
+                }
+                else if (txtSession.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
+                }
                 else
                 {
                     cmd = con.CreateCommand();
@@ -75,65 +75,59 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@session", txtSession.Text);
                     cmd.Parameters.AddWithValue("@date_created", txtDateCreated.Text);
                     cmd.Parameters.AddWithValue("@user_created", txtUserCreated.Text);
-                    
+
                     cmd.ExecuteNonQuery();
 
                     Label1.Text = "New Student Registered";
 
-                    txtStudID.Text = "";
-                    txtSname.Text = "";
-                    txtFName.Text = "";
-                    txtMName.Text = "";
-                    DropDownListGender.Text = "";
-                    DropDownListDay.Text = "";
-                    DropDownListMonth.Text = "";
-                    DoBYear.Text = "";
-                    txtPhone.Text = "";
-                    txtEmail.Text = "";
-                    txtProgram.Text = "";
-                    txtLevel.Text = "";
-                    txtSession.Text = "";
-                    txtDateCreated.Text = "";
-                    txtUserCreated.Text = "";
-                    
+                    txtStudID.Text = string.Empty;
+                    txtSname.Text = string.Empty;
+                    txtFName.Text = string.Empty;
+                    txtMName.Text = string.Empty;
+                    DropDownListGender.Text = string.Empty;
+                    DropDownListDay.Text = string.Empty;
+                    DropDownListMonth.Text = string.Empty;
+                    DoBYear.Text = string.Empty;
+                    txtPhone.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+                    txtProgram.Text = string.Empty;
+                    txtLevel.Text = string.Empty;
+                    txtSession.Text = string.Empty;
+                    txtDateCreated.Text = string.Empty;
+                    txtUserCreated.Text = string.Empty;
 
                     lblError.Visible = false;
-
                 }
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            txtStudID.Text = "";
-            txtSname.Text = "";
-            txtFName.Text = "";
-            txtMName.Text = "";
-            DropDownListGender.Text = "";
-            DropDownListDay.Text = "";
-            DropDownListMonth.Text = "";
-            DoBYear.Text = "";
-            txtPhone.Text = "";
-            txtEmail.Text = "";
-            txtProgram.Text = "";
-            txtLevel.Text = "";
-            txtSession.Text = "";
-            txtDateCreated.Text = "";
-            txtUserCreated.Text = "";
+            txtStudID.Text = string.Empty;
+            txtSname.Text = string.Empty;
+            txtFName.Text = string.Empty;
+            txtMName.Text = string.Empty;
+            DropDownListGender.Text = string.Empty;
+            DropDownListDay.Text = string.Empty;
+            DropDownListMonth.Text = string.Empty;
+            DoBYear.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtProgram.Text = string.Empty;
+            txtLevel.Text = string.Empty;
+            txtSession.Text = string.Empty;
+            txtDateCreated.Text = string.Empty;
+            txtUserCreated.Text = string.Empty;
 
 
             lblError.Visible = false;
         }
-
-    
-    
     }
 }

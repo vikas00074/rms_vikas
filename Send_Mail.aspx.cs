@@ -1,26 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using System.Data;
 using MySql.Data.MySqlClient;
 
 using System.Net.Mail;
-using System.Net.Mime;
 
 namespace RMS
-{   
-
-    public partial class Send_Mail : System.Web.UI.Page
+{
+    public partial class Send_Mail : Page
     {
-        string connectionString;
-        MySqlDataReader dr;
-
         MySqlConnection con;
-        MySqlCommand cmd;
         MySqlDataAdapter adap;
         DataSet ds1;
         DataRow drow;
@@ -32,17 +22,15 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-                
+
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -53,7 +41,6 @@ namespace RMS
                 lblError.Visible = false;
                 con.Open();
                 Panel4.Visible = true;
-                //GridView1.Visible = true;
                 txtToName.Text = DropDownListGroup.Text;
 
                 if (DropDownListGroup.Text == "CIT-Users")
@@ -99,9 +86,11 @@ namespace RMS
                         txtTo.Text = txtTo.Text + "; " + drow.ItemArray.GetValue(0).ToString();
                     }
                 }
-                
 
-                else { lblMessage.Text = "No Email Records to load"; }
+                else
+                {
+                    lblMessage.Text = "No Email Records to load";
+                }
                 con.Close();
             }
 
@@ -109,7 +98,6 @@ namespace RMS
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
-                //lblError.Text = err.Message;
             }
         }
 
@@ -121,21 +109,27 @@ namespace RMS
                 MailMessage m = new MailMessage();
                 SmtpClient sc = new SmtpClient();
 
-                if (txtCc.Text != "") { m.CC.Add(new MailAddress(txtCc.Text, txtCcName.Text)); }
+                if (txtCc.Text != string.Empty)
+                {
+                    m.CC.Add(new MailAddress(txtCc.Text, txtCcName.Text));
+                }
                 else
                 {
                     m.From = new MailAddress(txtFrom.Text, txtFromName.Text);
                     m.To.Add(new MailAddress(txtTo.Text, txtToName.Text));
-                    // m.CC.Add(new MailAddress(txtCc.Text, txtCcName.Text));
-                    //m.BCC.Add(new MailAddress("BCC@yahoo.com", "Display name BCC"));
                 }
 
                 m.Subject = txtSubject.Text;
                 m.Body = txtBody.Text;
 
-                if (txtSubject.Text == "") { lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Subject Field is empty"; }
-                else if (txtBody.Text == "") { lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Email Body"; }
-
+                if (txtSubject.Text == string.Empty)
+                {
+                    lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Subject Field is empty";
+                }
+                else if (txtBody.Text == string.Empty)
+                {
+                    lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Email Body";
+                }
                 else
                 {
                     //section 5
@@ -143,7 +137,6 @@ namespace RMS
                     sc.Port = int.Parse(txtPort.Text);
                     sc.Credentials = new System.Net.NetworkCredential(txtCred1.Text, "BeyHealth2010");
 
-                    //sc.Credentials = new System.Net.NetworkCredential(txtCred1.Text, txtCred2.Text);
                     sc.EnableSsl = bool.Parse(txtSSL.Text); // runtime encrypt the SMTP communications using SSL
                     sc.Send(m);
                 }
@@ -159,9 +152,7 @@ namespace RMS
         {
             try
             {
-                //con.Open();
                 Panel4.Visible = true;
-                //GridView1.Visible = true;
                 txtToName.Text = DropDownListGroup.Text;
 
                 if (DropDownListGroup.Text == "CIT-Users")
@@ -212,16 +203,19 @@ namespace RMS
                         txtTo.Text = drow.ItemArray.GetValue(0).ToString();
                         con.Close();
                     }
-                }                
+                }
 
-                else { lblMessage.Text = "No Email Records to load"; }
+                else
+                {
+                    lblMessage.Text = "No Email Records to load";
+                }
                 con.Open();
 
                 txtDateEmail.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
                 MySqlCommand cmd1 = con.CreateCommand();
                 cmd1.CommandText = "INSERT INTO emails(from_email, from_name, to_email, to_name, cc_email, cc_name, subject, body, date_sent)VALUES(@from_email, @from_name, @to_email, @to_name, @cc_email, @cc_name, @subject, @body, @date_sent)";
-                                
+
                 cmd1.Parameters.AddWithValue("@from_email", txtFrom.Text);
                 cmd1.Parameters.AddWithValue("@from_name", txtFromName.Text);
                 cmd1.Parameters.AddWithValue("@to_email", txtTo.Text);
@@ -237,11 +231,11 @@ namespace RMS
                 lblMessage.Text = "Message sent successfully";
                 lblError.Visible = false;
 
-                txtTo.Text = "";
-                txtToName.Text = "";
-                txtCc.Text = "";
-                txtSubject.Text = "";
-                txtBody.Text = "";
+                txtTo.Text = string.Empty;
+                txtToName.Text = string.Empty;
+                txtCc.Text = string.Empty;
+                txtSubject.Text = string.Empty;
+                txtBody.Text = string.Empty;
 
                 con.Close();
             }
@@ -261,11 +255,7 @@ namespace RMS
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            txtTo.Text = "";
+            txtTo.Text = string.Empty;
         }
-
-
-
-
     }
 }

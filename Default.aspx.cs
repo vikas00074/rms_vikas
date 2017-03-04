@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Default : Page
     {
         MySqlConnection con;
-        string connectionString;
         MySqlDataReader dr;
         MySqlCommand cmd;
 
@@ -23,9 +18,7 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
                 con.Open();
-
                 txtUsername.Focus();
             }
             catch (Exception err)
@@ -33,14 +26,12 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-
                 cmd = con.CreateCommand();
                 cmd.CommandText = "Select * from cit_users where username = '" + txtUsername.Text + "' and password= '" + txtpassword.Text + "' ";
                 dr = cmd.ExecuteReader();
@@ -52,6 +43,7 @@ namespace RMS
                         txtLogUser.Text = Convert.ToString(dr[3]) + " " + Convert.ToString(dr[4]);
                         txtProfile.Text = Convert.ToString(dr[5]);
                     }
+
                     a = txtLogUser.Text;
                     Session["Value"] = a;
 
@@ -63,9 +55,6 @@ namespace RMS
 
                     Response.Redirect("Homepage.aspx");
 
-                    //Response.Redirect("homepage.aspx?field1=" + lblUser.Text);
-                    //Response.Redirect("homepage.aspx?field2=" + lblProfile.Text);
-
                     con.Close();
                 }
                 else
@@ -73,12 +62,11 @@ namespace RMS
                     lblError.Text = "Invalid Login Details! Try Again";
                     lblError.Visible = true;
 
-                    txtUsername.Text = "";
-                    txtpassword.Text = "";
+                    txtUsername.Text = string.Empty;
+                    txtpassword.Text = string.Empty;
 
                     con.Close();
                     con.Open();
-
                 }
 
             }

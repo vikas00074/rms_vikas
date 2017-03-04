@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class View_Results : System.Web.UI.Page
+    public partial class View_Results : Page
     {
-        string connectionString;
         MySqlDataReader dr;
         MySqlConnection con;
-        MySqlCommand cmd;
         MySqlDataAdapter adap;
         DataSet ds1;
 
@@ -24,17 +18,14 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -42,7 +33,7 @@ namespace RMS
         {
             try
             {
-                if (txtStudID.Text != "")
+                if (txtStudID.Text != string.Empty)
                 {
                     MySqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
@@ -55,7 +46,6 @@ namespace RMS
                     grdStudent.DataBind();
 
                     PanelStudGrid.Visible = true;
-
                 }
                 else
                 {
@@ -74,7 +64,6 @@ namespace RMS
             }
             catch (Exception err)
             {
-
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
@@ -90,8 +79,6 @@ namespace RMS
             try
             {
                 con.Open();
-                //lstAppointDays.Items.Clear();
-                //drpCourse1.Items.Clear();
 
                 string id = grdStudent.SelectedRow.Cells[0].Text;
                 txtStudID.Text = id;
@@ -104,13 +91,6 @@ namespace RMS
                 adap = new MySqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "students");
-
-                //DataTable dt = ds1.Tables[0];
-
-                ///for (int i = 9; i <= 15; i++)
-                //{
-                //    foreach (DataRow dr1 in dt.Rows) { lstAppointDays.Items.Add(dr1[i].ToString()); drpAppointDays.Items.Add(dr1[i].ToString()); }
-                //}
 
                 dr = cmd.ExecuteReader();
 
@@ -133,6 +113,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
             Load_Courses();
         }
@@ -185,15 +166,14 @@ namespace RMS
 
                     Label1.Text = txtStudID.Text + "'s Result";
                     dr.Close();
-
                 }
-
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -202,8 +182,5 @@ namespace RMS
             Panel4.Visible = false;
             PanelStudGrid.Visible = true;
         }
-
-
-
     }
 }

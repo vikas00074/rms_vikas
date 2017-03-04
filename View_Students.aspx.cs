@@ -1,45 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.IO;
-using System.Net.Mail;
-using System.Net.Mime;
 
 namespace RMS
 {
-    public partial class View_Students : System.Web.UI.Page
+    public partial class View_Students : Page
     {
-        string connectionString;
         MySqlDataReader dr;
-
-        MySqlConnection con, con1;
-        MySqlCommand cmd, cmd1;
-        MySqlDataAdapter adap, adap1;
-        DataSet ds1, ds11;
+        MySqlConnection con;
+        MySqlCommand cmd;
+        MySqlDataAdapter adap;
+        DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-
-                
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -49,7 +37,7 @@ namespace RMS
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                
+
                 cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or student_id = " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
 
                 adap = new MySqlDataAdapter(cmd);
@@ -64,15 +52,14 @@ namespace RMS
                 PanelStudMenu.Visible = false;
 
                 lblError.Visible = false;
-
             }
-
             catch (Exception err)
             {
 
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -102,15 +89,13 @@ namespace RMS
                     DropDownListMonth.Text = Convert.ToString(dr[7]);
                     DoBYear.Text = Convert.ToString(dr[8]);
                     txtEmail.Text = Convert.ToString(dr[10]);
-                    txtPhone.Text = Convert.ToString(dr[11]);                    
-                    
+                    txtPhone.Text = Convert.ToString(dr[11]);
+
                     txtProgram.Text = Convert.ToString(dr[12]);
                     txtLevel.Text = Convert.ToString(dr[13]);
                     txtSession.Text = Convert.ToString(dr[14]);
                     txtUserUpdated.Text = Convert.ToString(dr[16]);
                     txtDateUpdated.Text = Convert.ToString(dr[18]);
-                    
-                    
                 }
 
                 PanelSearchGrid.Visible = false;
@@ -122,22 +107,20 @@ namespace RMS
 
                 lblStudData.Text = txtSname.Text + " " + txtFName.Text + ", " + DropDownListGender.Text + ", " + DropDownListDay.Text + "-" + DropDownListMonth.Text + "-" + DoBYear.Text;
                 lblStudData1.Text = txtPhone.Text + ", " + txtEmail.Text;
-                
+
                 Label1.Text = "Update " + txtSname.Text + "'s Record";
-
-
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
-            con.Close();         
+
+            con.Close();
         }
 
         protected void showPicture()
         {
-
             try
             {
                 con.Open();
@@ -154,17 +137,13 @@ namespace RMS
 
                     MemoryStream stm = new MemoryStream(byteBlobData);
 
-                    //Image1.ImageUrl = Image.FromStream(byteBlobData);
-
                     imgStud.ImageUrl = "data:student_image/jpeg;base64," + Convert.ToBase64String(byteBlobData);
-
                 }
             }
             catch (Exception err)
             {
-
-                // lblImgReport.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -185,13 +164,11 @@ namespace RMS
 
         protected void updatePicture()
         {
-
             try
             {
                 con.Open();
                 byte[] imagebyte = new byte[FileUpload1.PostedFile.InputStream.Length + 1];
                 FileUpload1.PostedFile.InputStream.Read(imagebyte, 0, imagebyte.Length);
-
 
                 cmd = new MySqlCommand("update students set photo =@image where Student_ID = '" + txtStudID0.Text + "'", con);
 
@@ -204,9 +181,9 @@ namespace RMS
             }
             catch (Exception err)
             {
-
                 lblImgReport.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -228,13 +205,28 @@ namespace RMS
             {
                 con.Open();
                 txtDateUpdated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                
 
-                if (txtStudID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's ID"; }
-                else if (txtSname.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Patient's Surname"; }
-                else if (txtProgram.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Program"; }
-                else if (txtLevel.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Level"; }
-                else if (txtSession.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session"; }
+
+                if (txtStudID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's ID";
+                }
+                else if (txtSname.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Patient's Surname";
+                }
+                else if (txtProgram.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Program";
+                }
+                else if (txtLevel.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Level";
+                }
+                else if (txtSession.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
+                }
 
                 else
                 {
@@ -257,16 +249,12 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@session", txtSession.Text);
                     cmd.Parameters.AddWithValue("@date_updated", txtDateUpdated.Text);
                     cmd.Parameters.AddWithValue("@user_updated", txtUserUpdated.Text);
-                    //cmd.Parameters.AddWithValue("@dob", txtDoB.Text);
-                                                          
 
                     cmd.ExecuteNonQuery();
 
                     lblError.Visible = false;
                     Label1.Text = txtSname.Text + "'s record updated";
-
                 }
-
             }
             catch (Exception err)
             {
@@ -281,11 +269,7 @@ namespace RMS
         {
             PanelSearchGrid.Visible = true;
             PanelStudRecord.Visible = false;
-            PanelStudMenu.Visible = false;            
+            PanelStudMenu.Visible = false;
         }
-
-
-
-
     }
 }

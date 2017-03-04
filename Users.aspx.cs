@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,15 +6,12 @@ using System.Data;
 using MySql.Data.MySqlClient;
 
 using System.Net.Mail;
-using System.Net.Mime;
 
 namespace RMS
 {
-    public partial class Users : System.Web.UI.Page
+    public partial class Users : Page
     {
-        string connectionString;
         MySqlDataReader dr;
-
         MySqlConnection con;
         MySqlCommand cmd;
         MySqlDataAdapter adap;
@@ -28,9 +22,6 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
 
                 txtUsername.Focus();
@@ -40,6 +31,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -62,20 +54,14 @@ namespace RMS
 
                 PanelSearchGrid.Visible = true;
 
-                // Panel_Menu.Visible = true;
-                // PanelMenu_Grid.Visible = true;
-                // Panel1.Visible = false;
-
                 lblError.Visible = false;
-
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -107,11 +93,9 @@ namespace RMS
                     txtPhone.Text = Convert.ToString(dr[10]);
                     txtEmail.Text = Convert.ToString(dr[11]);
                     DropDownListTitle.Text = Convert.ToString(dr[2]);
-
                 }
 
                 PanelSearchGrid.Visible = false;
-                //PanelMenu_Grid.Visible = false;
                 Panel3.Visible = true;
 
                 Label1.Text = "Amend " + txtUsername.Text + "'s Record";
@@ -123,6 +107,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -137,7 +122,6 @@ namespace RMS
             txtTo.Text = txtEmail.Text;
             txtToName.Text = txtSname.Text + " " + txtFname.Text;
             btnCancelEmail.Focus();
-
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -148,9 +132,18 @@ namespace RMS
                 con.Open();
                 txtAmendDate.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                if (txtID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's ID Number"; }
-                else if (txtSname.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's Surname"; }
-                else if (txtpassword.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User Password"; }
+                if (txtID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's ID Number";
+                }
+                else if (txtSname.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's Surname";
+                }
+                else if (txtpassword.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User Password";
+                }
 
                 else
                 {
@@ -176,16 +169,15 @@ namespace RMS
 
                     lblError.Visible = false;
                     Label1.Text = txtUsername.Text + "'s record updated";
-
                 }
 
             }
-
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -193,7 +185,6 @@ namespace RMS
         {
             PanelSearchGrid.Visible = true;
             Panel3.Visible = false;
-
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
@@ -204,20 +195,27 @@ namespace RMS
                 MailMessage m = new MailMessage();
                 SmtpClient sc = new SmtpClient();
 
-                if (txtCc.Text != "") { m.CC.Add(new MailAddress(txtCc.Text, txtCcName.Text)); }
+                if (txtCc.Text != string.Empty)
+                {
+                    m.CC.Add(new MailAddress(txtCc.Text, txtCcName.Text));
+                }
                 else
                 {
-
                     m.From = new MailAddress(txtFrom.Text, txtFromName.Text);
                     m.To.Add(new MailAddress(txtTo.Text, txtToName.Text));
-
                 }
 
                 m.Subject = txtSubject.Text;
                 m.Body = txtBody.Text;
 
-                if (txtSubject.Text == "") { lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Subject Field is empty"; }
-                else if (txtBody.Text == "") { lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Email Body"; }
+                if (txtSubject.Text == string.Empty)
+                {
+                    lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Subject Field is empty";
+                }
+                else if (txtBody.Text == string.Empty)
+                {
+                    lblMessage.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Email Body";
+                }
 
                 else
                 {
@@ -225,8 +223,6 @@ namespace RMS
                     sc.Host = txtHost.Text;
                     sc.Port = int.Parse(txtPort.Text);
                     sc.Credentials = new System.Net.NetworkCredential(txtCred1.Text, txtCred2.Text);
-
-                    //sc.Credentials = new System.Net.NetworkCredential(txtCred1.Text, txtCred2.Text);
                     sc.EnableSsl = bool.Parse(txtSSL.Text); // runtime encrypt the SMTP communications using SSL
                     sc.Send(m);
 
@@ -235,7 +231,7 @@ namespace RMS
 
                     cmd = con.CreateCommand();
                     cmd.CommandText = "INSERT INTO emails(from_email, from_name, to_email, to_name, cc_email, cc_name, subject, body, date_sent)VALUES(@from_email, @from_name, @to_email, @to_name, @cc_email, @cc_name, @subject, @body, @date_sent)";
-                                        
+
                     cmd.Parameters.AddWithValue("@from_email", txtFrom.Text);
                     cmd.Parameters.AddWithValue("@from_name", txtFromName.Text);
                     cmd.Parameters.AddWithValue("@to_email", txtTo.Text);
@@ -248,24 +244,22 @@ namespace RMS
 
                     cmd.ExecuteNonQuery();
 
-
                     lblMessage.Text = "Message sent successfully";
                     lblError.Visible = false;
-
                 }
 
-                txtTo.Text = "";
-                txtToName.Text = "";
-                txtCc.Text = "";
-                txtSubject.Text = "";
-                txtBody.Text = "";
-
+                txtTo.Text = string.Empty;
+                txtToName.Text = string.Empty;
+                txtCc.Text = string.Empty;
+                txtSubject.Text = string.Empty;
+                txtBody.Text = string.Empty;
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 

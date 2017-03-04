@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class Update_Results1 : System.Web.UI.Page
+    public partial class Update_Results1 : Page
     {
-        string connectionString;
         MySqlDataReader dr;
         MySqlConnection con;
         MySqlCommand cmd;
@@ -24,9 +19,6 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
 
             }
@@ -35,6 +27,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -42,7 +35,7 @@ namespace RMS
         {
             try
             {
-                if (txtStudID.Text != "")
+                if (txtStudID.Text != string.Empty)
                 {
                     MySqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
@@ -55,7 +48,6 @@ namespace RMS
                     grdStudent.DataBind();
 
                     PanelStudGrid.Visible = true;
-
                 }
                 else
                 {
@@ -74,7 +66,6 @@ namespace RMS
             }
             catch (Exception err)
             {
-
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
@@ -90,9 +81,6 @@ namespace RMS
             try
             {
                 con.Open();
-                //lstAppointDays.Items.Clear();
-                //drpCourse1.Items.Clear();
-
                 string id = grdStudent.SelectedRow.Cells[0].Text;
                 txtStudID.Text = id;
 
@@ -104,13 +92,6 @@ namespace RMS
                 adap = new MySqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "students");
-
-                //DataTable dt = ds1.Tables[0];
-
-                ///for (int i = 9; i <= 15; i++)
-                //{
-                //    foreach (DataRow dr1 in dt.Rows) { lstAppointDays.Items.Add(dr1[i].ToString()); drpAppointDays.Items.Add(dr1[i].ToString()); }
-                //}
 
                 dr = cmd.ExecuteReader();
 
@@ -133,9 +114,9 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
             Load_Courses();
-
         }
 
         protected void Load_Courses()
@@ -185,15 +166,14 @@ namespace RMS
                     DropDownListGrade10.Text = dr["grade10"].ToString();
 
                     dr.Close();
-
                 }
-
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -210,23 +190,28 @@ namespace RMS
                 con.Open();
                 txtDateUpdated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                if (txtStudID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student ID"; }
-                else if (txtStudentProgram.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Program"; }
-                else if (txtStudentLevel.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Level"; }
-                else if (txtSession.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session"; }
-
+                if (txtStudID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student ID";
+                }
+                else if (txtStudentProgram.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Program";
+                }
+                else if (txtStudentLevel.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Level";
+                }
+                else if (txtSession.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
+                }
                 else
                 {
-
                     cmd = con.CreateCommand();
 
                     cmd.CommandText = "UPDATE results SET course_id1=@course_id1, score1=@score1, grade1=@grade1, course_id2=@course_id2, score2=@score2, grade2=@grade2, course_id3=@course_id3, score3=@score3, grade3=@grade3, course_id4=@course_id4, score4=@score4, grade4=@grade4, course_id5=@course_id5, score5=@score5, grade5=@grade5, course_id6=@course_id6, score6=@score6, grade6=@grade6, course_id7=@course_id7, score7=@score7, grade7=@grade7, course_id8=@course_id8, score8=@score8, grade8=@grade8, course_id9=@course_id9, score9=@score9, grade9=@grade9, course_id10=@course_id10, score10=@score10, grade10=@grade10, date_updated=@date_updated WHERE student_id = '" + txtStudID.Text + "' ;";
 
-                    //cmd.Parameters.AddWithValue("@student_id", txtStudID.Text);
-                    //cmd.Parameters.AddWithValue("@program", txtStudentProgram.Text);
-                    //cmd.Parameters.AddWithValue("@level", txtStudentLevel.Text);
-                    //cmd.Parameters.AddWithValue("@session", txtSession.Text);
-                     
                     cmd.Parameters.AddWithValue("@course_id1", lblCse1.Text);
                     cmd.Parameters.AddWithValue("@score1", txtScore1.Text);
                     cmd.Parameters.AddWithValue("@grade1", DropDownListGrade1.Text);
@@ -271,8 +256,7 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@date_updated", txtDateUpdated.Text);
 
                     cmd.ExecuteNonQuery();
-                    
-                    
+
                     lblError.Visible = false;
                     Label1.Text = txtStudentName.Text + "'s Result Updated Successfully";
                 }
@@ -280,14 +264,11 @@ namespace RMS
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
-
-
-
     }
 }

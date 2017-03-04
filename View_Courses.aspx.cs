@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class View_Courses : System.Web.UI.Page
+    public partial class View_Courses : Page
     {
-        string connectionString;
         MySqlDataReader dr;
-
         MySqlConnection con;
-        MySqlCommand cmd;
         MySqlDataAdapter adap;
         DataSet ds1;
 
@@ -25,17 +18,14 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-                                
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
             Load_Courses();
         }
@@ -59,20 +49,14 @@ namespace RMS
 
                 PanelSearchGrid.Visible = true;
 
-                // Panel_Menu.Visible = true;
-                // PanelMenu_Grid.Visible = true;
-                // Panel1.Visible = false;
-
                 lblError.Visible = false;
-
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -95,20 +79,14 @@ namespace RMS
 
                 PanelSearchGrid.Visible = true;
 
-                // Panel_Menu.Visible = true;
-                // PanelMenu_Grid.Visible = true;
-                // Panel1.Visible = false;
-
                 lblError.Visible = false;
-
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -131,21 +109,20 @@ namespace RMS
                     txtCourseId.Text = Convert.ToString(dr[1]);
                     txtCourseTitle.Text = Convert.ToString(dr[2]);
                     DropDownListLevel.Text = Convert.ToString(dr[3]);
-                   
                 }
 
                 PanelSearchGrid.Visible = false;
                 Panel3.Visible = true;
 
-                Label1.Text = "Update " + txtCourseTitle.Text ;
+                Label1.Text = "Update " + txtCourseTitle.Text;
                 btnCanc.Focus();
-
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -157,9 +134,14 @@ namespace RMS
                 con.Open();
                 txtDateUpdated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                if (txtCourseId.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Course ID"; }
-                else if (DropDownListLevel.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Course Level"; }
-                
+                if (txtCourseId.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Course ID";
+                }
+                else if (DropDownListLevel.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Course Level";
+                }
                 else
                 {
                     cmd = con.CreateCommand();
@@ -169,22 +151,19 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@course_title", txtCourseTitle.Text);
                     cmd.Parameters.AddWithValue("@course_level", DropDownListLevel.Text);
                     cmd.Parameters.AddWithValue("@date_updated", txtDateUpdated.Text);
-                    
 
                     cmd.ExecuteNonQuery();
 
                     lblError.Visible = false;
                     Label1.Text = txtCourseTitle.Text + "'s record updated";
-
                 }
-
             }
-
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 

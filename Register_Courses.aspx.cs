@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
 {
-    public partial class Register_Courses : System.Web.UI.Page
+    public partial class Register_Courses : Page
     {
-        string connectionString;
         MySqlDataReader dr;
         MySqlConnection con;
         MySqlCommand cmd;
@@ -23,17 +18,15 @@ namespace RMS
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-               
+
             }
             catch (Exception err)
             {
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -41,7 +34,7 @@ namespace RMS
         {
             try
             {
-                if (txtStudID.Text != "" )
+                if (txtStudID.Text != string.Empty)
                 {
                     MySqlCommand cmd = con.CreateCommand();
                     cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
@@ -54,7 +47,6 @@ namespace RMS
                     grdStudent.DataBind();
 
                     PanelStudGrid.Visible = true;
-                    
                 }
                 else
                 {
@@ -68,12 +60,11 @@ namespace RMS
                     grdStudent.DataSource = ds1.Tables[0];
                     grdStudent.DataBind();
 
-                    PanelStudGrid.Visible = true;                    
+                    PanelStudGrid.Visible = true;
                 }
             }
             catch (Exception err)
             {
-
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
@@ -90,8 +81,6 @@ namespace RMS
             try
             {
                 con.Open();
-                //lstAppointDays.Items.Clear();
-                //drpCourse1.Items.Clear();
 
                 string id = grdStudent.SelectedRow.Cells[0].Text;
                 txtStudID.Text = id;
@@ -104,14 +93,6 @@ namespace RMS
                 adap = new MySqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "students");
-
-                //DataTable dt = ds1.Tables[0];
-
-                ///for (int i = 9; i <= 15; i++)
-                //{
-                //    foreach (DataRow dr1 in dt.Rows) { lstAppointDays.Items.Add(dr1[i].ToString()); drpAppointDays.Items.Add(dr1[i].ToString()); }
-                //}
-
                 dr = cmd.ExecuteReader();
 
                 if (dr.Read())
@@ -133,6 +114,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
             Load_Courses();
             txt_courses();
@@ -140,113 +122,92 @@ namespace RMS
 
         protected void Load_Courses()
         {
-        try
-        {
-            con.Open();
-            //lstAppointDays.Items.Clear();
-            drpCourse1.Items.Clear();
-            drpCourse2.Items.Clear();
+            try
+            {
+                con.Open();
+                drpCourse1.Items.Clear();
+                drpCourse2.Items.Clear();
 
-            //string id = grdStudent.SelectedRow.Cells[0].Text;
-            //txtStudID.Text = id;
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "Select * from courses where course_level = '" + txtStudentLevel.Text + "' ";
 
-            //string a = txtStudID.Text;
 
-            MySqlCommand cmd = con.CreateCommand();
-            cmd.CommandText = "Select * from courses where course_level = '" + txtStudentLevel.Text + "' ";
+                drpCourse1.DataSource = cmd.ExecuteReader();
+                drpCourse1.DataTextField = "course_id";
+                drpCourse1.DataValueField = "course_id";
+                drpCourse1.DataBind();
 
-            
-            drpCourse1.DataSource = cmd.ExecuteReader();
-            drpCourse1.DataTextField = "course_id";
-            drpCourse1.DataValueField = "course_id";
-            drpCourse1.DataBind();
+                con.Close();
+                con.Open();
+                drpCourse2.DataSource = cmd.ExecuteReader();
+                drpCourse2.DataTextField = "course_id";
+                drpCourse2.DataValueField = "course_id";
+                drpCourse2.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse3.DataSource = cmd.ExecuteReader();
+                drpCourse3.DataTextField = "course_id";
+                drpCourse3.DataValueField = "course_id";
+                drpCourse3.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse4.DataSource = cmd.ExecuteReader();
+                drpCourse4.DataTextField = "course_id";
+                drpCourse4.DataValueField = "course_id";
+                drpCourse4.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse5.DataSource = cmd.ExecuteReader();
+                drpCourse5.DataTextField = "course_id";
+                drpCourse5.DataValueField = "course_id";
+                drpCourse5.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse6.DataSource = cmd.ExecuteReader();
+                drpCourse6.DataTextField = "course_id";
+                drpCourse6.DataValueField = "course_id";
+                drpCourse6.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse7.DataSource = cmd.ExecuteReader();
+                drpCourse7.DataTextField = "course_id";
+                drpCourse7.DataValueField = "course_id";
+                drpCourse7.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse8.DataSource = cmd.ExecuteReader();
+                drpCourse8.DataTextField = "course_id";
+                drpCourse8.DataValueField = "course_id";
+                drpCourse8.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse9.DataSource = cmd.ExecuteReader();
+                drpCourse9.DataTextField = "course_id";
+                drpCourse9.DataValueField = "course_id";
+                drpCourse9.DataBind();
+
+                con.Close();
+                con.Open();
+                drpCourse10.DataSource = cmd.ExecuteReader();
+                drpCourse10.DataTextField = "course_id";
+                drpCourse10.DataValueField = "course_id";
+                drpCourse10.DataBind();
+            }
+            catch (Exception err)
+            {
+                lblError.Visible = true;
+                lblError.Text = "Error: " + err.Message;
+            }
 
             con.Close();
-            con.Open();
-            drpCourse2.DataSource = cmd.ExecuteReader();
-            drpCourse2.DataTextField = "course_id";
-            drpCourse2.DataValueField = "course_id";
-            drpCourse2.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse3.DataSource = cmd.ExecuteReader();
-            drpCourse3.DataTextField = "course_id";
-            drpCourse3.DataValueField = "course_id";
-            drpCourse3.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse4.DataSource = cmd.ExecuteReader();
-            drpCourse4.DataTextField = "course_id";
-            drpCourse4.DataValueField = "course_id";
-            drpCourse4.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse5.DataSource = cmd.ExecuteReader();
-            drpCourse5.DataTextField = "course_id";
-            drpCourse5.DataValueField = "course_id";
-            drpCourse5.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse6.DataSource = cmd.ExecuteReader();
-            drpCourse6.DataTextField = "course_id";
-            drpCourse6.DataValueField = "course_id";
-            drpCourse6.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse7.DataSource = cmd.ExecuteReader();
-            drpCourse7.DataTextField = "course_id";
-            drpCourse7.DataValueField = "course_id";
-            drpCourse7.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse8.DataSource = cmd.ExecuteReader();
-            drpCourse8.DataTextField = "course_id";
-            drpCourse8.DataValueField = "course_id";
-            drpCourse8.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse9.DataSource = cmd.ExecuteReader();
-            drpCourse9.DataTextField = "course_id";
-            drpCourse9.DataValueField = "course_id";
-            drpCourse9.DataBind();
-
-            con.Close();
-            con.Open();
-            drpCourse10.DataSource = cmd.ExecuteReader();
-            drpCourse10.DataTextField = "course_id";
-            drpCourse10.DataValueField = "course_id";
-            drpCourse10.DataBind();
-
-            
-            
-            
-
-            //adap = new MySqlDataAdapter(cmd);
-            //ds1 = new DataSet();
-            //adap.Fill(ds1, "courses");            
-
-            //DataTable dt = ds1.Tables[0];
-
-            //for (int i = 4; i <= 13; i++)
-            //{
-            //    foreach (DataRow dr1 in dt.Rows) { lstAppointDays.Items.Add(dr1[i].ToString()); drpCourse1.Items.Add(dr1[i].ToString()); }
-            //}
-            //dr = cmd.ExecuteReader();                        
         }
-        catch (Exception err)
-        {
-            lblError.Visible = true;
-            lblError.Text = "Error: " + err.Message;
-        }
-        con.Close();
-    }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -255,11 +216,22 @@ namespace RMS
                 con.Open();
                 txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                if (txtStudID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student ID"; }
-                else if (txtStudentProgram.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Program"; }
-                else if (txtStudentLevel.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Level"; }
-                else if (txtSession.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session"; }
-                           
+                if (txtStudID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student ID";
+                }
+                else if (txtStudentProgram.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Program";
+                }
+                else if (txtStudentLevel.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Level";
+                }
+                else if (txtSession.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
+                }
                 else
                 {
                     txt_courses();
@@ -281,43 +253,40 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@course_id9", txtbox9.Text);
                     cmd.Parameters.AddWithValue("@course_id10", txtbox10.Text);
                     cmd.Parameters.AddWithValue("@date_created", txtDateCreated.Text);
-                   
+
                     cmd.ExecuteNonQuery();
 
                     Label1.Text = "New User Registered";
 
-                    txtStudID.Text = "";
-                    txtStudentProgram.Text = "";
-                    txtStudentLevel.Text = "";
-                    txtSession.Text = "";
-                    
-                    txtDateCreated.Text = "";
+                    txtStudID.Text = string.Empty;
+                    txtStudentProgram.Text = string.Empty;
+                    txtStudentLevel.Text = string.Empty;
+                    txtSession.Text = string.Empty;
+
+                    txtDateCreated.Text = string.Empty;
 
                     lblError.Visible = false;
                     Label1.Text = txtStudentName.Text + "'s Courses Registered Successfully";
                 }
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
         protected void btnCanc_Click(object sender, EventArgs e)
         {
-            txtStudID.Text = "";
-            txtStudentProgram.Text = "";
-            txtStudentLevel.Text = "";
-            txtSession.Text = "";
-            
-            txtDateCreated.Text = "";
-        }
+            txtStudID.Text = string.Empty;
+            txtStudentProgram.Text = string.Empty;
+            txtStudentLevel.Text = string.Empty;
+            txtSession.Text = string.Empty;
 
-     
+            txtDateCreated.Text = string.Empty;
+        }
 
         protected void txt_courses()
         {
@@ -331,9 +300,6 @@ namespace RMS
             txtbox8.Text = drpCourse8.SelectedItem.Text.ToString();
             txtbox9.Text = drpCourse9.SelectedItem.Text.ToString();
             txtbox10.Text = drpCourse10.SelectedItem.Text.ToString();
-         
         }
-       
-      
     }
 }

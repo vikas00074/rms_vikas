@@ -1,35 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace RMS
-{    
+{
 
-    public partial class New_User : System.Web.UI.Page
+    public partial class New_User : Page
     {
-        string connectionString;
-        MySqlDataReader dr;
-
         MySqlConnection con;
         MySqlCommand cmd;
-        MySqlDataAdapter adap;
-        DataSet ds1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
-
-                //connectionString = "Server=localhost;Database=noun_result_sys;Uid=root;Pwd=password;";
-                //con = new MySqlConnection(connectionString);
                 con.Open();
-
                 txtUsername.Focus();
             }
             catch (Exception err)
@@ -37,6 +24,7 @@ namespace RMS
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
@@ -47,13 +35,27 @@ namespace RMS
                 con.Open();
                 txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                if (txtSname.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's Surname"; }
-                else if (txtID.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's ID Number"; }
-                else if (txtUsername.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Username"; }
-                else if (txtpassword.Text == "") { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Password"; }
+                if (txtSname.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's Surname";
+                }
+                else if (txtID.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: User's ID Number";
+                }
+                else if (txtUsername.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Username";
+                }
+                else if (txtpassword.Text == string.Empty)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Password";
+                }
 
-                else if (txtpassword.Text != txtpassword1.Text) { Label1.Visible = false; lblError.Visible = true; lblError.Text = "Password fields do not match. Please retype"; }
-
+                else if (txtpassword.Text != txtpassword1.Text)
+                {
+                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Password fields do not match. Please retype";
+                }
                 else
                 {
                     cmd = con.CreateCommand();
@@ -73,54 +75,51 @@ namespace RMS
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
 
                     cmd.Parameters.AddWithValue("@User_Group", "CIT-Users");
-                    
+
                     cmd.ExecuteNonQuery();
 
                     Label1.Text = "New User Registered";
 
-                    txtID.Text = "";
-                    DropDownListTitle.Text = "";
-                    txtFname.Text = "";
-                    txtSname.Text = "";
-                    txtUsername.Text = "";
-                    txtpassword.Text = "";
-                    txtProfile.Text = "";
+                    txtID.Text = string.Empty;
+                    DropDownListTitle.Text = string.Empty;
+                    txtFname.Text = string.Empty;
+                    txtSname.Text = string.Empty;
+                    txtUsername.Text = string.Empty;
+                    txtpassword.Text = string.Empty;
+                    txtProfile.Text = string.Empty;
 
-                    txtDateCreated.Text = "";
-                    txtDesignation.Text = "";
-                    txtDept.Text = "";
-                    txtPhone.Text = "";
-                    txtEmail.Text = "";
-                    
+                    txtDateCreated.Text = string.Empty;
+                    txtDesignation.Text = string.Empty;
+                    txtDept.Text = string.Empty;
+                    txtPhone.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+
                     lblError.Visible = false;
-
                 }
-
             }
             catch (Exception err)
             {
-                //Label1.Text = ("Error:{0}", err.Message);
                 lblError.Visible = true;
                 lblError.Text = "Error: " + err.Message;
             }
+
             con.Close();
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            txtID.Text = "";
-            txtFname.Text = "";
-            txtSname.Text = "";
-            txtUsername.Text = "";
-            txtpassword.Text = "";
-            txtProfile.Text = "";
+            txtID.Text = string.Empty;
+            txtFname.Text = string.Empty;
+            txtSname.Text = string.Empty;
+            txtUsername.Text = string.Empty;
+            txtpassword.Text = string.Empty;
+            txtProfile.Text = string.Empty;
 
-            txtDateCreated.Text = "";
-            txtDesignation.Text = "";
-            txtDept.Text = "";
-            txtPhone.Text = "";
-            txtEmail.Text = "";
-            
+            txtDateCreated.Text = string.Empty;
+            txtDesignation.Text = string.Empty;
+            txtDept.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
         }
 
         protected void showPassword_Click(object sender, EventArgs e)
@@ -134,6 +133,5 @@ namespace RMS
                 txtpassword.TextMode = TextBoxMode.Password;
             }
         }
-
     }
 }
