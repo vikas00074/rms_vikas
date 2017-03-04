@@ -24,33 +24,6 @@
                     </h1>
                 </div>
                 <div class="loginDisplay">
-
-                    <script language="c#" runat="server">
-                        public void Page_Load(object sender, EventArgs e)
-                        {
-                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                            Response.Cache.SetNoStore();
-                            Response.Cache.SetExpires(DateTime.Now.AddSeconds(60));
-
-                            string a;
-                            a = (string)(Session["Value"]);
-                            lblLogUser.Text = a;
-
-                            if (lblLogUser.Text == "")
-                            {
-                                Response.Redirect("Default.aspx");
-                            }
-                        }
-
-                        public void lnkLogout_Click(object sender, EventArgs e)
-                        {
-                            lblLogUser.Text = "";
-                            Session.Abandon();
-                            Session.Clear();
-
-                        }
-                    </script>
-
                     <asp:Label ID="lblLogUser" runat="server"></asp:Label>
                     <br />
                     <asp:LinkButton ID="lnkLogout" runat="server" Font-Underline="False"
@@ -58,7 +31,7 @@
                     <br />
                 </div>
                 <div class="clear hideSkiplink">
-                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List" Width="100%">
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="~/Homepage.aspx" />
                             <asp:MenuItem Text="Users" Value="Users">
