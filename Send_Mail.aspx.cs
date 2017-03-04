@@ -21,7 +21,7 @@ namespace RMS
         {
             try
             {
-                con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString);
+                con = new SqlConnection(Properties.Settings.Default.SqlServer);
                 con.Open();
 
             }
