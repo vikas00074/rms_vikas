@@ -81,9 +81,6 @@
     <Content Include="Send_Mail.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="New_Result.aspx" />
     <Content Include="Update_Results.aspx" />
     <Content Include="Users.aspx" />
