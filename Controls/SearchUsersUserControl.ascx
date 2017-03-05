@@ -5,7 +5,7 @@
     <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search User" />
 </div>
 <br />
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
     <Columns>
         <asp:BoundField DataField="User_ID" HeaderText="User_ID" ItemStyle-Width="150">
             <ItemStyle Width="50px" />
