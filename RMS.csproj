@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Add_Course.aspx" />
+    <Content Include="Controls\SearchUsersUserControl.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="New_Student.aspx" />
@@ -79,6 +80,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Send_Mail.aspx" />
+    <Content Include="Styles\messages.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="New_Result.aspx" />
@@ -103,6 +105,13 @@
     </Compile>
     <Compile Include="Add_Course.aspx.designer.cs">
       <DependentUpon>Add_Course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchUsersUserControl.ascx.cs">
+      <DependentUpon>SearchUsersUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchUsersUserControl.ascx.designer.cs">
+      <DependentUpon>SearchUsersUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -242,6 +251,16 @@
     </None>
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Presenter\Presenter.csproj">
+      <Project>{20DFEEEE-4E64-49B7-A2E1-045492E17EA5}</Project>
+      <Name>Presenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="View\View.csproj">
+      <Project>{889B5A07-277E-4748-8C48-9EF0FA29EB43}</Project>
+      <Name>View</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

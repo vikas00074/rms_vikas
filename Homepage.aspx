@@ -60,6 +60,7 @@
             height: 25px;
         }
     </style>
+    <link href="Styles/messages.css" type="text/css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
@@ -68,20 +69,16 @@
         <tr>
             <td class="style52"></td>
             <td align="center" class="style48" style="vertical-align: top">
-                <table __designer:mapid="9a" bgcolor="#003366" class="style2"
-                    style="width: 829px">
-                    <tr __designer:mapid="9e">
-                        <td __designer:mapid="9f" bgcolor="#7E1818" class="style57"
-                            style="background-color: #006600">
-                            <strong>Homepage</strong></td>
+                <table bgcolor="#003366" class="style2" style="width: 829px">
+                    <tr>
+                        <td bgcolor="#7E1818" class="style57" style="background-color: #006600">
+                            <strong>Homepage</strong>
+                        </td>
                     </tr>
-                    <tr __designer:mapid="9e">
-                        <td __designer:mapid="9f" class="style46" style="font-size: medium">
+                    <tr>
+                        <td class="style46" style="font-size: medium">
                             <br />
-                            <span class="style53"><span class="style54">
-                                <br __designer:mapid="a4" />
-                            </span><span class="style56"><b __designer:mapid="a5">Modules</b></span><span
-                                class="style55"><br __designer:mapid="a6" />
+                            <span class="style53"><span class="style56"><b>Modules</b></span><span class="style55"><br />
                                 <br />
                                 <strong><a href="New_User.aspx">Create New User</a><br />
                                     <br />
@@ -107,7 +104,7 @@
                                     <br />
                                     <a href="Send_Mail.aspx">Send Notification of Released Result</a></strong></span></span><br />
                             <br />
-                            <br __designer:mapid="b3" />
+                            <br />
                         </td>
                     </tr>
                 </table>

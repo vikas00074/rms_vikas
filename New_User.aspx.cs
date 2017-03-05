@@ -99,7 +99,7 @@ namespace RMS
             catch (Exception err)
             {
                 lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
+                lblError.Text = "Error: " + err.Message + Environment.NewLine +  "Trace: " + err.StackTrace;
             }
 
             con.Close();

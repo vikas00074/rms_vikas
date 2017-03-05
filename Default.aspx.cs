@@ -30,50 +30,53 @@ namespace RMS
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from cit_users where username = '" + txtUsername.Text + "' and password= '" + txtpassword.Text + "' ";
-                dr = cmd.ExecuteReader();
-
-                if (dr.HasRows)
+                try
                 {
-                    if (dr.Read())
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "Select * from cit_users where username = '" + txtUsername.Text + "' and password= '" + txtpassword.Text + "' ";
+                    dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
                     {
-                        txtLogUser.Text = Convert.ToString(dr[3]) + " " + Convert.ToString(dr[4]);
-                        txtProfile.Text = Convert.ToString(dr[5]);
+                        if (dr.Read())
+                        {
+                            txtLogUser.Text = Convert.ToString(dr[3]) + " " + Convert.ToString(dr[4]);
+                            txtProfile.Text = Convert.ToString(dr[5]);
+                        }
+
+                        a = txtLogUser.Text;
+                        Session["Value"] = a;
+
+                        b = txtProfile.Text;
+                        Session["Value1"] = b;
+
+                        c = txtUsername.Text;
+                        Session["Value3"] = c;
+
+                        Response.Redirect("Homepage.aspx");
+
+                        con.Close();
                     }
+                    else
+                    {
+                        lblError.Text = "Invalid Login Details! Try Again";
+                        lblError.Visible = true;
 
-                    a = txtLogUser.Text;
-                    Session["Value"] = a;
+                        txtUsername.Text = string.Empty;
+                        txtpassword.Text = string.Empty;
 
-                    b = txtProfile.Text;
-                    Session["Value1"] = b;
-
-                    c = txtUsername.Text;
-                    Session["Value3"] = c;
-
-                    Response.Redirect("Homepage.aspx");
-
-                    con.Close();
+                        con.Close();
+                        con.Open();
+                    }
                 }
-                else
+                catch (Exception err)
                 {
-                    lblError.Text = "Invalid Login Details! Try Again";
                     lblError.Visible = true;
-
-                    txtUsername.Text = string.Empty;
-                    txtpassword.Text = string.Empty;
-
-                    con.Close();
-                    con.Open();
+                    lblError.Text = "Error: " + err.Message;
                 }
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
+            }            
         }
 
         protected void showPassword_Click(object sender, EventArgs e)

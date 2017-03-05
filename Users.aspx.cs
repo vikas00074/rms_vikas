@@ -6,16 +6,25 @@ using System.Data;
 
 using System.Net.Mail;
 using System.Data.SqlClient;
+using View;
+using Presenter;
 
 namespace RMS
 {
-    public partial class Users : Page
+    public partial class Users : Page, IUsersView
     {
+        private readonly UsersPresenter _presenter;
+
         SqlDataReader dr;
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adap;
-        DataSet ds1;
+        DataSet ds1;        
+
+        public Users()
+        {
+            _presenter = new UsersPresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

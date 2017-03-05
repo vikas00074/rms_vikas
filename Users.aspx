@@ -21,20 +21,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p align="center">
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True"
-            Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
-        &nbsp;
+        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
     <br />
     <p align="center">
-        <asp:TextBox ID="txtSearch" runat="server" BorderStyle="Ridge"
-            Font-Bold="False" Font-Size="X-Large" Height="31px" Style="margin-left: 0px"
-            Width="211px"></asp:TextBox>
-        &nbsp;
-        <asp:Button ID="btnSearch" runat="server" Font-Size="Large"
-            OnClick="btnSearch_Click" Text="Search User" Width="117px" />
-        &nbsp;<asp:TextBox ID="txtProfile0" runat="server" BackColor="Silver"
-            BorderStyle="None" Visible="False" Width="50px">_</asp:TextBox>
+        <asp:TextBox ID="txtSearch" runat="server" BorderStyle="Ridge" Font-Bold="False" Font-Size="X-Large" Height="31px" Style="margin-left: 0px" Width="211px"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Font-Size="Large" OnClick="btnSearch_Click" Text="Search User" Width="117px" />
+        <asp:TextBox ID="txtProfile0" runat="server" BackColor="Silver" BorderStyle="None" Visible="False" Width="50px">_</asp:TextBox>
     </p>
     <br />
     <table class="style147">
@@ -44,15 +37,9 @@
                     <tr>
                         <td class="style148">&nbsp;</td>
                         <td class="style149">
-                            <asp:Panel ID="PanelSearchGrid" runat="server" Height="161px" ScrollBars="Auto"
-                                Style="margin-left: 0px" Width="535px">
-                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
-                                    BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px"
-                                    CellPadding="4" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                                    Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
-                                    Style="text-align: justify" Width="515px">
-                                    <RowStyle BackColor="White" ForeColor="#330099" HorizontalAlign="Left"
-                                        VerticalAlign="Top" />
+                            <asp:Panel ID="PanelSearchGrid" runat="server" Height="161px" ScrollBars="Auto" Style="margin-left: 0px" Width="535px">
+                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Style="text-align: justify" Width="515px">
+                                    <RowStyle BackColor="White" ForeColor="#330099" HorizontalAlign="Left" VerticalAlign="Top" />
                                     <Columns>
                                         <asp:BoundField DataField="User_ID" HeaderText="User_ID" ItemStyle-Width="150">
                                             <ItemStyle Width="50px" />
@@ -74,8 +61,7 @@
                                     <SortedDescendingCellStyle BackColor="#F6F0C0" />
                                     <SortedDescendingHeaderStyle BackColor="#7E0000" />
                                 </asp:GridView>
-                                <asp:TextBox ID="txtSysID" runat="server" Style="text-align: left"
-                                    Visible="False" Width="128px"></asp:TextBox>
+                                <asp:TextBox ID="txtSysID" runat="server" Style="text-align: left" Visible="False" Width="128px"></asp:TextBox>
                             </asp:Panel>
                         </td>
                         <td>&nbsp;</td>

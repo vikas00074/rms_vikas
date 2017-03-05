@@ -3,3 +3,17 @@ c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\bin\RMS.pdb
 c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\ResolveAssemblyReference.cache
 c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\RMS.dll
 c:\users\home\documents\visual studio 2010\Projects\RMS\RMS\obj\Debug\RMS.pdb
+C:\Users\Pablo\Source\Repos\result-management-system\bin\result-management-system.dll.config
+C:\Users\Pablo\Source\Repos\result-management-system\bin\result-management-system.dll
+C:\Users\Pablo\Source\Repos\result-management-system\bin\result-management-system.pdb
+C:\Users\Pablo\Source\Repos\result-management-system\bin\result-management-system.dll.CodeAnalysisLog.xml
+C:\Users\Pablo\Source\Repos\result-management-system\bin\result-management-system.dll.lastcodeanalysissucceeded
+C:\Users\Pablo\Source\Repos\result-management-system\obj\Debug\RMS.Properties.Resources.resources
+C:\Users\Pablo\Source\Repos\result-management-system\obj\Debug\RMS.csproj.GenerateResource.Cache
+C:\Users\Pablo\Source\Repos\result-management-system\obj\Debug\result-management-system.dll
+C:\Users\Pablo\Source\Repos\result-management-system\obj\Debug\result-management-system.pdb
+C:\Users\Pablo\Source\Repos\result-management-system\bin\Presenter.dll
+C:\Users\Pablo\Source\Repos\result-management-system\bin\View.dll
+C:\Users\Pablo\Source\Repos\result-management-system\bin\Presenter.pdb
+C:\Users\Pablo\Source\Repos\result-management-system\bin\View.pdb
+C:\Users\Pablo\Source\Repos\result-management-system\obj\Debug\RMS.csprojResolveAssemblyReference.cache
