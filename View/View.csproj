@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILoginView.cs" />
+    <Compile Include="INewResultView.cs" />
+    <Compile Include="ISiteView.cs" />
     <Compile Include="IUsersView.cs" />
     <Compile Include="IViewBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

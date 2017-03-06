@@ -1,82 +1,57 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using Presenter;
+using View;
 
 namespace RMS
 {
-    public partial class Default : Page
+    public partial class Default : Page, ILoginView
     {
-        SqlConnection con;
-        SqlDataReader dr;
-        SqlCommand cmd;
+        private readonly LoginPresenter _preseter;
 
-        string a, b, c;
+        public bool IsPageValid
+        {
+            get { return Page.IsValid; }
+        }
+
+        public string LogUser
+        {
+            get { return txtLogUser.Text; }
+            set { txtLogUser.Text = value; }
+        }
+
+        public string Profile
+        {
+            get { return txtProfile.Text; }
+            set { txtProfile.Text = value; }
+        }
+
+        public string Username
+        {
+            get { return txtUsername.Text; }
+            set { txtUsername.Text = value; }
+        }
+
+        public string Password
+        {
+            get { return txtpassword.Text; }
+            set { txtpassword.Text = value; }
+        }
+
+        public Default()
+        {
+            _preseter = new LoginPresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-                txtUsername.Focus();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
+            _preseter.InitPage();
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
-                try
-                {
-                    cmd = con.CreateCommand();
-                    cmd.CommandText = "Select * from cit_users where username = '" + txtUsername.Text + "' and password= '" + txtpassword.Text + "' ";
-                    dr = cmd.ExecuteReader();
-
-                    if (dr.HasRows)
-                    {
-                        if (dr.Read())
-                        {
-                            txtLogUser.Text = Convert.ToString(dr[3]) + " " + Convert.ToString(dr[4]);
-                            txtProfile.Text = Convert.ToString(dr[5]);
-                        }
-
-                        a = txtLogUser.Text;
-                        Session["Value"] = a;
-
-                        b = txtProfile.Text;
-                        Session["Value1"] = b;
-
-                        c = txtUsername.Text;
-                        Session["Value3"] = c;
-
-                        Response.Redirect("Homepage.aspx");
-
-                        con.Close();
-                    }
-                    else
-                    {
-                        lblError.Text = "Invalid Login Details! Try Again";
-                        lblError.Visible = true;
-
-                        txtUsername.Text = string.Empty;
-                        txtpassword.Text = string.Empty;
-
-                        con.Close();
-                        con.Open();
-                    }
-                }
-                catch (Exception err)
-                {
-                    lblError.Visible = true;
-                    lblError.Text = "Error: " + err.Message;
-                }
-            }            
+            _preseter.PerformLogin();
         }
 
         protected void showPassword_Click(object sender, EventArgs e)
@@ -89,6 +64,33 @@ namespace RMS
             {
                 txtpassword.TextMode = TextBoxMode.Password;
             }
+        }
+
+        public void FocusUsernameField()
+        {
+            txtUsername.Focus();
+        }
+
+        public void SetSessionValue(string v, string text)
+        {
+            Session[v] = text;
+        }
+
+        public void Redirect(string v)
+        {
+            Response.Redirect(v);
+        }
+
+        public void ShowException(ApplicationException aex)
+        {
+            lblError.Text = aex.Message;
+            lblError.Visible = true;
+        }
+
+        public void ClearMessages()
+        {
+            lblError.Visible = false;
+            lblError.Text = string.Empty;
         }
     }
 }
