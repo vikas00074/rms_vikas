@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
+    <Compile Include="INewUserView.cs" />
     <Compile Include="ISiteView.cs" />
     <Compile Include="IUsersView.cs" />
     <Compile Include="IViewBase.cs" />
