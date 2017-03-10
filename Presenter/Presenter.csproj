@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCoursePresenter.cs" />
+    <Compile Include="Controls\SearchUserControlPresenter.cs" />
+    <Compile Include="Exceptions\UserSearchException.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="NewResultPresenter.cs" />
     <Compile Include="NewUserPresenter.cs" />
