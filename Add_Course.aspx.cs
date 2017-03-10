@@ -1,81 +1,65 @@
 ﻿using System;
 using System.Web.UI;
-using System.Data.SqlClient;
+using View;
+using Presenter;
 
 namespace RMS
 {
-    public partial class Add_Course : Page
+    public partial class Add_Course : Page, IAddCourseView
     {
-        SqlConnection con;
+        private readonly AddCoursePresenter _presenter;
+
+        public string CourseTitle
+        {
+            get { return txtCourseTitle.Text; }
+            set { txtCourseTitle.Text = value; }
+        }
+
+        public string FormTitle
+        {
+            get { return Label1.Text; }
+            set { Label1.Text = value; }
+        }
+
+        public string Level
+        {
+            get { return DropDownListLevel.Text; }
+            set { DropDownListLevel.Text = value; }
+        }
+
+        public Add_Course()
+        {
+            _presenter = new AddCoursePresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cmd;
-                con.Open();
-                txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
-                if (txtCourseId.Text == string.Empty)
-                {
-                    Label1.Visible = false;
-                    lblError.Visible = true;
-                    lblError.Text = "Mandatory Field is empty: Course ID";
-                }
-                else if (DropDownListLevel.Text == string.Empty)
-                {
-                    Label1.Visible = false;
-                    lblError.Visible = true;
-                    lblError.Text = "Mandatory Field is empty: Course Level";
-                }
-                else
-                {
-                    cmd = con.CreateCommand();
-                    cmd.CommandText = "INSERT INTO courses(course_id, course_title, course_level, date_created)VALUES(@course_id, @course_title, @course_level, @date_created)";
-                    cmd.Parameters.AddWithValue("@course_id", txtCourseId.Text);
-                    cmd.Parameters.AddWithValue("@course_title", txtCourseTitle.Text);
-                    cmd.Parameters.AddWithValue("@course_level", DropDownListLevel.Text);
-                    cmd.Parameters.AddWithValue("@date_created", txtDateCreated.Text);
-
-                    cmd.ExecuteNonQuery();
-
-                    Label1.Text = "New Course Saved";
-
-                    txtCourseId.Text = string.Empty;
-                    txtCourseTitle.Text = string.Empty;
-                    DropDownListLevel.Text = string.Empty;
-
-                    lblError.Visible = false;
-                }
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
+            _presenter.PerformSave();
         }
 
         protected void btnCanc_Click(object sender, EventArgs e)
         {
-            txtCourseId.Text = string.Empty;
+            ClearFields();
+        }
+
+        public void ClearExceptions()
+        {
+            lblError.Visible = false;
+            lblError.Text = string.Empty;
+        }
+
+        public void ShowException(Exception err)
+        {
+            lblError.Visible = true;
+            lblError.Text = "Error: " + err.Message;
+        }
+
+        public void ClearFields()
+        {
             txtCourseTitle.Text = string.Empty;
             DropDownListLevel.Text = string.Empty;
         }

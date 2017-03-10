@@ -28,30 +28,20 @@
                             </td>
                         </tr>
                         <tr class="style151">
-                            <td class="style134">&nbsp;</td>
-                            <td class="style146">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td align="left" style="font-size: small;">Course ID:</td>
-                            <td align="left" class="style133"
-                                style="font-size: small; font-weight: bold;">
-                                <asp:TextBox ID="txtCourseId" runat="server" Width="190px"></asp:TextBox>
-                            </td>
-                            </span></span>
+                            <td class="style134" colspan="2">&nbsp;</td>
                         </tr>
                         <tr>
                             <td align="left" style="font-size: small;">Course Title:</td>
                             <td align="left" class="style146"
                                 style="font-size: small; font-weight: bold;">
-                                <asp:TextBox ID="txtCourseTitle" runat="server" Width="190px"></asp:TextBox>
+                                <asp:TextBox ID="txtCourseTitle" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td align="left" style="font-size: small;">Course Level:</td>
                             <td align="left" class="style146"
                                 style="font-size: small; font-weight: bold;">
-                                <asp:DropDownList ID="DropDownListLevel" runat="server" CssClass="style39"
-                                    Width="190px">
+                                <asp:DropDownList ID="DropDownListLevel" runat="server" CssClass="style39">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>100</asp:ListItem>
                                     <asp:ListItem>200</asp:ListItem>
@@ -63,25 +53,22 @@
                                     <asp:ListItem>800</asp:ListItem>
                                     <asp:ListItem>900</asp:ListItem>
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListLevel" ErrorMessage="Level is required.">*</asp:RequiredFieldValidator>
                             </td>
                             </span>
                         </tr>
                         <tr class="style151">
-                            <td class="style22" colspan="2">&nbsp;</td>
+                            <td class="style22" colspan="2">
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                            </td>
                         </tr>
                         <tr>
                             <td align="center" class="style22" colspan="2">
                                 <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click"
-                                    Text="Save" Width="78px" />
+                                    Text="Save" />
                                 <span class="style151">&nbsp; </span>
-                                <asp:Button ID="btnCanc" runat="server" OnClick="btnCanc_Click" Text="Reset"
-                                    Width="76px" />
+                                <asp:Button ID="btnCanc" runat="server" OnClick="btnCanc_Click" Text="Reset" />
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="style151" colspan="2">
-                                <asp:TextBox ID="txtDateCreated" runat="server" Visible="False" Width="64px"></asp:TextBox>
-                                &nbsp;</td>
                         </tr>
                     </table>
                     <br />

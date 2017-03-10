@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAddCourseView.cs" />
     <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
     <Compile Include="INewUserView.cs" />

@@ -88,7 +88,7 @@
                                 <span class="style15">Password:</span></td>
                             <td align="left" class="style16">
                                 <asp:TextBox ID="txtpassword1" runat="server" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Password 2 is required.">*</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Password 2 is required." ControlToValidate="txtpassword1">*</asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtpassword" ControlToValidate="txtpassword1" ErrorMessage="Password are not equeals.">!</asp:CompareValidator>
                             </td>
                         </tr>
@@ -117,11 +117,7 @@
                         </tr>
                     </table>
                 </asp:Panel>
-                <br />
             </td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
         </tr>
     </table>
 </asp:Content>

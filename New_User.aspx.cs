@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using View;
 using Presenter;
 
@@ -9,8 +8,6 @@ namespace RMS
 {
     public partial class New_User : Page, INewUserView
     {
-        SqlConnection con;
-        SqlCommand cmd;
         private readonly NewUserPresenter _presenter;
 
         public string Departament
@@ -74,19 +71,6 @@ namespace RMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-                txtUsername.Focus();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -119,7 +103,7 @@ namespace RMS
         public void ShowException(Exception err)
         {
             lblError.Visible = true;
-            lblError.Text = "Error: " + err.Message + Environment.NewLine + "Trace: " + err.StackTrace; 
+            lblError.Text = "Error: " + err.Message + Environment.NewLine + "Trace: " + err.StackTrace;
         }
 
         public void ClearFields()
@@ -139,7 +123,7 @@ namespace RMS
         public void ClearException()
         {
             lblError.Text = string.Empty;
-            lblError.Visible = false;            
+            lblError.Visible = false;
         }
     }
 }
