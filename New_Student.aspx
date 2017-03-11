@@ -141,7 +141,7 @@
         <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
     <br />
-    &nbsp;<table class="style5">
+    <table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">
                 <asp:Panel ID="PanelStudRecord" runat="server" Height="304px" Width="1246px">

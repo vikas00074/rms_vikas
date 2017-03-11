@@ -6,6 +6,7 @@
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+        <%:System.Web.Optimization.Styles.Render("~/Content/AjaxControlToolkit/Styles/Bundle") %>
     </asp:ContentPlaceHolder>
     <style type="text/css">
         .style1 {
@@ -16,6 +17,11 @@
 </head>
 <body>
     <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/AjaxControlToolkit/Bundle" />
+            </Scripts>    
+        </asp:ScriptManager>
         <div class="page">
             <div class="header">
                 <div class="title">

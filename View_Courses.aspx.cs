@@ -38,7 +38,7 @@ namespace RMS
                 Panel3.Visible = false;
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM courses where course_id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
+                cmd.CommandText = "SELECT * FROM courses where Id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
 
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
@@ -68,7 +68,7 @@ namespace RMS
                 Panel3.Visible = false;
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM courses where course_id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
+                cmd.CommandText = "SELECT * FROM courses where Id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
 
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
@@ -101,7 +101,7 @@ namespace RMS
                 string a = txtCseID.Text;
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from courses where course_id = '" + a + "' ";
+                cmd.CommandText = "Select * from courses where Id = '" + a + "' ";
                 dr = cmd.ExecuteReader();
 
                 if (dr.Read())

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Add_Course.aspx.cs" Inherits="RMS.Add_Course" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+    CodeBehind="Add_Course.aspx.cs" Inherits="RMS.Add_Course" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
@@ -17,14 +18,13 @@
     <table class="style147">
         <tr>
             <td>
-                <asp:Panel ID="Panel3" runat="server" Height="306px" Style="margin-left: 0px"
-                    Width="1173px">
-                    <table align="center" bgcolor="#E4E4E4" class="style2"
-                        style="width: 343px; height: 291px; color: #000000;">
+                <asp:Panel ID="Panel3" runat="server" Height="306px" Style="margin-left: 0px" Width="1173px">
+                    <table align="center" bgcolor="#E4E4E4" class="style2" style="width: 343px; height: 291px;
+                        color: #000000;">
                         <tr>
                             <td align="center" bgcolor="#006600" class="style3" colspan="2">
-                                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri"
-                                    ForeColor="White" Style="font-size: large" Text="Add Course"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri" ForeColor="White"
+                                    Style="font-size: large" Text="Add Course"></asp:Label>
                             </td>
                         </tr>
                         <tr class="style151">
@@ -32,8 +32,7 @@
                         </tr>
                         <tr>
                             <td align="left" style="font-size: small;">Course Title:</td>
-                            <td align="left" class="style146"
-                                style="font-size: small; font-weight: bold;">
+                            <td align="left" class="style146" style="font-size: small; font-weight: bold;">
                                 <asp:TextBox ID="txtCourseTitle" runat="server"></asp:TextBox>
                             </td>
                         </tr>
@@ -53,7 +52,8 @@
                                     <asp:ListItem>800</asp:ListItem>
                                     <asp:ListItem>900</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListLevel" ErrorMessage="Level is required.">*</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListLevel"
+                                    ErrorMessage="Level is required.">*</asp:RequiredFieldValidator>
                             </td>
                             </span>
                         </tr>
@@ -71,18 +71,9 @@
                             </td>
                         </tr>
                     </table>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </asp:Panel>
                 <br />
             </td>
         </tr>
     </table>
-    <br />
-    <br />
-    <br />
-    <br />
 </asp:Content>

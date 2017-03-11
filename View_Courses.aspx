@@ -39,18 +39,18 @@
                     <tr>
                         <td class="style148">&nbsp;</td>
                         <td class="style149">
-                            <asp:Panel ID="PanelSearchGrid" runat="server" Height="161px" ScrollBars="Auto"
-                                Style="margin-left: 0px" Width="535px">
+                            <asp:Panel ID="PanelSearchGrid" runat="server" ScrollBars="Auto"
+                                Style="margin-left: 0px">
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                                     BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px"
-                                    CellPadding="4" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                                    Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
-                                    Style="text-align: justify" Width="515px">
+                                    CellPadding="4" HeaderStyle-BackColor="#3AC0F2" 
+                                    HeaderStyle-ForeColor="White" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                                    Style="text-align: justify" DataKeyNames="Id" GridLines="Horizontal">
                                     <RowStyle BackColor="White" ForeColor="#330099" HorizontalAlign="Left"
                                         VerticalAlign="Top" />
                                     <Columns>
-                                        <asp:BoundField DataField="Course_ID" HeaderText="Course_ID"
-                                            ItemStyle-Width="150">
+                                        <asp:BoundField DataField="Id" HeaderText="Course_ID"
+                                            ItemStyle-Width="150" InsertVisible="False" ReadOnly="True">
                                             <ItemStyle Width="50px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="Course_Title" HeaderText="Course_Title" />

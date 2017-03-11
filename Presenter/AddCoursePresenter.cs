@@ -25,10 +25,10 @@ namespace Presenter
                 _conn.Open();
 
                 var cmd = _conn.CreateCommand();
-                cmd.CommandText = "INSERT INTO courses(course_id, course_title, course_level, date_created)VALUES(@course_id, @course_title, @course_level, @date_created)";
+                cmd.CommandText = "INSERT INTO courses(course_title, course_level, date_created) VALUES (@course_title, @course_level, @date_created)";
                 cmd.Parameters.AddWithValue("@course_title", View.CourseTitle);
                 cmd.Parameters.AddWithValue("@course_level", View.Level);
-                cmd.Parameters.AddWithValue("@date_created", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
 
                 cmd.ExecuteNonQuery();
 

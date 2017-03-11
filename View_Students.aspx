@@ -234,12 +234,12 @@
                         OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                         Style="text-align: justify" Width="524px" BackColor="White"
                         BorderColor="#336666" BorderStyle="Double" BorderWidth="3px"
-                        GridLines="Horizontal">
+                        GridLines="Horizontal" DataKeyNames="Id">
                         <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Left"
                             VerticalAlign="Top" />
                         <Columns>
-                            <asp:BoundField DataField="Student_ID" HeaderText="Student_ID"
-                                ItemStyle-Width="150">
+                            <asp:BoundField DataField="Id" HeaderText="Id"
+                                ItemStyle-Width="150" InsertVisible="False" ReadOnly="True">
                                 <ItemStyle Width="50px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Lastname" HeaderText="Lastname" />

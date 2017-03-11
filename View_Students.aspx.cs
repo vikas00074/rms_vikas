@@ -38,7 +38,7 @@ namespace RMS
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or student_id = " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
+                cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
 
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
@@ -74,7 +74,7 @@ namespace RMS
                 string a = txtStudID0.Text;
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from students where Student_ID = '" + a + "' ";
+                cmd.CommandText = "Select * from students where Id = '" + a + "' ";
                 dr = cmd.ExecuteReader();
 
                 if (dr.Read())
@@ -124,7 +124,7 @@ namespace RMS
             try
             {
                 con.Open();
-                cmd = new SqlCommand("Select photo from students where Student_ID = '" + txtStudID0.Text + "' ;", con);
+                cmd = new SqlCommand("Select photo from students where Id = '" + txtStudID0.Text + "' ;", con);
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
                 adap.Fill(ds1, "photo");
@@ -132,8 +132,8 @@ namespace RMS
 
                 if (c > 0)
                 {
-                    Byte[] byteBlobData = new Byte[0];
-                    byteBlobData = (Byte[])(ds1.Tables["photo"].Rows[c - 1]["photo"]);
+                    byte[] byteBlobData = new byte[0];
+                    byteBlobData = (byte[])(ds1.Tables["photo"].Rows[c - 1]["photo"]);
 
                     MemoryStream stm = new MemoryStream(byteBlobData);
 
@@ -170,7 +170,7 @@ namespace RMS
                 byte[] imagebyte = new byte[FileUpload1.PostedFile.InputStream.Length + 1];
                 FileUpload1.PostedFile.InputStream.Read(imagebyte, 0, imagebyte.Length);
 
-                cmd = new SqlCommand("update students set photo =@image where Student_ID = '" + txtStudID0.Text + "'", con);
+                cmd = new SqlCommand("update students set photo =@image where Id = '" + txtStudID0.Text + "'", con);
 
                 cmd.Parameters.AddWithValue("@image", imagebyte);
 

@@ -35,7 +35,22 @@ namespace RMS
 
         public DateTime DateOfBirth
         {
-            get { return DateTime.Parse(txtDateOfBirth.Text); }
+            get
+            {
+                try
+                {
+                    return DateTime.Parse(txtDateOfBirth.Text);
+                }
+                catch (ArgumentNullException anex)
+                {
+                    throw new ApplicationException("La fecha esta vacia", anex);
+                }
+                catch (FormatException fex)
+                {
+                    throw new ApplicationException("La fecha tiene un formato incorrecto.", fex);
+                }
+                
+            }
             set { txtDateOfBirth.Text = value.ToShortDateString(); }
         }
 
@@ -119,7 +134,7 @@ namespace RMS
         public void ClearMessages()
         {
             lblError.Text = string.Empty;
-            lblError.Visible = false; 
+            lblError.Visible = false;
         }
 
         public void ShowException(Exception aex)
