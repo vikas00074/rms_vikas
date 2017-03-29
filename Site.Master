@@ -20,8 +20,10 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="~/Scripts/AjaxControlToolkit/Bundle" />
-            </Scripts>    
+            </Scripts>
         </asp:ScriptManager>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server"
+            StartingNodeUrl="~/Homepage.aspx" />
         <div class="page">
             <div class="header">
                 <div class="title">
@@ -30,6 +32,15 @@
                     </h1>
                 </div>
                 <div class="loginDisplay">
+                    <asp:LoginView runat="server">
+                        <AnonymousTemplate>You are not logged in. Click the Login link to sign in.</AnonymousTemplate>
+                        <LoggedInTemplate>
+                            You are logged in. Welcome,
+                            <asp:LoginName ID="LoginName1" runat="server" />
+                            &nbsp;<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/MemberPages/ChangePassword.aspx">Change password</asp:HyperLink>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
                     <asp:Label ID="lblLogUser" runat="server"></asp:Label>
                     <br />
                     <asp:LinkButton ID="lnkLogout" runat="server" Font-Underline="False"
@@ -37,7 +48,8 @@
                     <br />
                 </div>
                 <div class="clear hideSkiplink">
-                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List" Width="100%">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                        IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List" Width="100%">
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="~/Homepage.aspx" />
                             <asp:MenuItem Text="Users" Value="Users">
@@ -54,7 +66,8 @@
                             </asp:MenuItem>
                             <asp:MenuItem Text="Registered Courses" Value="Registered Courses">
                                 <asp:MenuItem NavigateUrl="~/Register_Courses.aspx" Text="Register Courses" Value="Register Courses"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" Text="View Registered Courses" Value="View Registered Courses"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" Text="View Registered Courses"
+                                    Value="View Registered Courses"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Results" Value="Results">
                                 <asp:MenuItem NavigateUrl="~/New_Result.aspx" Text="New Result" Value="New Result"></asp:MenuItem>
@@ -64,7 +77,8 @@
                             <asp:MenuItem Text="Send Notification" Value="Send Notification" NavigateUrl="~/Send_Mail.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
-                </div>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MemberPages/Members.aspx">Members-only page</asp:HyperLink>
+                    &nbsp;</div>
             </div>
             <div class="main">
                 <asp:Label ID="lblError" runat="server" Visible="False" />
@@ -73,8 +87,8 @@
             <div class="clear">
             </div>
         </div>
-        <div class="footer">
-        </div>
+        <footer>
+        </footer>
     </form>
 </body>
 </html>

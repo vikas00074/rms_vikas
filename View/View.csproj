@@ -44,11 +44,13 @@
     <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
     <Compile Include="INewUserView.cs" />
-    <Compile Include="Controls\ISearchUserControlView.cs" />
     <Compile Include="ISiteView.cs" />
     <Compile Include="IUsersView.cs" />
     <Compile Include="IViewBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

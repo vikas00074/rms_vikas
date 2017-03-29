@@ -479,19 +479,9 @@
                                 <td class="style151">&nbsp;</td>
                             </tr>
                         </table>
-                        <br />
-                        <br />
                     </asp:Panel>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </asp:Panel>
-                <br />
             </td>
         </tr>
     </table>
-    <br />
-    <br />
-    <br />
 </asp:Content>
