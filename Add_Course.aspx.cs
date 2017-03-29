@@ -23,8 +23,8 @@ namespace RMS
 
         public string Level
         {
-            get { return DropDownListLevel.Text; }
-            set { DropDownListLevel.Text = value; }
+            get { return ddlLevel.Text; }
+            set { ddlLevel.Text = value; }
         }
 
         public Add_Course()
@@ -61,7 +61,7 @@ namespace RMS
         public void ClearFields()
         {
             txtCourseTitle.Text = string.Empty;
-            DropDownListLevel.Text = string.Empty;
+            ddlLevel.Text = string.Empty;
         }
     }
 }

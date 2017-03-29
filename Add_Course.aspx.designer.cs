@@ -49,13 +49,13 @@ namespace RMS {
         protected global::System.Web.UI.WebControls.TextBox txtCourseTitle;
         
         /// <summary>
-        /// Control DropDownListLevel.
+        /// Control ddlLevel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListLevel;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLevel;
         
         /// <summary>
         /// Control RequiredFieldValidator1.
@@ -85,12 +85,12 @@ namespace RMS {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// Control btnCanc.
+        /// Control btnReset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCanc;
+        protected global::System.Web.UI.WebControls.Button btnReset;
     }
 }

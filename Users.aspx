@@ -1,23 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="RMS.Users" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style type="text/css">
-        .style147 {
-            width: 100%;
-        }
-
-        .style148 {
-            width: 307px;
-        }
-
-        .style149 {
-            width: 543px;
-        }
-
-        .style150 {
-            font-weight: normal;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p align="center">

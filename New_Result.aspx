@@ -1,161 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="New_Result.aspx.cs" Inherits="RMS.Update_Results" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style type="text/css">
-        .style147 {
-            width: 66%;
-            height: 315px;
-        }
-
-        .style169 {
-            text-align: left;
-            color: #FFFFFF;
-            font-size: medium;
-            height: 19px;
-        }
-
-        .style171 {
-            text-align: left;
-            color: #000000;
-            height: 30px;
-            width: 159px;
-        }
-
-        .style176 {
-            width: 17px;
-            text-align: left;
-            height: 30px;
-        }
-
-        .style183 {
-            text-align: left;
-            height: 30px;
-        }
-
-        .style170 {
-            color: #000000;
-        }
-
-        .style187 {
-            width: 100px;
-            text-align: left;
-            height: 30px;
-            color: #000000;
-        }
-
-        .style178 {
-            width: 100px;
-            text-align: left;
-            height: 30px;
-        }
-
-        .style181 {
-            text-align: left;
-            height: 20px;
-            width: 159px;
-        }
-
-        .style160 {
-            width: 17px;
-            text-align: left;
-            height: 20px;
-        }
-
-        .style179 {
-            text-align: left;
-            height: 20px;
-        }
-
-        .style159 {
-            width: 100px;
-            text-align: left;
-            height: 20px;
-        }
-
-        .style156 {
-            text-align: left;
-        }
-
-        .style149 {
-            width: 100px;
-        }
-
-        .style167 {
-            width: 233px;
-        }
-
-        .style168 {
-            width: 237px;
-        }
-
-        .style151 {
-            width: 177px;
-        }
-
-        .style188 {
-        }
-
-        .style189 {
-            width: 4px;
-        }
-
-        .style190 {
-            width: 211px;
-            font-weight: bold;
-        }
-
-        .style191 {
-            width: 212px;
-            font-weight: bold;
-        }
-
-        .style192 {
-            width: 196px;
-            font-weight: bold;
-        }
-
-        .style193 {
-            width: 100px;
-            font-weight: bold;
-        }
-
-        .style195 {
-            width: 4px;
-            font-weight: bold;
-        }
-
-        .style196 {
-            width: 138px;
-            font-weight: bold;
-        }
-
-        .style197 {
-            width: 138px;
-        }
-
-        .style198 {
-            width: 196px;
-        }
-
-        .style199 {
-            width: 211px;
-        }
-
-        .style200 {
-            width: 189px;
-            font-weight: bold;
-        }
-
-        .style201 {
-            width: 189px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p align="center">
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True"
-            Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
-        &nbsp;
+        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
     <br />
     <table class="style147">
@@ -462,8 +311,7 @@
                                         Width="100px"></asp:TextBox>
                                 </td>
                                 <td align="left" class="style146" style="font-size: small; font-weight: bold;">
-                                    <asp:DropDownList ID="DropDownListGrade10" runat="server" CssClass="style39"
-                                        Width="100px">
+                                    <asp:DropDownList ID="DropDownListGrade10" runat="server" CssClass="style39" Width="100px">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Distinction</asp:ListItem>
                                         <asp:ListItem>Credit</asp:ListItem>
