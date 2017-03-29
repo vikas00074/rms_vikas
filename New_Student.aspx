@@ -12,7 +12,7 @@
     <table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">
-                <asp:Panel ID="PanelStudRecord" runat="server" Height="304px" Width="1246px">
+                <asp:Panel ID="PanelStudRecord" runat="server">
                     <table bgcolor="#E4E4E4" class="style5">
                         <tr>
                             <td align="center" bgcolor="#006600" class="style17" colspan="8">
