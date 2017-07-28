@@ -22,31 +22,31 @@ namespace RMS {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Control lblPageTitle.
+        /// Control pnlAlert.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPageTitle;
+        protected global::System.Web.UI.WebControls.Panel pnlAlert;
         
         /// <summary>
-        /// Control lblError.
+        /// Control litMessageType.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Literal litMessageType;
         
         /// <summary>
-        /// Control lblLogInTitle.
+        /// Control litMessageContent.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLogInTitle;
+        protected global::System.Web.UI.WebControls.Literal litMessageContent;
         
         /// <summary>
         /// Control lblUsername.
@@ -103,15 +103,6 @@ namespace RMS {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
-        /// Control lnkShowPassword.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkShowPassword;
-        
-        /// <summary>
         /// Control ValidationSummary1.
         /// </summary>
         /// <remarks>
@@ -130,21 +121,21 @@ namespace RMS {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// Control txtLogUser.
+        /// Control hidLogUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogUser;
+        protected global::System.Web.UI.WebControls.HiddenField hidLogUser;
         
         /// <summary>
-        /// Control txtProfile.
+        /// Control hidProfile.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProfile;
+        protected global::System.Web.UI.WebControls.HiddenField hidProfile;
     }
 }

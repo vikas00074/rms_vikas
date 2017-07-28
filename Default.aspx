@@ -2,101 +2,88 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Login</title>
     <meta charset="utf-8" />
-    <link href="Styles/messages.css" type="text/css" rel="stylesheet" />
-    <style type="text/css">
-        .title {
-            display: block;
-            float: left;
-            text-align: left;
-            width: auto;
-            font-size: large;
-            font-family: "Helvetica Neue";
-        }
-
-        h1 {
-            font-size: 1.6em;
-            padding-bottom: 0px;
-            margin-bottom: 0px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-size: 1.5em;
-            color: #666666;
-            font-variant: small-caps;
-            text-transform: none;
-            font-weight: 200;
-            margin-bottom: 0px;
-        }
-
-        .style1 {
-            font-family: "Helvetica Neue";
-            font-size: x-large;
-        }
-
-        .style2 {
-            color: #FFFFFF;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form2" runat="server">
-        <div style="width: 1273px; background-color: #006600; font-family: Cambria; font-size: xx-small; font-weight: bold; color: #FFFFFF; vertical-align: bottom; margin-right: 15mm; margin-left: 15mm; height: 61px;">
-            <span class="style1"><span class="style49">
-                <asp:Label ID="lblPageTitle" runat="server" Text="RESULT MANAGEMENT PORTAL" meta:resourcekey="lblPageTitle" />
-            </span></span>
-        </div>
-        <br />
-        <div style="text-align: center; width: 1382px;">
-            <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
-        </div>
-        <br />
-        <br />
-        <div align="center" style="width: 550px; height: 221px; margin-left: 400px">
-            <table class="style40" style="background-color: #E3EAEB; height: 210px;">
-                <tr>
-                    <td colspan="2" style="background-color: #006600" align="center" class="style2">
-                        <asp:Label ID="lblLogInTitle" Text="Log In" runat="server" meta:resourcekey="lblLogInTitle" Font-Bold="True" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="style47">
-                        <asp:Label ID="lblUsername" Text="Username:" runat="server" meta:resourcekey="lblUsername" />
-                    </td>
-                    <td style="text-align: left" align="center">
-                        <asp:TextBox ID="txtUsername" runat="server" Width="220px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ErrorMessage="Username is required." ControlToValidate="txtUsername" meta:resourcekey="rfvUsername">*</asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="style47">
-                        <asp:Label ID="lblPassword" Text="Password:" runat="server" meta:resourcekey="lblPassword" />
-                    </td>
-                    <td class="style46">
-                        <asp:TextBox ID="txtpassword" runat="server" TextMode="Password" Width="220px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Password is required." ControlToValidate="txtpassword" meta:resourcekey="rfvPassword">*</asp:RequiredFieldValidator>
-                        <asp:LinkButton ID="lnkShowPassword" runat="server" Font-Size="Small" Font-Underline="False" OnClick="showPassword_Click" meta:resourcekey="lnkShowPassword">Show</asp:LinkButton>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="style42" colspan="2">
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <asp:Button ID="btnLogin" runat="server" Font-Bold="True" Text="Log in" OnClick="btnLogin_Click" meta:resourcekey="btnLogin" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <p>
-            <asp:TextBox ID="txtLogUser" runat="server" Visible="False" Width="63px">BeyUser</asp:TextBox>
-            <asp:TextBox ID="txtProfile" runat="server" Visible="False" Width="50px">Admin</asp:TextBox>
-        </p>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">RMS</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+        <asp:Panel CssClass="container-fluid" runat="server">
+            <asp:Panel ID="pnlAlert" CssClass="alert alert-error alert-dismissible" role="alert" Visible="false" runat="server">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    <asp:Literal ID="litMessageType" Text="" runat="server" />
+                </strong>
+                <asp:Literal ID="litMessageContent" Text="" runat="server" />
+            </asp:Panel>
+            <asp:Panel CssClass="panel panel-default" runat="server">
+                <asp:Panel CssClass="panel-heading" runat="server">
+                    <h3 class="panel-title">
+                        <asp:Literal Text="Log In" runat="server" meta:resourcekey="lblLogInTitle" />
+                    </h3>
+                </asp:Panel>
+                <asp:Panel CssClass="panel-body" runat="server">
+                    <asp:Panel class="form-horizontal" runat="server">
+                        <asp:Panel CssClass="form-group" runat="server">
+                            <asp:Label ID="lblUsername" CssClass="col-sm-2 control-label" AssociatedControlID="txtUsername" Text="Username:" runat="server" meta:resourcekey="lblUsername" />
+                            <asp:Panel CssClass="col-sm-10" runat="server">
+                                <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ErrorMessage="Username is required." ControlToValidate="txtUsername" meta:resourcekey="rfvUsername">*</asp:RequiredFieldValidator>
+                            </asp:Panel>
+                        </asp:Panel>
+                        <asp:Panel CssClass="form-group" runat="server">
+                            <asp:Label ID="lblPassword" CssClass="col-sm-2 control-label" AssociatedControlID="txtpassword" Text="Password:" runat="server" meta:resourcekey="lblPassword" />
+                            <asp:Panel CssClass="col-sm-10" runat="server">
+                                <asp:TextBox ID="txtpassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Password is required." ControlToValidate="txtpassword" meta:resourcekey="rfvPassword">*</asp:RequiredFieldValidator>
+                            </asp:Panel>
+                        </asp:Panel>
+                        <asp:Panel CssClass="form-group" runat="server">
+                            <asp:Panel CssClass="col-sm-offset-2 col-sm-10" runat="server">
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                            </asp:Panel>
+                        </asp:Panel>
+                        <asp:Panel CssClass="form-group" runat="server">
+                            <asp:Panel CssClass="col-sm-offset-2 col-sm-10" runat="server">
+                                <asp:Button ID="btnLogin" CssClass="btn btn-default" runat="server" Text="Log in" OnClick="btnLogin_Click" meta:resourcekey="btnLogin" />
+                            </asp:Panel>
+                        </asp:Panel>
+                    </asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
+        </asp:Panel>
+        <asp:HiddenField ID="hidLogUser" runat="server" />
+        <asp:HiddenField ID="hidProfile" runat="server" />
     </form>
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap.js" type="text/javascript"></script>
 </body>
 </html>

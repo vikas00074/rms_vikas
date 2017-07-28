@@ -17,14 +17,14 @@ namespace RMS
 
         public string LogUser
         {
-            get { return txtLogUser.Text; }
-            set { txtLogUser.Text = value; }
+            get { return hidLogUser.Value; }
+            set { hidLogUser.Value = value; }
         }
 
         public string Profile
         {
-            get { return txtProfile.Text; }
-            set { txtProfile.Text = value; }
+            get { return hidProfile.Value; }
+            set { hidProfile.Value = value; }
         }
 
         public string Username
@@ -83,14 +83,14 @@ namespace RMS
 
         public void ShowException(ApplicationException aex)
         {
-            lblError.Text = aex.Message;
-            lblError.Visible = true;
+            litMessageContent.Text = aex.Message;
+            litMessageContent.Visible = true;
         }
 
         public void ClearMessages()
         {
-            lblError.Visible = false;
-            lblError.Text = string.Empty;
+            litMessageContent.Visible = false;
+            litMessageContent.Text = string.Empty;
         }
     }
 }
