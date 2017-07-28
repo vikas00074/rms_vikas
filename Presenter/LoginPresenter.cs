@@ -1,9 +1,9 @@
-﻿using System;
-using System.Data.SqlClient;
-using View;
-
-namespace Presenter
+﻿namespace Presenter
 {
+    using System;
+    using System.Data.SqlClient;
+    using View;
+
     public class LoginPresenter : PresenterBase<ILoginView>
     {
         private readonly SqlConnection _conn;
@@ -19,12 +19,12 @@ namespace Presenter
             try
             {
                 View.ClearMessages();
-                View.FocusUsernameField();                
+                View.FocusUsernameField();
             }
             catch (Exception)
             {
                 throw;
-            }            
+            }
         }
 
         public void PerformLogin()
@@ -46,7 +46,7 @@ namespace Presenter
                         if (dr.Read())
                         {
                             View.LogUser = Convert.ToString(dr[3]) + " " + Convert.ToString(dr[4]);
-                            View.Profile = Convert.ToString(dr[5]);                             
+                            View.Profile = Convert.ToString(dr[5]);
                         }
 
                         View.SetSessionValue("Value", View.LogUser);

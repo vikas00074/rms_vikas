@@ -1,11 +1,10 @@
-﻿using System;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Presenter;
-using View;
-
-namespace RMS
+﻿namespace RMS
 {
+    using System;
+    using System.Web.UI;
+    using Presenter;
+    using View;
+
     public partial class Default : Page, ILoginView
     {
         private readonly LoginPresenter _preseter;
@@ -52,18 +51,6 @@ namespace RMS
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             _preseter.PerformLogin();
-        }
-
-        protected void showPassword_Click(object sender, EventArgs e)
-        {
-            if (txtpassword.TextMode == TextBoxMode.Password)
-            {
-                txtpassword.TextMode = TextBoxMode.SingleLine;
-            }
-            else
-            {
-                txtpassword.TextMode = TextBoxMode.Password;
-            }
         }
 
         public void FocusUsernameField()
