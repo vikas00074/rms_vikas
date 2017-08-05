@@ -22,7 +22,7 @@
                     <asp:Label CssClass="col-sm-2 control-label" Text="Course Level:" runat="server" />
                     <asp:Panel CssClass="col-sm-4" runat="server">
                         <asp:DropDownList ID="ddlLevel" CssClass="form-control" runat="server">
-                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>Unknown</asp:ListItem>
                             <asp:ListItem>100</asp:ListItem>
                             <asp:ListItem>200</asp:ListItem>
                             <asp:ListItem>300</asp:ListItem>
