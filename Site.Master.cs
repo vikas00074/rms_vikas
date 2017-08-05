@@ -1,11 +1,15 @@
-﻿using Presenter;
-using System;
-using System.Web;
-using System.Web.UI;
-using View;
+﻿// <copyright file="Site.Master.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace RMS
 {
+    using System;
+    using System.Web;
+    using System.Web.UI;
+    using Presenter;
+    using View;
+
     public partial class SiteMaster : MasterPage, ISiteView
     {
         private readonly SitePresenter _presenter;
@@ -40,7 +44,7 @@ namespace RMS
 
         public void SetLoggedUser(string userLogger)
         {
-            lblLogUser.Text = userLogger;
+            hlLogUser.Text = userLogger;
         }
 
         public void Redirect(string v)

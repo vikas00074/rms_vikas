@@ -1,4 +1,8 @@
-﻿namespace RMS
+﻿// <copyright file="Default.aspx.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
+namespace RMS
 {
     using System;
     using System.Web.UI;

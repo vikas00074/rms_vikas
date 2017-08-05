@@ -6,87 +6,71 @@
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
         <%:System.Web.Optimization.Styles.Render("~/Content/AjaxControlToolkit/Styles/Bundle") %>
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
+    <form class="container-fluid" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="~/Scripts/AjaxControlToolkit/Bundle" />
             </Scripts>
         </asp:ScriptManager>
-        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server"
-            StartingNodeUrl="~/Homepage.aspx" />
-        <div class="page">
-            <div class="header">
-                <div class="title">
-                    <h1>
-                        <span class="style1"><span class="style49">Result Management Portal</span></span>
-                    </h1>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Homepage.aspx" />
+        <asp:Panel CssClass="navbar navbar-inverse" role="navegation" runat="server">
+            <asp:Panel CssClass="container-fluid" runat="server">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button class="btn btn-navbar" type="button" data-target=".nav-collapse" data-toggle="collapse" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <asp:HyperLink CssClass="navbar-brand" NavigateUrl="#" runat="server">RMS</asp:HyperLink>
                 </div>
-                <div class="loginDisplay">
-                    <asp:LoginView runat="server">
-                        <AnonymousTemplate>You are not logged in. Click the Login link to sign in.</AnonymousTemplate>
-                        <LoggedInTemplate>
-                            You are logged in. Welcome,
-                            <asp:LoginName ID="LoginName1" runat="server" />
-                            &nbsp;<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/MemberPages/ChangePassword.aspx">Change password</asp:HyperLink>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
-                    <asp:Label ID="lblLogUser" runat="server"></asp:Label>
-                    <br />
-                    <asp:LinkButton ID="lnkLogout" runat="server" Font-Underline="False"
-                        OnClick="lnkLogout_Click" PostBackUrl="~/Default.aspx">Logout</asp:LinkButton>
-                    <br />
-                </div>
-                <div class="clear hideSkiplink">
-                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
-                        IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List" Width="100%">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <asp:Panel CssClass="navbar-inner" runat="server">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="navbar" StaticMenuStyle-CssClass="nav" StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown-menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List">
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="~/Homepage.aspx" />
                             <asp:MenuItem Text="Users" Value="Users">
-                                <asp:MenuItem NavigateUrl="~/New_User.aspx" Text="New User" Value="New User"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Users.aspx" Text="CIT Users" Value="CIT Users"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/User/New.aspx" Text="New" Value="New User"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/User/List.aspx" Text="List" Value="CIT Users"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Students" Value="Students">
-                                <asp:MenuItem NavigateUrl="~/New_Student.aspx" Text="New Student" Value="New Student"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Students.aspx" Text="View Students" Value="View Students"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Student/New.aspx" Text="New" Value="New Student"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Student/List.aspx" Text="List" Value="View Students"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Courses" Value="Courses">
-                                <asp:MenuItem NavigateUrl="~/Add_Course.aspx" Text="Add New Course" Value="Add New Course"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Courses.aspx" Text="View Courses" Value="View Courses"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Course/Add.aspx" Text="Add" Value="Add New Course"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Course/List.aspx" Text="List" Value="View Courses"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Registered Courses" Value="Registered Courses">
                                 <asp:MenuItem NavigateUrl="~/Register_Courses.aspx" Text="Register Courses" Value="Register Courses"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" Text="View Registered Courses"
-                                    Value="View Registered Courses"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" Text="View Registered Courses" Value="View Registered Courses"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Results" Value="Results">
-                                <asp:MenuItem NavigateUrl="~/New_Result.aspx" Text="New Result" Value="New Result"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Update_Results.aspx" Text="Update Results" Value="Update Results"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Results.aspx" Text="View Results" Value="View Results"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Result/New.aspx" Text="New" Value="New Result"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Result/Update.aspx" Text="Update" Value="Update Results"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Result/List.aspx" Text="List" Value="View Results"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Send Notification" Value="Send Notification" NavigateUrl="~/Send_Mail.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MemberPages/Members.aspx">Members-only page</asp:HyperLink>
-                    &nbsp;</div>
-            </div>
-            <div class="main">
-                <asp:Label ID="lblError" runat="server" Visible="False" />
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-            </div>
-            <div class="clear">
-            </div>
-        </div>
+                </asp:Panel>
+            </asp:Panel>
+        </asp:Panel>
+        <asp:Label ID="lblError" runat="server" Visible="False" />
+        <asp:ContentPlaceHolder ID="cphBody" runat="server" />
         <footer>
+            <p>
+                Signed in as
+                    <asp:HyperLink ID="hlLogUser" CssClass="navbar-link" runat="server">Anonymous</asp:HyperLink>
+            </p>
         </footer>
-        <asp:ContentPlaceHolder ID="cphScripts" runat="server">
-        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="cphScripts" runat="server" />
     </form>
     <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="Scripts/bootstrap.js" type="text/javascript"></script>

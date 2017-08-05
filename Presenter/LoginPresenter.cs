@@ -38,7 +38,7 @@
 
                     _conn.Open();
                     var cmd = _conn.CreateCommand();
-                    cmd.CommandText = "Select * from cit_users where username = '" + username + "' and password= '" + password + "' ";
+                    cmd.CommandText = "Select * from users where username = '" + username + "' and password= '" + password + "' ";
                     var dr = cmd.ExecuteReader();
 
                     if (dr.HasRows)

@@ -51,29 +51,29 @@
                     </h3>
                 </asp:Panel>
                 <asp:Panel CssClass="panel-body" runat="server">
-                    <asp:Panel class="form-horizontal" runat="server">
+                    <asp:Panel CssClass="form-horizontal" runat="server">
                         <asp:Panel CssClass="form-group" runat="server">
                             <asp:Label ID="lblUsername" CssClass="col-sm-2 control-label" AssociatedControlID="txtUsername" Text="Username:" runat="server" meta:resourcekey="lblUsername" />
-                            <asp:Panel CssClass="col-sm-10" runat="server">
+                            <asp:Panel CssClass="col-sm-8" runat="server">
                                 <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ErrorMessage="Username is required." ControlToValidate="txtUsername" meta:resourcekey="rfvUsername">*</asp:RequiredFieldValidator>
                             </asp:Panel>
                         </asp:Panel>
                         <asp:Panel CssClass="form-group" runat="server">
                             <asp:Label ID="lblPassword" CssClass="col-sm-2 control-label" AssociatedControlID="txtpassword" Text="Password:" runat="server" meta:resourcekey="lblPassword" />
-                            <asp:Panel CssClass="col-sm-10" runat="server">
+                            <asp:Panel CssClass="col-sm-8" runat="server">
                                 <asp:TextBox ID="txtpassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Password is required." ControlToValidate="txtpassword" meta:resourcekey="rfvPassword">*</asp:RequiredFieldValidator>
                             </asp:Panel>
                         </asp:Panel>
                         <asp:Panel CssClass="form-group" runat="server">
-                            <asp:Panel CssClass="col-sm-offset-2 col-sm-10" runat="server">
-                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                            <asp:Panel CssClass="col-sm-offset-2 col-sm-8" runat="server">
+                                <asp:ValidationSummary ID="ValidationSummary1" ShowMessageBox="false" ShowSummary="true" DisplayMode="BulletList" CssClass="alert alert-danger" runat="server" />
                             </asp:Panel>
                         </asp:Panel>
                         <asp:Panel CssClass="form-group" runat="server">
-                            <asp:Panel CssClass="col-sm-offset-2 col-sm-10" runat="server">
-                                <asp:Button ID="btnLogin" CssClass="btn btn-default" runat="server" Text="Log in" OnClick="btnLogin_Click" meta:resourcekey="btnLogin" />
+                            <asp:Panel CssClass="col-sm-offset-2 col-sm-8" runat="server">
+                                <asp:Button ID="btnLogin" CssClass="btn btn-primary" runat="server" Text="Log in" OnClick="btnLogin_Click" meta:resourcekey="btnLogin" />
                             </asp:Panel>
                         </asp:Panel>
                     </asp:Panel>

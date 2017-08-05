@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register_Courses.aspx.cs" Inherits="RMS.Register_Courses" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="RMS.Result.List" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
@@ -116,135 +116,163 @@
                         </tr>
                     </table>
                     <br />
+                    <br />
+                    <br />
                     <asp:Panel ID="Panel4" runat="server" Visible="False">
                         <table align="center" bgcolor="#E4E4E4" class="style2"
                             style="width: 745px; height: 291px; color: #000000;">
                             <tr>
-                                <td align="center" bgcolor="#006600" class="style3" colspan="6">
+                                <td align="center" bgcolor="#006600" class="style188" colspan="7">
                                     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Calibri"
-                                        ForeColor="White" Style="font-size: large" Text="Add Course"></asp:Label>
+                                        ForeColor="White" Style="font-size: large" Text="View Result"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" class="style166" style="font-size: small;">Course ID 1:</td>
-                                <td align="left" class="style149" style="font-size: small;">
-                                    <asp:DropDownList ID="drpCourse1" runat="server" Width="191px" Height="16px"
-                                        Style="margin-right: 6px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style195" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style196" style="font-size: small;">Course Code</td>
+                                <td align="left" class="style202" style="font-size: small;">Score</td>
+                                <td align="left" style="font-size: small;" class="style192">Grade</td>
+                                <td align="left" class="style200" style="font-size: small;">Course Code</td>
+                                <td align="left" class="style190" style="font-size: small;">Score</td>
+                                <td align="left" class="bold" style="font-size: small;">Grade</td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="style189" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style197" style="font-size: small;">
+                                    <asp:Label ID="lblCse1" runat="server"></asp:Label>
                                 </td>
-                                <td align="left" style="font-size: small;" class="style163">
-                                    <asp:TextBox ID="txtbox1" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                <td align="left" class="style203" style="font-size: small;">
+                                    <asp:TextBox ID="txtScore1" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
-                                <td align="left" class="style167" style="font-size: small;">Course ID 2:</td>
-                                <td align="left" class="style168" style="font-size: small; font-weight: bold;">
-                                    <asp:DropDownList ID="drpCourse2" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style198" style="font-size: small;">
+                                    <asp:Label ID="DropDownListGrade1" runat="server" Style="font-weight: 700"
+                                        Text="Label"></asp:Label>
+                                </td>
+                                <td align="left" class="style205" style="font-size: small;">
+                                    <asp:Label ID="lblCse2" runat="server"></asp:Label>
+                                </td>
+                                <td align="left" class="style204" style="font-size: small; font-weight: bold;">
+                                    <asp:TextBox ID="txtScore2" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td align="left" class="style133" style="font-size: small; font-weight: bold;">
-                                    <asp:TextBox ID="txtbox2" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                    <asp:Label ID="DropDownListGrade2" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" class="style166" style="font-size: small;">Course ID 3:</td>
-                                <td align="left" class="style149" style="font-size: small;">
-                                    <asp:DropDownList ID="drpCourse3" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style189" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style197" style="font-size: small;">
+                                    <asp:Label ID="lblCse3" runat="server"></asp:Label>
                                 </td>
-                                <td align="left" style="font-size: small;" class="style163">
-                                    <asp:TextBox ID="txtbox3" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                <td align="left" class="style203" style="font-size: small;">
+                                    <asp:TextBox ID="txtScore3" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
-                                <td align="left" class="style167" style="font-size: small;">Course ID 4:</td>
+                                <td align="left" style="font-size: small;" class="style198">
+                                    <asp:Label ID="DropDownListGrade3" runat="server" Style="font-weight: 700"
+                                        Text="Label"></asp:Label>
+                                </td>
+                                <td align="left" class="style205" style="font-size: small;">
+                                    <asp:Label ID="lblCse4" runat="server"></asp:Label>
+                                </td>
                                 </span></span>
-                            <td align="left" class="style168" style="font-size: small; font-weight: bold;">
-                                <asp:DropDownList ID="drpCourse4" runat="server" Width="190px">
-                                </asp:DropDownList>
+                            <td align="left" class="style204" style="font-size: small; font-weight: bold;">
+                                <asp:TextBox ID="txtScore4" runat="server" Height="18px" Visible="True"
+                                    Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                             </td>
                                 <td align="left" class="style133" style="font-size: small; font-weight: bold;">
-                                    <asp:TextBox ID="txtbox4" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                    <asp:Label ID="DropDownListGrade4" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" class="style166" style="font-size: small;">Course ID 5:</td>
-                                <td align="left" class="style149" style="font-size: small;">
-                                    <asp:DropDownList ID="drpCourse5" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style189" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style197" style="font-size: small;">
+                                    <asp:Label ID="lblCse5" runat="server"></asp:Label>
                                 </td>
-                                <td align="left" style="font-size: small;" class="style163">
-                                    <asp:TextBox ID="txtbox5" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                <td align="left" class="style203" style="font-size: small;">
+                                    <asp:TextBox ID="txtScore5" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
-                                <td align="left" class="style167" style="font-size: small;">Course ID 6:</td>
-                                <td align="left" class="style168" style="font-size: small; font-weight: bold;">
-                                    <asp:DropDownList ID="drpCourse6" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" style="font-size: small;" class="style198">
+                                    <asp:Label ID="DropDownListGrade5" runat="server" Style="font-weight: 700"
+                                        Text="Label"></asp:Label>
+                                </td>
+                                <td align="left" class="style205" style="font-size: small;">
+                                    <asp:Label ID="lblCse6" runat="server"></asp:Label>
+                                </td>
+                                <td align="left" class="style204" style="font-size: small; font-weight: bold;">
+                                    <asp:TextBox ID="txtScore6" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td align="left" class="style146" style="font-size: small; font-weight: bold;">
-                                    <asp:TextBox ID="txtbox6" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                    <asp:Label ID="DropDownListGrade6" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" class="style166" style="font-size: small;">Course ID 7:</td>
-                                <td align="left" class="style149" style="font-size: small;">
-                                    <asp:DropDownList ID="drpCourse7" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style189" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style197" style="font-size: small;">
+                                    <asp:Label ID="lblCse7" runat="server"></asp:Label>
                                 </td>
-                                <td align="left" style="font-size: small;" class="style163">
-                                    <asp:TextBox ID="txtbox7" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                <td align="left" class="style203" style="font-size: small;">
+                                    <asp:TextBox ID="txtScore7" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
-                                <td align="left" class="style167" style="font-size: small;">Course ID 8:</td>
+                                <td align="left" style="font-size: small;" class="style198">
+                                    <asp:Label ID="DropDownListGrade7" runat="server" Style="font-weight: 700"
+                                        Text="Label"></asp:Label>
+                                </td>
+                                <td align="left" class="style205" style="font-size: small;">
+                                    <asp:Label ID="lblCse8" runat="server"></asp:Label>
+                                </td>
                                 </span>
-                            <td align="left" class="style168" style="font-size: small; font-weight: bold;">
-                                <asp:DropDownList ID="drpCourse8" runat="server" Width="190px">
-                                </asp:DropDownList>
+                            <td align="left" class="style204" style="font-size: small; font-weight: bold;">
+                                <asp:TextBox ID="txtScore8" runat="server" Height="18px" Visible="True"
+                                    Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                             </td>
                                 <td align="left" class="style146" style="font-size: small; font-weight: bold;">
-                                    <asp:TextBox ID="txtbox8" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                    <asp:Label ID="DropDownListGrade8" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" class="style166" style="font-size: small;">Course ID 9:</td>
-                                <td align="left" class="style149" style="font-size: small;">
-                                    <asp:DropDownList ID="drpCourse9" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" class="style189" style="font-size: small;">&nbsp;</td>
+                                <td align="left" class="style197" style="font-size: small;">
+                                    <asp:Label ID="lblCse9" runat="server"></asp:Label>
                                 </td>
-                                <td align="left" style="font-size: small;" class="style163">
-                                    <asp:TextBox ID="txtbox9" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                <td align="left" class="style203" style="font-size: small;">
+                                    <asp:TextBox ID="txtScore9" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
-                                <td align="left" class="style167" style="font-size: small;">Course ID 10:</td>
-                                <td align="left" class="style168" style="font-size: small; font-weight: bold;">
-                                    <asp:DropDownList ID="drpCourse10" runat="server" Width="190px">
-                                    </asp:DropDownList>
+                                <td align="left" style="font-size: small;" class="style198">
+                                    <asp:Label ID="DropDownListGrade9" runat="server" Style="font-weight: 700"
+                                        Text="Label"></asp:Label>
+                                </td>
+                                <td align="left" class="style205" style="font-size: small;">
+                                    <asp:Label ID="lblCse10" runat="server"></asp:Label>
+                                </td>
+                                <td align="left" class="style204" style="font-size: small; font-weight: bold;">
+                                    <asp:TextBox ID="txtScore10" runat="server" Height="18px" Visible="True"
+                                        Width="100px" BorderStyle="None" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td align="left" class="style146" style="font-size: small; font-weight: bold;">
-                                    <asp:TextBox ID="txtbox10" runat="server" Height="18px" Visible="False"
-                                        Width="50px"></asp:TextBox>
+                                    <asp:Label ID="DropDownListGrade10" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr class="style151">
+                                <td class="style189">&nbsp;</td>
                                 <td class="style22" colspan="5">&nbsp;</td>
                                 <td class="style22">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td align="center" class="style22" colspan="5">
-                                    <asp:Button ID="btnSave" runat="server" Text="Save"
-                                        Width="78px" OnClick="btnSave_Click" />
-                                    <span class="style151">&nbsp; </span>
-                                    <asp:Button ID="btnCanc" runat="server" Text="Reset"
-                                        Width="76px" OnClick="btnCanc_Click" />
+                                <td align="center" class="style188" colspan="7">
+                                    <asp:Button ID="btnCanc" runat="server" Text="Cancel" Width="76px"
+                                        OnClick="btnCanc_Click" />
                                 </td>
-                                <td align="center" class="style22">&nbsp;</td>
                             </tr>
                             <tr>
+                                <td class="style189">&nbsp;</td>
                                 <td class="style151" colspan="5">
-                                    <asp:TextBox ID="txtDateCreated" runat="server" Visible="False" Width="64px"></asp:TextBox>
+                                    <asp:TextBox ID="txtDateUpdated" runat="server" Visible="False" Width="64px"></asp:TextBox>
                                     &nbsp;
                                 </td>
                                 <td class="style151">&nbsp;</td>
@@ -262,6 +290,7 @@
             </td>
         </tr>
     </table>
+    <br />
     <br />
     <br />
 </asp:Content>
