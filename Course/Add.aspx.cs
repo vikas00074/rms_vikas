@@ -21,8 +21,8 @@ namespace RMS.Course
 
         public string FormTitle
         {
-            get { return Label1.Text; }
-            set { Label1.Text = value; }
+            get { return litTitle.Text; }
+            set { litTitle.Text = value; }
         }
 
         public string Level
