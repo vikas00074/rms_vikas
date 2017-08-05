@@ -49,8 +49,9 @@
                 {
                     throw new ApplicationException("La fecha tiene un formato incorrecto.", fex);
                 }
-                
+
             }
+
             set { txtDateOfBirth.Text = value.ToShortDateString(); }
         }
 
@@ -86,7 +87,7 @@
 
         string INewResultView.Title
         {
-            set { lblTitle.Text = value; }
+            set { litTitle.Text = value; }
         }
 
         public string LoggedUser
