@@ -77,15 +77,13 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:GridView ID="grdStudent" runat="server" AutoGenerateColumns="False"
-                                                    BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px"
-                                                    CellPadding="4" EnableSortingAndPagingCallbacks="True" GridLines="Horizontal"
+                                                <asp:GridView ID="grdStudent" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True"
                                                     HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" Height="16px"
                                                     PageSize="5"
                                                     Style="text-align: justify" Width="345px"
                                                     OnSelectedIndexChanged="grdStudent_SelectedIndexChanged">
                                                     <Columns>
-                                                        <asp:BoundField DataField="Student_Id" HeaderText="Student_Id"
+                                                        <asp:BoundField DataField="Id" HeaderText="Student_Id"
                                                             ItemStyle-Width="150">
                                                             <ItemStyle Width="50px" />
                                                         </asp:BoundField>
@@ -98,15 +96,6 @@
                                                             <ItemStyle Width="50px" />
                                                         </asp:ButtonField>
                                                     </Columns>
-                                                    <FooterStyle BackColor="White" ForeColor="#333333" />
-                                                    <PagerStyle BackColor="#006600" ForeColor="White" HorizontalAlign="Center" />
-                                                    <RowStyle BackColor="White" ForeColor="#333333" />
-                                                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-                                                    <HeaderStyle BackColor="#006600" Font-Bold="True" />
-                                                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                                    <SortedAscendingHeaderStyle BackColor="#487575" />
-                                                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                                    <SortedDescendingHeaderStyle BackColor="#275353" />
                                                 </asp:GridView>
                                             </td>
                                         </tr>

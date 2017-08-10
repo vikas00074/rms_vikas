@@ -7,7 +7,6 @@ namespace RMS.Course
     using System;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Diagnostics;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 

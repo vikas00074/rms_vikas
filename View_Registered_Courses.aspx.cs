@@ -36,7 +36,7 @@ namespace RMS
                 if (txtStudID.Text != string.Empty)
                 {
                     SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
+                    cmd.CommandText = "SELECT * FROM students where id like " + "'" + txtStudID.Text + "%'";
 
                     adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
@@ -80,7 +80,7 @@ namespace RMS
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
+                cmd.CommandText = "SELECT * FROM students where id like " + "'" + txtStudID.Text + "%'";
 
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
@@ -90,11 +90,11 @@ namespace RMS
 
                 if (dr.Read())
                 {
-                    txtStudID.Text = Convert.ToString(dr[1]);
-                    txtStudentName.Text = Convert.ToString(dr[2] + ", " + dr[3]);
-                    txtStudentProgram.Text = Convert.ToString(dr[12]);
-                    txtStudentLevel.Text = Convert.ToString(dr[13]);
-                    txtSession.Text = Convert.ToString(dr[14]);
+                    txtStudID.Text = Convert.ToString(dr["id"]);
+                    txtStudentName.Text = Convert.ToString(dr["firstname"] + ", " + dr["lastname"]);
+                    txtStudentProgram.Text = Convert.ToString(dr["program"]);
+                    txtStudentLevel.Text = Convert.ToString(dr["level"]);
+                    txtSession.Text = Convert.ToString(dr["session"]);
 
                     PanelStudGrid.Visible = false;
 

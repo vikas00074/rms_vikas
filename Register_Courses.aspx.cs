@@ -37,7 +37,7 @@ namespace RMS
                 if (txtStudID.Text != string.Empty)
                 {
                     SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT * FROM students where student_id like " + "'" + txtStudID.Text + "%'";
+                    cmd.CommandText = "SELECT * FROM students where id like " + "'" + txtStudID.Text + "%'";
 
                     adap = new SqlDataAdapter(cmd);
                     ds1 = new DataSet();
@@ -88,7 +88,7 @@ namespace RMS
                 string a = txtStudID.Text;
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from students where student_id = '" + a + "' ";
+                cmd.CommandText = "Select * from students where id = '" + a + "' ";
 
                 adap = new SqlDataAdapter(cmd);
                 ds1 = new DataSet();
@@ -97,11 +97,11 @@ namespace RMS
 
                 if (dr.Read())
                 {
-                    txtStudID.Text = Convert.ToString(dr[1]);
-                    txtStudentName.Text = Convert.ToString(dr[2] + ", " + dr[3]);
-                    txtStudentProgram.Text = Convert.ToString(dr[12]);
-                    txtStudentLevel.Text = Convert.ToString(dr[13]);
-                    txtSession.Text = Convert.ToString(dr[14]);
+                    txtStudID.Text = Convert.ToString(dr["id"]);
+                    txtStudentName.Text = Convert.ToString(dr["firstname"] + ", " + dr["lastname"]);
+                    txtStudentProgram.Text = Convert.ToString(dr["program"]);
+                    txtStudentLevel.Text = Convert.ToString(dr["level"]);
+                    txtSession.Text = Convert.ToString(dr["session"]);
 
                     PanelStudGrid.Visible = false;
                     Panel4.Visible = true;
@@ -129,75 +129,59 @@ namespace RMS
                 drpCourse2.Items.Clear();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from courses where course_level = '" + txtStudentLevel.Text + "' ";
+                cmd.CommandText = "Select * from courses where course_level LIKE '%" + txtStudentLevel.Text + "%' ";
+                var adap = new SqlDataAdapter(cmd);
+                var table = new DataTable();
+                adap.Fill(table);
 
-
-                drpCourse1.DataSource = cmd.ExecuteReader();
-                drpCourse1.DataTextField = "course_id";
-                drpCourse1.DataValueField = "course_id";
+                drpCourse1.DataSource = table;
+                drpCourse1.DataTextField = "id";
+                drpCourse1.DataValueField = "id";
                 drpCourse1.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse2.DataSource = cmd.ExecuteReader();
-                drpCourse2.DataTextField = "course_id";
-                drpCourse2.DataValueField = "course_id";
+                drpCourse2.DataSource = table;
+                drpCourse2.DataTextField = "id";
+                drpCourse2.DataValueField = "id";
                 drpCourse2.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse3.DataSource = cmd.ExecuteReader();
-                drpCourse3.DataTextField = "course_id";
-                drpCourse3.DataValueField = "course_id";
+                drpCourse3.DataSource = table;
+                drpCourse3.DataTextField = "id";
+                drpCourse3.DataValueField = "id";
                 drpCourse3.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse4.DataSource = cmd.ExecuteReader();
-                drpCourse4.DataTextField = "course_id";
-                drpCourse4.DataValueField = "course_id";
+                drpCourse4.DataSource = table;
+                drpCourse4.DataTextField = "id";
+                drpCourse4.DataValueField = "id";
                 drpCourse4.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse5.DataSource = cmd.ExecuteReader();
-                drpCourse5.DataTextField = "course_id";
-                drpCourse5.DataValueField = "course_id";
+                drpCourse5.DataSource = table;
+                drpCourse5.DataTextField = "id";
+                drpCourse5.DataValueField = "id";
                 drpCourse5.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse6.DataSource = cmd.ExecuteReader();
-                drpCourse6.DataTextField = "course_id";
-                drpCourse6.DataValueField = "course_id";
+                drpCourse6.DataSource = table;
+                drpCourse6.DataTextField = "id";
+                drpCourse6.DataValueField = "id";
                 drpCourse6.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse7.DataSource = cmd.ExecuteReader();
-                drpCourse7.DataTextField = "course_id";
-                drpCourse7.DataValueField = "course_id";
+                drpCourse7.DataSource = table;
+                drpCourse7.DataTextField = "id";
+                drpCourse7.DataValueField = "id";
                 drpCourse7.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse8.DataSource = cmd.ExecuteReader();
-                drpCourse8.DataTextField = "course_id";
-                drpCourse8.DataValueField = "course_id";
+                drpCourse8.DataSource = table;
+                drpCourse8.DataTextField = "id";
+                drpCourse8.DataValueField = "id";
                 drpCourse8.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse9.DataSource = cmd.ExecuteReader();
-                drpCourse9.DataTextField = "course_id";
-                drpCourse9.DataValueField = "course_id";
+                drpCourse9.DataSource = table;
+                drpCourse9.DataTextField = "id";
+                drpCourse9.DataValueField = "id";
                 drpCourse9.DataBind();
 
-                con.Close();
-                con.Open();
-                drpCourse10.DataSource = cmd.ExecuteReader();
-                drpCourse10.DataTextField = "course_id";
-                drpCourse10.DataValueField = "course_id";
+                drpCourse10.DataSource = table;
+                drpCourse10.DataTextField = "id";
+                drpCourse10.DataValueField = "id";
                 drpCourse10.DataBind();
             }
             catch (Exception err)
@@ -211,68 +195,68 @@ namespace RMS
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            con.Open();
+            txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+
+            if (txtStudID.Text == string.Empty)
             {
-                con.Open();
-                txtDateCreated.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
-                if (txtStudID.Text == string.Empty)
-                {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student ID";
-                }
-                else if (txtStudentProgram.Text == string.Empty)
-                {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Program";
-                }
-                else if (txtStudentLevel.Text == string.Empty)
-                {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student Level";
-                }
-                else if (txtSession.Text == string.Empty)
-                {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
-                }
-                else
-                {
-                    txt_courses();
-
-                    cmd = con.CreateCommand();
-                    cmd.CommandText = "INSERT INTO registered_courses(stud_id, program, level, session, course_id1, course_id2, course_id3, course_id4, course_id5, course_id6, course_id7, course_id8, course_id9, course_id10, date_created)VALUES(@stud_id, @program, @level, @session, @course_id1, @course_id2, @course_id3, @course_id4, @course_id5, @course_id6, @course_id7, @course_id8, @course_id9, @course_id10, @date_created)";
-                    cmd.Parameters.AddWithValue("@stud_id", txtStudID.Text);
-                    cmd.Parameters.AddWithValue("@program", txtStudentProgram.Text);
-                    cmd.Parameters.AddWithValue("@level", txtStudentLevel.Text);
-                    cmd.Parameters.AddWithValue("@session", txtSession.Text);
-                    cmd.Parameters.AddWithValue("@course_id1", txtbox1.Text);
-                    cmd.Parameters.AddWithValue("@course_id2", txtbox2.Text);
-                    cmd.Parameters.AddWithValue("@course_id3", txtbox3.Text);
-                    cmd.Parameters.AddWithValue("@course_id4", txtbox4.Text);
-                    cmd.Parameters.AddWithValue("@course_id5", txtbox5.Text);
-                    cmd.Parameters.AddWithValue("@course_id6", txtbox6.Text);
-                    cmd.Parameters.AddWithValue("@course_id7", txtbox7.Text);
-                    cmd.Parameters.AddWithValue("@course_id8", txtbox8.Text);
-                    cmd.Parameters.AddWithValue("@course_id9", txtbox9.Text);
-                    cmd.Parameters.AddWithValue("@course_id10", txtbox10.Text);
-                    cmd.Parameters.AddWithValue("@date_created", txtDateCreated.Text);
-
-                    cmd.ExecuteNonQuery();
-
-                    Label1.Text = "New User Registered";
-
-                    txtStudID.Text = string.Empty;
-                    txtStudentProgram.Text = string.Empty;
-                    txtStudentLevel.Text = string.Empty;
-                    txtSession.Text = string.Empty;
-
-                    txtDateCreated.Text = string.Empty;
-
-                    lblError.Visible = false;
-                    Label1.Text = txtStudentName.Text + "'s Courses Registered Successfully";
-                }
-            }
-            catch (Exception err)
-            {
+                Label1.Visible = false;
                 lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
+                lblError.Text = "Mandatory Field is empty: Student ID";
+            }
+            else if (txtStudentProgram.Text == string.Empty)
+            {
+                Label1.Visible = false;
+                lblError.Visible = true;
+                lblError.Text = "Mandatory Field is empty: Student Program";
+            }
+            else if (txtStudentLevel.Text == string.Empty)
+            {
+                Label1.Visible = false;
+                lblError.Visible = true;
+                lblError.Text = "Mandatory Field is empty: Student Level";
+            }
+            else if (txtSession.Text == string.Empty)
+            {
+                Label1.Visible = false;
+                lblError.Visible = true;
+                lblError.Text = "Mandatory Field is empty: Session";
+            }
+            else
+            {
+                txt_courses();
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO registered_courses(stud_id, program, level, session, course_id1, course_id2, course_id3, course_id4, course_id5, course_id6, course_id7, course_id8, course_id9, course_id10, date_created)VALUES(@stud_id, @program, @level, @session, @course_id1, @course_id2, @course_id3, @course_id4, @course_id5, @course_id6, @course_id7, @course_id8, @course_id9, @course_id10, @date_created)";
+                cmd.Parameters.AddWithValue("@stud_id", txtStudID.Text);
+                cmd.Parameters.AddWithValue("@program", txtStudentProgram.Text);
+                cmd.Parameters.AddWithValue("@level", txtStudentLevel.Text);
+                cmd.Parameters.AddWithValue("@session", txtSession.Text);
+                cmd.Parameters.AddWithValue("@course_id1", txtbox1.Text);
+                cmd.Parameters.AddWithValue("@course_id2", txtbox2.Text);
+                cmd.Parameters.AddWithValue("@course_id3", txtbox3.Text);
+                cmd.Parameters.AddWithValue("@course_id4", txtbox4.Text);
+                cmd.Parameters.AddWithValue("@course_id5", txtbox5.Text);
+                cmd.Parameters.AddWithValue("@course_id6", txtbox6.Text);
+                cmd.Parameters.AddWithValue("@course_id7", txtbox7.Text);
+                cmd.Parameters.AddWithValue("@course_id8", txtbox8.Text);
+                cmd.Parameters.AddWithValue("@course_id9", txtbox9.Text);
+                cmd.Parameters.AddWithValue("@course_id10", txtbox10.Text);
+                cmd.Parameters.AddWithValue("@date_created", txtDateCreated.Text);
+
+                cmd.ExecuteNonQuery();
+
+                Label1.Text = "New User Registered";
+
+                txtStudID.Text = string.Empty;
+                txtStudentProgram.Text = string.Empty;
+                txtStudentLevel.Text = string.Empty;
+                txtSession.Text = string.Empty;
+
+                txtDateCreated.Text = string.Empty;
+
+                lblError.Visible = false;
+                Label1.Text = txtStudentName.Text + "'s Courses Registered Successfully";
             }
 
             con.Close();
