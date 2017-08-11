@@ -331,7 +331,7 @@
     <Content Include="Homepage.aspx" />
     <Content Include="Student\New.aspx" />
     <Content Include="User\New.aspx" />
-    <Content Include="Register_Courses.aspx" />
+    <Content Include="RegisteredCourse\Register_Courses.aspx" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\Accordion.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AjaxFileUpload.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AlwaysVisibleControl.debug.js" />
@@ -665,7 +665,7 @@
     <Content Include="Result\Update.aspx" />
     <Content Include="User\List.aspx" />
     <Content Include="Course\List.aspx" />
-    <Content Include="View_Registered_Courses.aspx" />
+    <Content Include="RegisteredCourse\View_Registered_Courses.aspx" />
     <Content Include="Result\List.aspx" />
     <Content Include="Student\List.aspx" />
     <Content Include="Web.config" />
@@ -734,11 +734,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Register_Courses.aspx.cs">
+    <Compile Include="RegisteredCourse\Register_Courses.aspx.cs">
       <DependentUpon>Register_Courses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register_Courses.aspx.designer.cs">
+    <Compile Include="RegisteredCourse\Register_Courses.aspx.designer.cs">
       <DependentUpon>Register_Courses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Send_Mail.aspx.cs">
@@ -783,11 +783,11 @@
     <Compile Include="Course\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View_Registered_Courses.aspx.cs">
+    <Compile Include="RegisteredCourse\View_Registered_Courses.aspx.cs">
       <DependentUpon>View_Registered_Courses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View_Registered_Courses.aspx.designer.cs">
+    <Compile Include="RegisteredCourse\View_Registered_Courses.aspx.designer.cs">
       <DependentUpon>View_Registered_Courses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Result\List.aspx.cs">

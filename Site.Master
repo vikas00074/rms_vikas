@@ -48,8 +48,8 @@
                                 <asp:MenuItem NavigateUrl="~/Course/List.aspx" Text="List" Value="View Courses"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Registered Courses" Value="Registered Courses">
-                                <asp:MenuItem NavigateUrl="~/Register_Courses.aspx" Text="Register Courses" Value="Register Courses"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View_Registered_Courses.aspx" Text="View Registered Courses" Value="View Registered Courses"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisteredCourse/Register_Courses.aspx" Text="Register Courses" Value="Register Courses"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/RegisteredCourse/View_Registered_Courses.aspx" Text="View Registered Courses" Value="View Registered Courses"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Results" Value="Results">
                                 <asp:MenuItem NavigateUrl="~/Result/New.aspx" Text="New" Value="New Result"></asp:MenuItem>
