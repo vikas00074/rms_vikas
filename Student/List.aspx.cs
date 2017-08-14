@@ -1,4 +1,4 @@
-﻿// <copyright file="View.aspx.cs" company="RMS">
+﻿// <copyright file="List.aspx.cs" company="RMS">
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 

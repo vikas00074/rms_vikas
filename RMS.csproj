@@ -330,6 +330,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Student\New.aspx" />
+    <Content Include="Student\View.aspx" />
+    <Content Include="Student\Update.aspx" />
     <Content Include="User\New.aspx" />
     <Content Include="RegisteredCourse\Register_Courses.aspx" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\Accordion.debug.js" />
@@ -659,7 +661,6 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Send_Mail.aspx" />
-    <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Result\New.aspx" />
     <Content Include="Result\Update.aspx" />
@@ -715,6 +716,20 @@
     </Compile>
     <Compile Include="Student\New.aspx.designer.cs">
       <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
@@ -812,6 +827,7 @@
     <Folder Include="App_GlobalResources\" />
     <Folder Include="App_Themes\Default\" />
     <Folder Include="Controls\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

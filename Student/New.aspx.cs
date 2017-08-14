@@ -3,7 +3,7 @@
     using System;
     using System.Web.UI;
     using Presenter;
-    using View;
+    using global::View;
 
     public partial class New : Page, INewResultView
     {

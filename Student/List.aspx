@@ -4,21 +4,42 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <p align="center">
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True"
-            Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
+        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
     <br />
-    <p align="center">
-        <asp:TextBox ID="txtSearch" runat="server" BorderStyle="Ridge"
-            Font-Bold="False" Font-Size="X-Large" Height="31px" Style="margin-left: 0px"
-            Width="211px"></asp:TextBox>
-        &nbsp;
-        <asp:Button ID="btnFind" runat="server" Font-Size="Large"
-            OnClick="btnSearch_Click" Text="Search Student" Width="149px" />
-        &nbsp;<asp:TextBox ID="txtProfile" runat="server" BackColor="Silver"
-            BorderStyle="None" Visible="False" Width="50px">_</asp:TextBox>
-    </p>
-    &nbsp;<table class="style5">
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <asp:Panel CssClass="panel panel-default" runat="server">
+                <asp:Panel CssClass="panel-heading" runat="server">
+                    <h3 class="panel-title">
+                        <asp:Literal Text="Student" runat="server" />
+                    </h3>
+                </asp:Panel>
+                <asp:Panel CssClass="panel-body" runat="server">
+                    <asp:Panel CssClass="form-inline" runat="server">
+                        <asp:Panel CssClass="form-group" runat="server">
+                            <asp:Label CssClass="control-label" Text="Firstname / Lastname / Phone / Email" runat="server" />
+                            <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server" />
+                        </asp:Panel>
+                        <asp:Button ID="btnFind" CssClass="btn btn-default" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                    </asp:Panel>
+                </asp:Panel>
+                <asp:GridView ID="GridView1" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Id" AllowPaging="True" AllowSorting="True" BorderStyle="None">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
+                        <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
+                        <asp:BoundField DataField="Firstname" HeaderText="FirstName" />
+                        <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
+                    </Columns>
+                </asp:GridView>
+                <asp:Panel CssClass="panel-footer" runat="server">
+                </asp:Panel>
+            </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">
                 <asp:Panel ID="PanelStudMenu" runat="server" Height="201px"
@@ -76,39 +97,8 @@
                         </tr>
                     </table>
                 </asp:Panel>
-                <asp:Panel ID="PanelSearchGrid" runat="server" Height="204px" ScrollBars="Auto"
-                    Style="margin-left: 0px" Visible="False" Width="566px">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
-                        CellPadding="4" EnableSortingAndPagingCallbacks="True"
-                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" Height="16px"
-                        OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
-                        Style="text-align: justify" Width="524px" BackColor="White"
-                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px"
-                        GridLines="Horizontal" DataKeyNames="Id">
-                        <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Left"
-                            VerticalAlign="Top" />
-                        <Columns>
-                            <asp:BoundField DataField="Id" HeaderText="Id"
-                                ItemStyle-Width="150" InsertVisible="False" ReadOnly="True">
-                                <ItemStyle Width="50px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
-                            <asp:BoundField DataField="Firstname" HeaderText="FirstName" />
-                            <asp:BoundField DataField="Phone" HeaderText="Phone" />
-                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:ButtonField CommandName="Select" ItemStyle-Width="150" Text="View">
-                                <ItemStyle Width="50px" />
-                            </asp:ButtonField>
-                        </Columns>
-                        <FooterStyle BackColor="White" ForeColor="#333333" />
-                        <PagerStyle BackColor="#006600" ForeColor="White" HorizontalAlign="Center" />
-                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#006600" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                        <SortedAscendingHeaderStyle BackColor="#487575" />
-                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                        <SortedDescendingHeaderStyle BackColor="#275353" />
-                    </asp:GridView>
+                <asp:Panel ID="PanelSearchGrid" runat="server" ScrollBars="Auto" Visible="False">
+
                     <asp:TextBox ID="txtStudID0" runat="server" Style="text-align: left"
                         Visible="False" Width="128px"></asp:TextBox>
                 </asp:Panel>

@@ -40,13 +40,13 @@ namespace RMS.Student {
         protected global::System.Web.UI.WebControls.Button btnFind;
         
         /// <summary>
-        /// Control txtProfile.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProfile;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// Control PanelStudMenu.
@@ -164,15 +164,6 @@ namespace RMS.Student {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelSearchGrid;
-        
-        /// <summary>
-        /// Control GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// Control txtStudID0.
