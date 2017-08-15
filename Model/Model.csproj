@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Course.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="IAuditable.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

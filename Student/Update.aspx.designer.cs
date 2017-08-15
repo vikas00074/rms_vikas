@@ -10,7 +10,7 @@
 namespace RMS.Student {
     
     
-    public partial class Update {
+    public partial class UpdateStudent {
         
         /// <summary>
         /// Control litTitle.

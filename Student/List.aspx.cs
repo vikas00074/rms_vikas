@@ -4,19 +4,27 @@
 
 namespace RMS.Student
 {
+    using Presenter.Student;
     using System;
     using System.Data;
     using System.Data.SqlClient;
     using System.IO;
     using System.Web.UI;
+    using View.Student;
 
-    public partial class List : Page
+    public partial class ListStudent : Page, IListStudentView
     {
         SqlDataReader dr;
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adap;
         DataSet ds1;
+        private readonly ListStudentPresenter _presenter;
+
+        public ListStudent()
+        {
+            _presenter = new ListStudentPresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

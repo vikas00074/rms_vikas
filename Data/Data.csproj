@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{889B5A07-277E-4748-8C48-9EF0FA29EB43}</ProjectGuid>
+    <ProjectGuid>{0CE34BF2-973C-4459-9D39-5FB65625583A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>View</RootNamespace>
-    <AssemblyName>View</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -20,7 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\View.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>Data.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Data.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,10 +30,22 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Data.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,24 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course\IViewCourseView.cs" />
-    <Compile Include="IAddCourseView.cs" />
-    <Compile Include="ILoginView.cs" />
-    <Compile Include="INewResultView.cs" />
-    <Compile Include="INewUserView.cs" />
-    <Compile Include="ISiteView.cs" />
-    <Compile Include="IUsersView.cs" />
-    <Compile Include="IViewBase.cs" />
+    <Compile Include="courses.cs" />
+    <Compile Include="Mapping\CourseTypeConfiguration.cs" />
+    <Compile Include="Mapping\ResultTypeConfiguration.cs" />
+    <Compile Include="Mapping\StudentTypeConfiguration.cs" />
+    <Compile Include="ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student\IListStudentView.cs" />
-    <Compile Include="Student\INewStudentView.cs" />
-    <Compile Include="Student\IUpdateStudentView.cs" />
-    <Compile Include="Student\IViewStudentView.cs" />
+    <Compile Include="registered_courses.cs" />
+    <Compile Include="results.cs" />
+    <Compile Include="students.cs" />
+    <Compile Include="users.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Data.ruleset" />
     <None Include="packages.config" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>

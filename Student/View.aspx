@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="RMS.Student.Update" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="RMS.Student.ViewStudent" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 
@@ -21,6 +21,10 @@
                     <asp:Label CssClass="col-sm-2 control-label" Text="Surname" runat="server" />
                     <asp:Panel CssClass="col-sm-2" runat="server">
                         <asp:TextBox ID="txtSname" CssClass="form-control" runat="server"></asp:TextBox>
+                    </asp:Panel>
+                    <asp:Label CssClass="col-sm-2 control-label" Text="Image" runat="server" />
+                    <asp:Panel CssClass="col-sm-2" runat="server">
+                        <asp:Image ID="imgPhoto" CssClass="form-control" runat="server" />
                     </asp:Panel>
                 </asp:Panel>
                 <asp:Panel CssClass="form-group" runat="server">

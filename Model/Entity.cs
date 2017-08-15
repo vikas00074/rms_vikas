@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// <copyright file="Entity.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace Model
 {
-    public abstract class Entity<TKey> where TKey : struct
+    public abstract class Entity<TKey>
+        where TKey : struct
     {
-        public TKey Identifier { get; set; }
+        public TKey Identifier { get; protected set; }
     }
 }

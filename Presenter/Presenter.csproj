@@ -61,6 +61,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SitePresenter.cs" />
+    <Compile Include="Student\ListStudentPresenter.cs" />
+    <Compile Include="Student\NewStudentPresenter.cs" />
+    <Compile Include="Student\UpdateStudentPresenter.cs" />
+    <Compile Include="Student\ViewStudentPresenter.cs" />
     <Compile Include="UsersPresenter.cs" />
   </ItemGroup>
   <ItemGroup>

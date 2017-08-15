@@ -10,7 +10,7 @@
 namespace RMS.Student {
     
     
-    public partial class List {
+    public partial class ListStudent {
         
         /// <summary>
         /// Control lblError.

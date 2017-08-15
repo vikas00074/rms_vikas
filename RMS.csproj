@@ -826,7 +826,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="App_Themes\Default\" />
-    <Folder Include="Controls\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>

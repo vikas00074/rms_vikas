@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="RMS.Student.List" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="RMS.Student.ListStudent" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
@@ -7,23 +7,26 @@
         <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
     <br />
-    <asp:UpdatePanel runat="server">
-        <ContentTemplate>
-            <asp:Panel CssClass="panel panel-default" runat="server">
-                <asp:Panel CssClass="panel-heading" runat="server">
-                    <h3 class="panel-title">
-                        <asp:Literal Text="Student" runat="server" />
-                    </h3>
+    <asp:Panel CssClass="panel panel-default" runat="server">
+        <asp:Panel CssClass="panel-heading" runat="server">
+            <h3 class="panel-title">
+                <asp:Literal Text="Student" runat="server" />
+            </h3>
+        </asp:Panel>
+        <asp:Panel CssClass="panel-body" runat="server">
+            <asp:Panel CssClass="form-inline" runat="server">
+                <asp:Panel CssClass="form-group" runat="server">
+                    <asp:Label CssClass="control-label" Text="Firstname / Lastname / Phone / Email" runat="server" />
+                    <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server" />
                 </asp:Panel>
-                <asp:Panel CssClass="panel-body" runat="server">
-                    <asp:Panel CssClass="form-inline" runat="server">
-                        <asp:Panel CssClass="form-group" runat="server">
-                            <asp:Label CssClass="control-label" Text="Firstname / Lastname / Phone / Email" runat="server" />
-                            <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server" />
-                        </asp:Panel>
-                        <asp:Button ID="btnFind" CssClass="btn btn-default" runat="server" OnClick="btnSearch_Click" Text="Search" />
-                    </asp:Panel>
-                </asp:Panel>
+                <asp:Button ID="btnFind" CssClass="btn btn-default" runat="server" OnClick="btnSearch_Click" Text="Search" />
+            </asp:Panel>
+        </asp:Panel>
+        <asp:UpdatePanel runat="server">
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnFind" EventName="Click" />
+            </Triggers>
+            <ContentTemplate>
                 <asp:GridView ID="GridView1" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Id" AllowPaging="True" AllowSorting="True" BorderStyle="None">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
@@ -34,11 +37,11 @@
                         <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
                     </Columns>
                 </asp:GridView>
-                <asp:Panel CssClass="panel-footer" runat="server">
-                </asp:Panel>
-            </asp:Panel>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:Panel CssClass="panel-footer" runat="server">
+        </asp:Panel>
+    </asp:Panel>
     <table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">

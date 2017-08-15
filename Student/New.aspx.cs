@@ -2,12 +2,12 @@
 {
     using System;
     using System.Web.UI;
-    using Presenter;
-    using global::View;
+    using Presenter.Student;
+    using View.Student;
 
-    public partial class New : Page, INewResultView
+    public partial class NewStudent : Page, INewStudentView
     {
-        private readonly NewResultPresenter _presenter;
+        private readonly NewStudentPresenter _presenter;
 
         public string Surname
         {
@@ -79,17 +79,6 @@
             set { txtLevel.Text = value; }
         }
 
-        string INewResultView.Session
-        {
-            get { return txtSession.Text; }
-            set { txtSession.Text = value; }
-        }
-
-        string INewResultView.Title
-        {
-            set { litTitle.Text = value; }
-        }
-
         public string LoggedUser
         {
             get
@@ -98,9 +87,9 @@
             }
         }
 
-        public New()
+        public NewStudent()
         {
-            _presenter = new NewResultPresenter(this);
+            _presenter = new NewStudentPresenter(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,7 +98,7 @@
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            _presenter.Save();
+            //_presenter.Save();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
