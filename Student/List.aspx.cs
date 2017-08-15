@@ -4,13 +4,15 @@
 
 namespace RMS.Student
 {
-    using Presenter.Student;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.IO;
     using System.Web.UI;
+    using Presenter.Student;
     using View.Student;
+    using ViewModel.Student;
 
     public partial class ListStudent : Page, IListStudentView
     {
@@ -28,35 +30,25 @@ namespace RMS.Student
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            _presenter.SearchStudent();
+
             try
             {
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
+                //con.Open();
+                //SqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
+                //cmd.CommandText = "SELECT * FROM students where lastname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or phone = " + "'" + txtSearch.Text + "' or email = " + "'" + txtSearch.Text + "' ";
 
-                adap = new SqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "student");
+                //adap = new SqlDataAdapter(cmd);
+                //ds1 = new DataSet();
+                //adap.Fill(ds1, "student");
 
-                GridView1.DataSource = ds1.Tables[0];
-                GridView1.DataBind();
+                //GridView1.DataSource = ds1.Tables[0];
+                //GridView1.DataBind();
 
                 PanelSearchGrid.Visible = true;
                 PanelStudRecord.Visible = false;
@@ -71,7 +63,7 @@ namespace RMS.Student
                 lblError.Text = "Error: " + err.Message;
             }
 
-            con.Close();
+            //con.Close();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -220,25 +212,34 @@ namespace RMS.Student
 
                 if (txtStudID.Text == string.Empty)
                 {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's ID";
+                    Label1.Visible = false;
+                    lblError.Visible = true;
+                    lblError.Text = "Mandatory Field is empty: Student's ID";
                 }
                 else if (txtSname.Text == string.Empty)
                 {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Patient's Surname";
+                    Label1.Visible = false;
+                    lblError.Visible = true;
+                    lblError.Text = "Mandatory Field is empty: Patient's Surname";
                 }
                 else if (txtProgram.Text == string.Empty)
                 {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Program";
+                    Label1.Visible = false;
+                    lblError.Visible = true;
+                    lblError.Text = "Mandatory Field is empty: Student's Program";
                 }
                 else if (txtLevel.Text == string.Empty)
                 {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Student's Level";
+                    Label1.Visible = false;
+                    lblError.Visible = true;
+                    lblError.Text = "Mandatory Field is empty: Student's Level";
                 }
                 else if (txtSession.Text == string.Empty)
                 {
-                    Label1.Visible = false; lblError.Visible = true; lblError.Text = "Mandatory Field is empty: Session";
+                    Label1.Visible = false;
+                    lblError.Visible = true;
+                    lblError.Text = "Mandatory Field is empty: Session";
                 }
-
                 else
                 {
                     cmd = con.CreateCommand();
@@ -281,6 +282,17 @@ namespace RMS.Student
             PanelSearchGrid.Visible = true;
             PanelStudRecord.Visible = false;
             PanelStudMenu.Visible = false;
+        }
+
+        public string GetSearchCondition()
+        {
+            return txtSearch.Text;
+        }
+
+        public void SetGridData(IEnumerable<ListStudentGridViewModel> gridData)
+        {
+            GridView1.DataSource = gridData;
+            GridView1.DataBind();
         }
     }
 }

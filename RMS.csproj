@@ -853,6 +853,10 @@
       <Project>{20DFEEEE-4E64-49B7-A2E1-045492E17EA5}</Project>
       <Name>Presenter</Name>
     </ProjectReference>
+    <ProjectReference Include="ViewModel\ViewModel.csproj">
+      <Project>{3A05F34F-6B8E-454D-9DCC-73FF1C3AB9A1}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="View\View.csproj">
       <Project>{889B5A07-277E-4748-8C48-9EF0FA29EB43}</Project>
       <Name>View</Name>

@@ -4,6 +4,7 @@
 
 namespace View.Student
 {
+    using ViewModel.Student;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,5 +13,8 @@ namespace View.Student
 
     public interface IListStudentView : IViewBase
     {
+        string GetSearchCondition();
+
+        void SetGridData(IEnumerable<ListStudentGridViewModel> gridData);
     }
 }

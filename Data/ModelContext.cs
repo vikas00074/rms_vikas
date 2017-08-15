@@ -5,13 +5,16 @@
 namespace Data
 {
     using System.Data.Entity;
+    using System.Diagnostics;
     using Mapping;
 
     public partial class ModelContext : DbContext
     {
         public ModelContext()
-            : base("name=ModelContext")
+            : base()
         {
+            DbConfiguration.SetConfiguration(new ModelContextConfiguration());
+            Database.Log = msg => Debug.WriteLine(msg);
         }
 
         public virtual DbSet<courses> courses { get; set; }
