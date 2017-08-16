@@ -1,10 +1,11 @@
-﻿// <copyright file="Users.aspx.cs" company="RMS">
+﻿// <copyright file="List.aspx.cs" company="RMS">
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
 namespace RMS.User
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Net.Mail;
@@ -12,8 +13,9 @@ namespace RMS.User
     using System.Web.UI.WebControls;
     using Presenter;
     using View;
+    using ViewModel.User;
 
-    public partial class List : Page, IUsersView
+    public partial class ListUser : Page, IListUsersView
     {
         private readonly UsersPresenter _presenter;
 
@@ -23,57 +25,19 @@ namespace RMS.User
         SqlDataAdapter adap;
         DataSet ds1;
 
-        public List()
+        public ListUser()
         {
             _presenter = new UsersPresenter(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-
-                txtUsername.Focus();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
+            _presenter.FocusUsername();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-                Panel3.Visible = false;
-
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM cit_users where surname like " + "'" + txtSearch.Text + "%' or firstname like " + "'" + txtSearch.Text + "%' or user_id like " + "'" + txtSearch.Text + "%' or username like " + "'" + txtSearch.Text + "%'";
-
-                adap = new SqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "rms");
-
-                GridView1.DataSource = ds1.Tables[0];
-                GridView1.DataBind();
-
-                PanelSearchGrid.Visible = true;
-
-                lblError.Visible = false;
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
+            _presenter.SearchUsers();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -292,6 +256,22 @@ namespace RMS.User
             {
                 txtpassword.TextMode = TextBoxMode.Password;
             }
+        }
+
+        public void FocusUsernameTextbox()
+        {
+            txtUsername.Focus();
+        }
+
+        public void FillUserGrid(IEnumerable<ListUserGridViewModel> data)
+        {
+            GridView1.DataSource = data;
+            GridView1.DataBind();
+        }
+
+        public string GetSearchTerm()
+        {
+            return txtSearch.Text;
         }
     }
 }

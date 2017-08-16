@@ -22,6 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\ViewModel.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ViewModel.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ViewModel.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,9 +46,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student\ListStudentGridViewModel.cs" />
+    <Compile Include="User\ListUserGridViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <AdditionalFiles Include="stylecop.json" />
+    <None Include="ViewModel.ruleset" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />

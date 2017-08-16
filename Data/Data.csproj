@@ -56,8 +56,10 @@
   <ItemGroup>
     <Compile Include="courses.cs" />
     <Compile Include="Mapping\CourseTypeConfiguration.cs" />
+    <Compile Include="Mapping\RegisteredCoursesTypeConfiguration.cs" />
     <Compile Include="Mapping\ResultTypeConfiguration.cs" />
     <Compile Include="Mapping\StudentTypeConfiguration.cs" />
+    <Compile Include="Mapping\UserTypeConfiguration.cs" />
     <Compile Include="ModelContext.cs" />
     <Compile Include="ModelContextConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

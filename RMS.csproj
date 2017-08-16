@@ -669,6 +669,8 @@
     <Content Include="RegisteredCourse\View_Registered_Courses.aspx" />
     <Content Include="Result\List.aspx" />
     <Content Include="Student\List.aspx" />
+    <Content Include="User\Update.aspx" />
+    <Content Include="User\View.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -818,6 +820,20 @@
     </Compile>
     <Compile Include="Student\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

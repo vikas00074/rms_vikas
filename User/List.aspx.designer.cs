@@ -10,7 +10,7 @@
 namespace RMS.User {
     
     
-    public partial class List {
+    public partial class ListUser {
         
         /// <summary>
         /// Control lblError.
@@ -49,15 +49,6 @@ namespace RMS.User {
         protected global::System.Web.UI.WebControls.TextBox txtProfile0;
         
         /// <summary>
-        /// Control PanelSearchGrid.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelSearchGrid;
-        
-        /// <summary>
         /// Control GridView1.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace RMS.User {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// Control PanelSearchGrid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelSearchGrid;
         
         /// <summary>
         /// Control txtSysID.
