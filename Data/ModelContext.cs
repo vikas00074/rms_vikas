@@ -4,7 +4,10 @@
 
 namespace Data
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Validation;
     using System.Diagnostics;
     using Mapping;
 
@@ -15,6 +18,8 @@ namespace Data
         {
             DbConfiguration.SetConfiguration(new ModelContextConfiguration());
             Database.Log = msg => Debug.WriteLine(msg);
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ModelContext>());
+            Configuration.ValidateOnSaveEnabled = false;
         }
 
         public virtual DbSet<courses> courses { get; set; }
@@ -34,6 +39,16 @@ namespace Data
             modelBuilder.Configurations.Add(new ResultTypeConfiguration());
             modelBuilder.Configurations.Add(new UserTypeConfiguration());
             modelBuilder.Configurations.Add(new RegisteredCoursesTypeConfiguration());
+        }
+
+        protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
+        {
+            return base.ValidateEntity(entityEntry, items);
+        }
+
+        protected override bool ShouldValidateEntity(DbEntityEntry entityEntry)
+        {
+            return base.ShouldValidateEntity(entityEntry);
         }
     }
 }

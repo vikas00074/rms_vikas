@@ -101,7 +101,7 @@ namespace RMS.User
 
         public void SetTitle(string v)
         {
-            lblTitle.Text = v;
+            litTitle.Text = v;
         }
 
         public void ShowException(Exception err)

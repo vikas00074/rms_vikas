@@ -10,46 +10,44 @@ namespace Data
     {
         public long Id { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string lastname { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string firstname { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string midname { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string gender { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime birthdate { get; set; }
+        public DateTime? birthdate { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string phone { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string email { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string program { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string level { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [StringLength(50)]
         public string session { get; set; }
 
-        public DateTime date_created { get; set; }
+        public DateTime? date_created { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [StringLength(50)]
         public string user_created { get; set; }
     }
 }

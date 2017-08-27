@@ -15,44 +15,44 @@ namespace Data.Mapping
     {
         public StudentTypeConfiguration()
         {
-            Property(e => e.lastname)
-                .IsFixedLength();
+            Property(e => e.lastname);
 
 
-            Property(e => e.firstname)
-            .IsFixedLength();
+
+            Property(e => e.firstname);
 
 
-            Property(e => e.midname)
-            .IsFixedLength();
+
+            Property(e => e.midname);
 
 
-            Property(e => e.gender)
-            .IsFixedLength();
+
+            Property(e => e.gender);
 
 
-            Property(e => e.phone)
-            .IsFixedLength();
+
+            Property(e => e.phone);
 
 
-            Property(e => e.email)
-            .IsFixedLength();
+
+            Property(e => e.email);
 
 
-            Property(e => e.program)
-            .IsFixedLength();
+
+            Property(e => e.program);
 
 
-            Property(e => e.level)
-            .IsFixedLength();
+
+            Property(e => e.level);
 
 
-            Property(e => e.session)
-            .IsFixedLength();
+
+            Property(e => e.session);
 
 
-            Property(e => e.user_created)
-            .IsFixedLength();
+
+            Property(e => e.user_created);
+
         }
     }
 }
