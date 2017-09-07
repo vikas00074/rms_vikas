@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCoursePresenter.cs" />
+    <Compile Include="Course\ListCoursePresenter.cs" />
     <Compile Include="Course\ViewCoursePresenter.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="NewResultPresenter.cs" />

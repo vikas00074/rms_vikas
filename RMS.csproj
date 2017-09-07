@@ -333,7 +333,7 @@
     <Content Include="Student\View.aspx" />
     <Content Include="Student\Update.aspx" />
     <Content Include="User\New.aspx" />
-    <Content Include="RegisteredCourse\Register_Courses.aspx" />
+    <Content Include="RegisteredCourse\RegisterCourses.aspx" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\Accordion.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AjaxFileUpload.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AlwaysVisibleControl.debug.js" />
@@ -660,13 +660,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Send_Mail.aspx" />
+    <Content Include="SendMail.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Result\New.aspx" />
     <Content Include="Result\Update.aspx" />
     <Content Include="User\List.aspx" />
     <Content Include="Course\List.aspx" />
-    <Content Include="RegisteredCourse\View_Registered_Courses.aspx" />
+    <Content Include="RegisteredCourse\ViewRegisteredCourses.aspx" />
     <Content Include="Result\List.aspx" />
     <Content Include="Student\List.aspx" />
     <Content Include="User\Update.aspx" />
@@ -751,19 +751,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="RegisteredCourse\Register_Courses.aspx.cs">
-      <DependentUpon>Register_Courses.aspx</DependentUpon>
+    <Compile Include="RegisteredCourse\RegisterCourses.aspx.cs">
+      <DependentUpon>RegisterCourses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisteredCourse\Register_Courses.aspx.designer.cs">
-      <DependentUpon>Register_Courses.aspx</DependentUpon>
+    <Compile Include="RegisteredCourse\RegisterCourses.aspx.designer.cs">
+      <DependentUpon>RegisterCourses.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Send_Mail.aspx.cs">
-      <DependentUpon>Send_Mail.aspx</DependentUpon>
+    <Compile Include="SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Send_Mail.aspx.designer.cs">
-      <DependentUpon>Send_Mail.aspx</DependentUpon>
+    <Compile Include="SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -800,12 +800,12 @@
     <Compile Include="Course\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegisteredCourse\View_Registered_Courses.aspx.cs">
-      <DependentUpon>View_Registered_Courses.aspx</DependentUpon>
+    <Compile Include="RegisteredCourse\ViewRegisteredCourses.aspx.cs">
+      <DependentUpon>ViewRegisteredCourses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisteredCourse\View_Registered_Courses.aspx.designer.cs">
-      <DependentUpon>View_Registered_Courses.aspx</DependentUpon>
+    <Compile Include="RegisteredCourse\ViewRegisteredCourses.aspx.designer.cs">
+      <DependentUpon>ViewRegisteredCourses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Result\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>

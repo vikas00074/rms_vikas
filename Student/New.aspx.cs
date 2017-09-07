@@ -49,10 +49,12 @@
                 {
                     throw new ApplicationException("La fecha tiene un formato incorrecto.", fex);
                 }
-
             }
 
-            set { txtDateOfBirth.Text = value.ToShortDateString(); }
+            set
+            {
+                txtDateOfBirth.Text = value.ToShortDateString();
+            }
         }
 
         public string Phone

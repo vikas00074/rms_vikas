@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Send_Mail.aspx.cs" Inherits="RMS.Send_Mail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SendMail.aspx.cs" Inherits="RMS.Send_Mail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <style type="text/css">

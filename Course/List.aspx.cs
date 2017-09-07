@@ -6,86 +6,28 @@ namespace RMS.Course
 {
     using System;
     using System.Data;
-    using System.Data.SqlClient;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using Presenter.Course;
+    using View.Course;
 
-    public partial class List : Page
+    public partial class List : Page, IListCourseView
     {
-        SqlDataReader dr;
-        SqlConnection con;
-        SqlDataAdapter adap;
-        DataSet ds1;
+        private readonly ListCoursePresenter _presenter;
+
+        public List()
+        {
+            _presenter = new ListCoursePresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(Properties.Settings.Default.SqlServer);
-                con.Open();
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
-            Load_Courses();
+            _presenter.LoadCourses();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM courses where Id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
-
-                adap = new SqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "rms");
-
-                GridView1.DataSource = ds1.Tables[0];
-                GridView1.DataBind();
-
-                lblError.Visible = false;
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
-        }
-
-        protected void Load_Courses()
-        {
-            try
-            {
-                con.Open();
-
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM courses where Id like " + "'" + txtSearch.Text + "%' or course_title like " + "'" + txtSearch.Text + "%' or course_level like " + "'" + txtSearch.Text + "%'";
-
-                adap = new SqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "rms");
-
-                GridView1.DataSource = ds1.Tables[0];
-                GridView1.DataBind();
-
-                lblError.Visible = false;
-            }
-            catch (Exception err)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error: " + err.Message;
-            }
-
-            con.Close();
+            _presenter.LoadCourses();
         }
 
         //protected void btnUpdate_Click(object sender, EventArgs e)
@@ -204,6 +146,23 @@ namespace RMS.Course
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             Trace.Write("GridView1_RowCancelingEdit");
+        }
+
+        public void FillGrid(DataTable dataTable)
+        {
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
+        }
+
+        public void ShowError(string message)
+        {
+            lblError.Visible = true;
+            lblError.Text = "Error: " + message;
+        }
+
+        public string GetSearchInput()
+        {
+            return txtSearch.Text;
         }
     }
 }
