@@ -11,7 +11,7 @@ namespace Data.Mapping
     using System.Text;
     using System.Threading.Tasks;
 
-    internal class UserTypeConfiguration : EntityTypeConfiguration<users>
+    internal class UserTypeConfiguration : EntityTypeConfiguration<User>
     {
         public UserTypeConfiguration()
         {

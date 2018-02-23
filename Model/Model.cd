@@ -37,7 +37,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Entity&lt;TKey&gt;">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>Entity.cs</FileName>

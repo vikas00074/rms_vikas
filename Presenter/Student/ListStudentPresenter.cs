@@ -27,7 +27,7 @@ namespace Presenter.Student
 
                 using (var ctx = new ModelContext())
                 {
-                    gridData = ctx.students
+                    gridData = ctx.Students
                         .Where(x => x.firstname.StartsWith(input)
                         || x.lastname.StartsWith(input)
                         || x.phone.StartsWith(input)

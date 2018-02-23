@@ -1,17 +1,29 @@
-﻿using System;
-using System.Web.UI;
-using System.Data;
-using System.Data.SqlClient;
+﻿// <copyright file="RegisterCourses.aspx.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace RMS
 {
-    public partial class Register_Courses : Page
+    using Presenter.RegisterCourse;
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Web.UI;
+    using View.RegisterCourse;
+
+    public partial class RegisterCourses : Page, IRegisterCourseView
     {
         SqlDataReader dr;
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adap;
         DataSet ds1;
+        private readonly RegisterCoursePresenter _presenter;
+
+        public RegisterCourses()
+        {
+            _presenter = new RegisterCoursePresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,6 +44,8 @@ namespace RMS
 
         protected void btnSearchStud_Click(object sender, EventArgs e)
         {
+
+
             try
             {
                 if (txtStudID.Text != string.Empty)

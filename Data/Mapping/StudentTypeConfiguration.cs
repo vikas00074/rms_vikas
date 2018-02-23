@@ -11,7 +11,7 @@ namespace Data.Mapping
     using System.Text;
     using System.Threading.Tasks;
 
-    internal class StudentTypeConfiguration : EntityTypeConfiguration<students>
+    internal class StudentTypeConfiguration : EntityTypeConfiguration<Student>
     {
         public StudentTypeConfiguration()
         {

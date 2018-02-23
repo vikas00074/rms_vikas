@@ -49,6 +49,7 @@
     <Compile Include="IAddCourseView.cs" />
     <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
+    <Compile Include="RegisterCourse\IRegisterCourseView.cs" />
     <Compile Include="User\INewUserView.cs" />
     <Compile Include="ISiteView.cs" />
     <Compile Include="User\IListUserView.cs" />

@@ -6,7 +6,7 @@ namespace Data.Mapping
 {
     using System.Data.Entity.ModelConfiguration;
 
-    internal class CourseTypeConfiguration : EntityTypeConfiguration<courses>
+    internal class CourseTypeConfiguration : EntityTypeConfiguration<Course>
     {
         public CourseTypeConfiguration()
         {

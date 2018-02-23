@@ -1,12 +1,9 @@
 namespace Data
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class students
+    public partial class Student
     {
         public long Id { get; set; }
 

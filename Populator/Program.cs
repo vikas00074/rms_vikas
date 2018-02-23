@@ -62,7 +62,7 @@ namespace Populator
             using (var ctx = new ModelContext())
             {
                 ctx.students.AddRange(students
-                    .Select(x => new students
+                    .Select(x => new Student
                     {
                         birthdate = x.birthdate,
                         email = x.email,
@@ -88,7 +88,7 @@ namespace Populator
             using (var ctx = new ModelContext())
             {
                 ctx.users.AddRange(users
-                    .Select(x => new users
+                    .Select(x => new User
                     {
                         department = x.department,
                         designation = x.designation,

@@ -273,5 +273,11 @@ namespace RMS.User
         {
             return txtSearch.Text;
         }
+
+        public void ShowError(Exception ex)
+        {
+            lblError.Visible = true;
+            lblError.Text = "Error: " + ex.Message;
+        }
     }
 }

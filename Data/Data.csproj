@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="courses.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Mapping\CourseTypeConfiguration.cs" />
     <Compile Include="Mapping\RegisteredCoursesTypeConfiguration.cs" />
     <Compile Include="Mapping\ResultTypeConfiguration.cs" />
@@ -67,8 +67,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registered_courses.cs" />
     <Compile Include="results.cs" />
-    <Compile Include="students.cs" />
-    <Compile Include="users.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

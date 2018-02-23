@@ -41,7 +41,7 @@ namespace Presenter
 
                 using (var ctx = new ModelContext())
                 {
-                    users = ctx.users
+                    users = ctx.Users
                         .Where(x => x.surname.StartsWith(input)
                         || x.firstname.StartsWith(input)
                         || x.Id.ToString().StartsWith(input)
@@ -61,7 +61,7 @@ namespace Presenter
             }
             catch (Exception ex)
             {
-                throw;
+                View.ShowError(ex);
             }
         }
     }

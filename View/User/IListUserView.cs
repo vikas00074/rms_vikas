@@ -2,6 +2,7 @@
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using ViewModel.User;
 
@@ -12,5 +13,6 @@ namespace View
         void FocusUsernameTextbox();
         void FillUserGrid(IEnumerable<ListUserGridViewModel> data);
         string GetSearchTerm();
+        void ShowError(Exception ex);
     }
 }

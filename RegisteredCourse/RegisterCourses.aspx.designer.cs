@@ -10,7 +10,7 @@
 namespace RMS {
     
     
-    public partial class Register_Courses {
+    public partial class RegisterCourses {
         
         /// <summary>
         /// Control lblError.

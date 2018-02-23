@@ -72,6 +72,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RegisterCourse\RegisterCoursePresenter.cs" />
     <Compile Include="SitePresenter.cs" />
     <Compile Include="Student\ListStudentPresenter.cs" />
     <Compile Include="Student\NewStudentPresenter.cs" />

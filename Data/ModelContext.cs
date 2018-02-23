@@ -22,15 +22,15 @@ namespace Data
             Configuration.ValidateOnSaveEnabled = false;
         }
 
-        public virtual DbSet<courses> courses { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
 
         public virtual DbSet<registered_courses> registered_courses { get; set; }
 
         public virtual DbSet<results> results { get; set; }
 
-        public virtual DbSet<students> students { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
 
-        public virtual DbSet<users> users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
