@@ -44,7 +44,7 @@ namespace RMS
 
         public void SetLoggedUser(string userLogger)
         {
-            hlLogUser.Text = userLogger;
+            //hlLogUser.Text = userLogger;
         }
 
         public void Redirect(string v)

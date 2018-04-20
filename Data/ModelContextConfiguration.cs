@@ -12,7 +12,7 @@ namespace Data
     {
         public ModelContextConfiguration()
         {
-            string conx = "data source=DN-WORKSTATION;initial catalog=rms;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+            string conx = "data source=DESKTOP-TITUCRB;initial catalog=rms;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
             SetDefaultConnectionFactory(new SqlConnectionFactory(conx));
             SetProviderServices(SqlProviderServices.ProviderInvariantName, SqlProviderServices.Instance);
         }

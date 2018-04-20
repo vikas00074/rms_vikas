@@ -1,4 +1,8 @@
-﻿namespace Presenter
+﻿// <copyright file="LoginPresenter.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
+namespace Presenter
 {
     using System;
     using System.Data.SqlClient;
