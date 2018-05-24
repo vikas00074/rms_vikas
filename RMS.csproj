@@ -321,6 +321,7 @@
     <Content Include="Content\AjaxControlToolkit\Styles\Twitter.min.css" />
     <Content Include="Content\AjaxControlToolkit\Styles\ValidatorCallout.css" />
     <Content Include="Content\AjaxControlToolkit\Styles\ValidatorCallout.min.css" />
+    <Content Include="Content\entireframework.min.css" />
     <Content Include="Course\Add.aspx" />
     <Content Include="Course\View.aspx" />
     <Content Include="Default.aspx" />
