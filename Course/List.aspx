@@ -3,9 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
-    <p>
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False" />
-    </p>
     <asp:Panel CssClass="panel panel-default" runat="server">
         <asp:Panel CssClass="panel-heading" runat="server"></asp:Panel>
         <asp:Panel CssClass="panel-body" runat="server">

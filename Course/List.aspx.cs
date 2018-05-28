@@ -9,6 +9,7 @@ namespace RMS.Course
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using Presenter.Course;
+    using View;
     using View.Course;
 
     public partial class List : Page, IListCourseView
@@ -112,8 +113,6 @@ namespace RMS.Course
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             Trace.Write("GridView1_RowEditing");
-
-            lblError.Text = string.Empty;
         }
 
         protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
@@ -122,8 +121,7 @@ namespace RMS.Course
 
             if (e.Exception != null)
             {
-                lblError.Visible = true;
-                lblError.Text = e.Exception.Message;
+                ShowError(e.Exception);
                 e.ExceptionHandled = true;
             }
         }
@@ -154,10 +152,9 @@ namespace RMS.Course
             GridView1.DataBind();
         }
 
-        public void ShowError(string message)
+        public void ShowError(Exception ex)
         {
-            lblError.Visible = true;
-            lblError.Text = "Error: " + message;
+            ((ISiteView)Master).ShowException(ex);
         }
 
         public string GetSearchInput()

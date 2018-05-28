@@ -54,7 +54,7 @@ namespace RMS
 
         public void ShowException(Exception aex)
         {
-            lblError.Visible = true;
+            pnlError.Visible = true;
             lblError.Text = aex.Message;
         }
 

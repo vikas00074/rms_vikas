@@ -43,7 +43,7 @@ namespace Presenter.Course
             }
             catch (Exception err)
             {
-                View.ShowError(err.Message);
+                View.ShowError(err);
             }
             finally
             {
