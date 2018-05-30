@@ -41,7 +41,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <DocumentationFile>bin\result-management-system.XML</DocumentationFile>
     <CodeAnalysisRuleSet>result-management-system.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -721,6 +721,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModernButton.cs" />
     <Compile Include="Student\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

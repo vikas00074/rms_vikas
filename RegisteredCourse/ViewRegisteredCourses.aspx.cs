@@ -1,11 +1,14 @@
-﻿using System;
-using System.Web.UI;
-
-using System.Data;
-using System.Data.SqlClient;
+﻿// <copyright file="ViewRegisteredCourses.aspx.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace RMS
 {
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Web.UI;
+
     public partial class View_Registered_Courses : Page
     {
         SqlDataReader dr;

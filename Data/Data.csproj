@@ -22,7 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\result-management-system.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\Debug\Data.XML</DocumentationFile>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="INewResultView.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace View
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public interface INewResultView : IViewBase
     {
         DateTime DateOfBirth { get; set; }

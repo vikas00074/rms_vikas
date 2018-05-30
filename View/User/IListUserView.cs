@@ -2,12 +2,12 @@
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using ViewModel.User;
-
 namespace View
 {
+    using System;
+    using System.Collections.Generic;
+    using ViewModel.User;
+
     public interface IListUsersView : IViewBase
     {
         void FocusUsernameTextbox();

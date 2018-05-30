@@ -1,13 +1,15 @@
-﻿using System;
-using System.Web.UI;
-
-using System.Data;
-
-using System.Net.Mail;
-using System.Data.SqlClient;
+﻿// <copyright file="SendMail.aspx.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace RMS
 {
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Net.Mail;
+    using System.Web.UI;
+
     public partial class Send_Mail : Page
     {
         SqlConnection con;

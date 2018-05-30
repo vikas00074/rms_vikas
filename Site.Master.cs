@@ -52,10 +52,16 @@ namespace RMS
             Response.Redirect(v);
         }
 
-        public void ShowException(Exception aex)
+        public void ShowError(Exception aex)
         {
             pnlError.Visible = true;
-            lblError.Text = aex.Message;
+            lblError.Text = aex.ToString();
+        }
+
+        public void ShowSucess(string message)
+        {
+            pnlSuccess.Visible = true;
+            lblSuccess.Text = message;
         }
 
         public void FinishSession()

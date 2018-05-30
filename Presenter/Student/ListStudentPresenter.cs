@@ -22,25 +22,31 @@ namespace Presenter.Student
         {
             try
             {
+                string firstName = View.GetFirstName();
+                string lastName = View.GetLastName();
+                string phone = View.GetPhone();
+                string email = View.GetEmail();
+
                 IEnumerable<ListStudentGridViewModel> gridData;
-                string input = View.GetSearchCondition();
 
                 using (var ctx = new ModelContext())
                 {
-                    gridData = ctx.Students
-                        .Where(x => x.firstname.StartsWith(input)
-                        || x.lastname.StartsWith(input)
-                        || x.phone.StartsWith(input)
-                        || x.email.StartsWith(input))
-                        .Select(x => new ListStudentGridViewModel
-                        {
-                            Identifier = x.Id,
-                            FirstName = x.firstname,
-                            LastName = x.lastname,
-                            Phone = x.phone,
-                            Email = x.email
-                        })
-                        .ToArray();
+                    var query = ctx.Students.AsQueryable();
+
+                    if (!string.IsNullOrWhiteSpace(firstName)) query = query.Where(x => x.firstname.StartsWith(firstName));
+                    if (!string.IsNullOrWhiteSpace(lastName)) query = query.Where(x => x.lastname.StartsWith(lastName));
+                    if (!string.IsNullOrWhiteSpace(phone)) query = query.Where(x => x.phone.StartsWith(phone));
+                    if (!string.IsNullOrWhiteSpace(email)) query = query.Where(x => x.email.StartsWith(email));
+
+                    gridData = query.Select(x => new ListStudentGridViewModel
+                    {
+                        Identifier = x.Id,
+                        FirstName = x.firstname,
+                        LastName = x.lastname,
+                        Phone = x.phone,
+                        Email = x.email
+                    })
+                    .ToArray();
                 }
 
                 if (gridData == null)

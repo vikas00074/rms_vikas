@@ -1,3 +1,7 @@
+// <copyright file="registered_courses.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
 namespace Data
 {
     using System;

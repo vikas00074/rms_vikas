@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using View;
+﻿// <copyright file="NewResultPresenter.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace Presenter
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.SqlClient;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using View;
+
     public class NewResultPresenter : PresenterBase<INewResultView>
     {
         private readonly SqlConnection _conn;

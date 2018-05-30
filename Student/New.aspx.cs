@@ -1,4 +1,8 @@
-﻿namespace RMS.Student
+﻿// <copyright file="New.aspx.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
+namespace RMS.Student
 {
     using System;
     using System.Web.UI;

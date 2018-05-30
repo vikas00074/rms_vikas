@@ -154,7 +154,7 @@ namespace RMS.Course
 
         public void ShowError(Exception ex)
         {
-            ((ISiteView)Master).ShowException(ex);
+            ((ISiteView)Master).ShowError(ex);
         }
 
         public string GetSearchInput()

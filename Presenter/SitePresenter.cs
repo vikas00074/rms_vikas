@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using View;
+﻿// <copyright file="SitePresenter.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
 
 namespace Presenter
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using View;
+
     public class SitePresenter : PresenterBase<ISiteView>
     {
         public SitePresenter(ISiteView view)
@@ -22,7 +26,7 @@ namespace Presenter
             }
             catch (ApplicationException aex)
             {
-                View.ShowException(aex);
+                View.ShowError(aex);
             }
         }
 
@@ -42,7 +46,7 @@ namespace Presenter
             }
             catch (ApplicationException aex)
             {
-                View.ShowException(aex);
+                View.ShowError(aex);
             }
         }
 
@@ -55,7 +59,7 @@ namespace Presenter
             }
             catch (ApplicationException aex)
             {
-                View.ShowException(aex);
+                View.ShowError(aex);
             }
         }
     }

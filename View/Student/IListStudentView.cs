@@ -4,17 +4,21 @@
 
 namespace View.Student
 {
-    using ViewModel.Student;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using ViewModel.Student;
 
     public interface IListStudentView : IViewBase
     {
-        string GetSearchCondition();
+        string GetFirstName();
 
         void SetGridData(IEnumerable<ListStudentGridViewModel> gridData);
+
+        void ShowError(Exception ex);
+
+        void ShowSuccess(string message);
+        string GetLastName();
+        string GetPhone();
+        string GetEmail();
     }
 }

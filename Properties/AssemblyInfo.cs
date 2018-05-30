@@ -1,4 +1,8 @@
-﻿using System.Resources;
+﻿// <copyright file="AssemblyInfo.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
+using System.Resources;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

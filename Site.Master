@@ -68,6 +68,11 @@
             <strong>Error!</strong>
             <asp:Label ID="lblError" runat="server" />
         </asp:Panel>
+        <asp:Panel ID="pnlSuccess" CssClass="alert alert-dismissible alert-success" Visible="false" runat="server">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong>
+            <asp:Label ID="lblSuccess" runat="server" />
+        </asp:Panel>
         <!-- Init Content Placer Holder Body -->
         <asp:ContentPlaceHolder ID="cphBody" runat="server" />
         <!-- Footer -->

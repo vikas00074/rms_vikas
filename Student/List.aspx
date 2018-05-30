@@ -1,48 +1,70 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="RMS.Student.ListStudent" %>
 
+<%@ Register TagPrefix="aux" Namespace="RMS" Assembly="result-management-system" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
-    <p align="center">
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
-    </p>
-    <br />
-    <asp:Panel CssClass="panel panel-default" runat="server">
-        <asp:Panel CssClass="panel-heading" runat="server">
-            <h3 class="panel-title">
-                <asp:Literal Text="Student" runat="server" />
-            </h3>
-        </asp:Panel>
-        <asp:Panel CssClass="panel-body" runat="server">
-            <asp:Panel CssClass="form-inline" runat="server">
-                <asp:Panel CssClass="form-group" runat="server">
-                    <asp:Label CssClass="control-label" Text="Firstname / Lastname / Phone / Email" runat="server" />
-                    <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server" />
-                </asp:Panel>
-                <asp:Button ID="btnFind" CssClass="btn btn-default" runat="server" OnClick="btnSearch_Click" Text="Search" />
+    <!-- FieldSet Init -->
+    <fieldset>
+        <!-- Title -->
+        <legend>
+            <asp:Literal Text="Student" runat="server" />
+        </legend>
+        <!-- Row -->
+        <asp:Panel CssClass="form-row align-items-end" runat="server">
+            <asp:Panel CssClass="form-group col-md-2" runat="server">
+                <asp:Label Text="Firstname" AssociatedControlID="txtFirstName" runat="server" />
+                <asp:TextBox ID="txtFirstName" CssClass="form-control" TextMode="SingleLine" AutoCompleteType="FirstName" runat="server" />
+            </asp:Panel>
+            <asp:Panel CssClass="form-group col-md-2" runat="server">
+                <asp:Label Text="Lastname" AssociatedControlID="txtLastName" runat="server" />
+                <asp:TextBox ID="txtLastName" CssClass="form-control" TextMode="SingleLine" AutoCompleteType="LastName" runat="server" />
+            </asp:Panel>
+            <asp:Panel CssClass="form-group col-md-2" runat="server">
+                <asp:Label Text="Phone" AssociatedControlID="txtPhone" runat="server" />
+                <asp:TextBox ID="txtPhone" CssClass="form-control" TextMode="Phone" AutoCompleteType="HomePhone" runat="server" />
+            </asp:Panel>
+            <asp:Panel CssClass="form-group col-md-2" runat="server">
+                <asp:Label Text="Email" AssociatedControlID="txtEmail" runat="server" />
+                <asp:TextBox ID="txtEmail" CssClass="form-control" TextMode="Email" AutoCompleteType="Email" runat="server" />
+            </asp:Panel>
+            <asp:Panel CssClass="form-group col-md-2" runat="server">
+                <aux:ModernButton ID="btnFind" CssClass="btn btn-default" runat="server" OnClick="btnFind_Click">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    Search
+                </aux:ModernButton>
             </asp:Panel>
         </asp:Panel>
-        <asp:UpdatePanel runat="server">
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="btnFind" EventName="Click" />
-            </Triggers>
-            <ContentTemplate>
-                <asp:GridView ID="GridView1" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Id" AllowPaging="True" AllowSorting="True" BorderStyle="None">
-                    <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
-                        <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
-                        <asp:BoundField DataField="Firstname" HeaderText="FirstName" />
-                        <asp:BoundField DataField="Phone" HeaderText="Phone" />
-                        <asp:BoundField DataField="Email" HeaderText="Email" />
-                        <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
-                    </Columns>
-                </asp:GridView>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-        <asp:Panel CssClass="panel-footer" runat="server">
+    </fieldset>
+    <asp:Panel CssClass="card" runat="server">
+        <h3 class="card-header">Students</h3>
+        <!-- Card Body -->
+        <asp:Panel CssClass="card-body" runat="server">
+            <!-- Init UpdatePanel -->
+            <asp:UpdatePanel runat="server">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnFind" EventName="Click" />
+                </Triggers>
+                <ContentTemplate>
+                    <!-- GridView -->
+                    <asp:GridView ID="GridView1" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Id" AllowPaging="True" AllowSorting="True" BorderStyle="None">
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
+                            <asp:BoundField DataField="Firstname" HeaderText="FirstName" />
+                            <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" />
+                            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
+                        </Columns>
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </asp:Panel>
+        <!-- Card Footer -->
+        <asp:Panel CssClass="card-footer" runat="server"></asp:Panel>
     </asp:Panel>
-    <table class="style5">
+    <%--<table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">
                 <asp:Panel ID="PanelStudMenu" runat="server" Height="201px"
@@ -295,7 +317,7 @@
                 <br />
             </td>
         </tr>
-    </table>
+    </table>--%>
     <br />
     <br />
     <br />

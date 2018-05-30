@@ -1,3 +1,7 @@
+// <copyright file="Course.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
 namespace Data
 {
     using System;

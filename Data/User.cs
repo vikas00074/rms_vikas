@@ -1,3 +1,7 @@
+// <copyright file="User.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
 namespace Data
 {
     using System.ComponentModel.DataAnnotations;

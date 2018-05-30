@@ -2,10 +2,10 @@
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
-using System.Data;
-
 namespace View.Course
 {
+    using System.Data;
+
     public interface IViewCourseView : IViewBase
     {
         int Id { get; }

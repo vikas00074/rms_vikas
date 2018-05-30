@@ -1,4 +1,8 @@
-﻿namespace Model
+﻿// <copyright file="IAuditable.cs" company="RMS">
+// Copyright (c) RMS. All rights reserved.
+// </copyright>
+
+namespace Model
 {
     using System;
     using System.Collections.Generic;
