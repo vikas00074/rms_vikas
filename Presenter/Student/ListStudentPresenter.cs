@@ -62,7 +62,7 @@ namespace Presenter.Student
             }
             catch (Exception ex)
             {
-                throw;
+                View.ShowError(ex);
             }
         }
     }

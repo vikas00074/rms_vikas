@@ -42,20 +42,20 @@
         <!-- Card Body -->
         <asp:Panel CssClass="card-body" runat="server">
             <!-- Init UpdatePanel -->
-            <asp:UpdatePanel runat="server">
+            <asp:UpdatePanel ID="upStudents" UpdateMode="Conditional" runat="server" RenderMode="Inline">
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="btnFind" EventName="Click" />
                 </Triggers>
                 <ContentTemplate>
                     <!-- GridView -->
-                    <asp:GridView ID="GridView1" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Id" AllowPaging="True" AllowSorting="True" BorderStyle="None">
+                    <asp:GridView ID="gvStudents" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Identifier" AllowPaging="True" AllowSorting="True" OnRowCreated="gvStudents_RowCreated">
                         <Columns>
-                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Identifier" HeaderText="Id" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
                             <asp:BoundField DataField="Firstname" HeaderText="FirstName" />
                             <asp:BoundField DataField="Phone" HeaderText="Phone" />
                             <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
+                            <asp:HyperLinkField DataNavigateUrlFields="Identifier" DataNavigateUrlFormatString="View.aspx?Id={0}" Target="_parent" Text="View" />
                         </Columns>
                     </asp:GridView>
                 </ContentTemplate>

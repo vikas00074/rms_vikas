@@ -10,6 +10,7 @@ namespace RMS.Student
     using System.Data.SqlClient;
     using System.IO;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
     using Presenter.Student;
     using View;
     using View.Student;
@@ -247,6 +248,37 @@ namespace RMS.Student
             //PanelStudMenu.Visible = false;
         }
 
+        protected void gvStudents_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            switch (e.Row.RowType)
+            {
+                case DataControlRowType.Header:
+                    if (gvStudents.ShowHeader || gvStudents.ShowHeaderWhenEmpty)
+                    {
+                        e.Row.TableSection = TableRowSection.TableHeader;
+                    }
+
+                    break;
+                case DataControlRowType.Footer:
+                    if (gvStudents.ShowFooter)
+                    {
+                        e.Row.TableSection = TableRowSection.TableFooter;
+                    }
+
+                    break;
+                case DataControlRowType.DataRow:
+                    break;
+                case DataControlRowType.Separator:
+                    break;
+                case DataControlRowType.Pager:
+                    break;
+                case DataControlRowType.EmptyDataRow:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public string GetFirstName()
         {
             return txtFirstName.Text;
@@ -254,8 +286,8 @@ namespace RMS.Student
 
         public void SetGridData(IEnumerable<ListStudentGridViewModel> gridData)
         {
-            GridView1.DataSource = gridData;
-            GridView1.DataBind();
+            gvStudents.DataSource = gridData;
+            gvStudents.DataBind();
         }
 
         public void ShowError(Exception ex)
@@ -282,5 +314,7 @@ namespace RMS.Student
         {
             return txtEmail.Text;
         }
+
+
     }
 }
