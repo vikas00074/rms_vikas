@@ -7,7 +7,10 @@ namespace Presenter.Student
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using BusinessLogic;
+    using BusinessLogic.Contracts;
     using Data;
+    using Dto;
     using View.Student;
     using ViewModel.Student;
 
@@ -27,27 +30,10 @@ namespace Presenter.Student
                 string phone = View.GetPhone();
                 string email = View.GetEmail();
 
-                IEnumerable<ListStudentGridViewModel> gridData;
+                var bl = Service.Get<IStudentBusinessLogic>();
 
-                using (var ctx = new ModelContext())
-                {
-                    var query = ctx.Students.AsQueryable();
-
-                    if (!string.IsNullOrWhiteSpace(firstName)) query = query.Where(x => x.firstname.StartsWith(firstName));
-                    if (!string.IsNullOrWhiteSpace(lastName)) query = query.Where(x => x.lastname.StartsWith(lastName));
-                    if (!string.IsNullOrWhiteSpace(phone)) query = query.Where(x => x.phone.StartsWith(phone));
-                    if (!string.IsNullOrWhiteSpace(email)) query = query.Where(x => x.email.StartsWith(email));
-
-                    gridData = query.Select(x => new ListStudentGridViewModel
-                    {
-                        Identifier = x.Id,
-                        FirstName = x.firstname,
-                        LastName = x.lastname,
-                        Phone = x.phone,
-                        Email = x.email
-                    })
-                    .ToArray();
-                }
+                var filter = new StudentFilter(firstName, lastName, phone, email);
+                IEnumerable<ListStudentGridViewModel> gridData = bl.GetStudents(filter);
 
                 if (gridData == null)
                 {

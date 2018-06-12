@@ -8,6 +8,7 @@ namespace Data
     using System.Diagnostics;
     using Data.Initializer;
     using Mapping;
+    using Model;
 
     public partial class ModelContext : DbContext
     {

@@ -1,21 +1,23 @@
-﻿// <copyright file="Course.cs" company="RMS">
+// <copyright file="Course.cs" company="RMS">
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
 namespace Model
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.ComponentModel.DataAnnotations;
 
-    public class Course : Entity<ulong>, IAuditable
+    public class Course
     {
-        public string Title { get; set; }
-        public byte Level { get; set; }
-        public DateTime Created { get; set; }
-        public User CreatedBy { get; set; }
-        public DateTime? Modified { get; set; }
-        public User ModifiedBy { get; set; }
+        public long Id { get; set; }
+
+        [StringLength(10)]
+        public string course_title { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string course_level { get; set; }
+
+        public DateTime date_created { get; set; }
     }
 }

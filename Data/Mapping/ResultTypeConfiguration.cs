@@ -4,6 +4,7 @@
 
 namespace Data.Mapping
 {
+    using Model;
     using System.Data.Entity.ModelConfiguration;
 
     internal class ResultTypeConfiguration : EntityTypeConfiguration<results>

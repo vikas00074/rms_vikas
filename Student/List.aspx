@@ -67,47 +67,25 @@
     <%--<table class="style5">
         <tr>
             <td align="center" class="style40" style="vertical-align: top">
-                <asp:Panel ID="PanelStudMenu" runat="server" Height="201px"
-                    Style="margin-left: 2px; z-index: -1;" Visible="False" Width="1247px">
+                <asp:Panel ID="PanelStudMenu" runat="server" Height="201px" Style="margin-left: 2px; z-index: -1;" Visible="False" Width="1247px">
                     <table class="style5" style="border-color: #CBC9F8; height: 176px;">
                         <tr>
                             <td align="left" class="style8" colspan="2">
-                                <asp:Label ID="lblStudData" runat="server" Font-Bold="True" Font-Size="Medium"
-                                    ForeColor="Black" Text="Label"></asp:Label>
+                                <asp:Label ID="lblStudData" runat="server" Font-Bold="True" Font-Size="Medium"ForeColor="Black" Text="Label"></asp:Label>
                             </td>
-                            <td align="left" rowspan="3" style="vertical-align: top; text-align: right;"
-                                class="style140">
-                                <asp:Panel ID="PanelBrowse" runat="server" Height="137px" Visible="False"
-                                    Width="232px">
-                                    <br />
+                            <td align="left" rowspan="3" style="vertical-align: top; text-align: right;" class="style140">
+                                <asp:Panel ID="PanelBrowse" runat="server" Height="137px" Visible="False" Width="232px">
                                     <asp:FileUpload ID="FileUpload1" runat="server" Width="215px" />
-                                    <br />
-                                    <br />
-                                    <asp:LinkButton ID="lnkUpdatePicture" runat="server" Font-Underline="False"
-                                        OnClick="lnkUpdatePicture_Click">Save</asp:LinkButton>
-                                    &nbsp;
-                                <asp:LinkButton ID="lnkClose" runat="server" Font-Underline="False"
-                                    ForeColor="#CC0000" OnClick="lnkClose_Click">Close</asp:LinkButton>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <br />
-                                    <br />
+                                    <asp:LinkButton ID="lnkUpdatePicture" runat="server" Font-Underline="False" OnClick="lnkUpdatePicture_Click">Save</asp:LinkButton>
+                                <asp:LinkButton ID="lnkClose" runat="server" Font-Underline="False" ForeColor="#CC0000" OnClick="lnkClose_Click">Close</asp:LinkButton>
                                     <asp:Label ID="lblImgReport" runat="server" Text="."></asp:Label>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <br />
-                                    <br />
                                 </asp:Panel>
-                                &nbsp;</td>
+                            </td>
                             <td align="left" rowspan="3" style="vertical-align: top; text-align: right;">
                                 <asp:Panel ID="PanelImage" runat="server" Height="140px" Width="120px">
-                                    &nbsp;&nbsp;
-                                <asp:LinkButton ID="lnkShowPicture" runat="server" Font-Underline="False"
-                                    OnClick="lnkShowPicture_Click">View Picture</asp:LinkButton>
-                                    <br />
+                                <asp:LinkButton ID="lnkShowPicture" runat="server" Font-Underline="False" OnClick="lnkShowPicture_Click">View Picture</asp:LinkButton>
                                     <asp:Image ID="imgStud" runat="server" Height="110px" Width="110px" />
-                                    <br />
-                                    &nbsp;&nbsp;
-                                <asp:LinkButton ID="lnkLoadPicture" runat="server" Font-Underline="False"
-                                    OnClick="lnkLoadPicture_Click">Import Picture</asp:LinkButton>
+                                <asp:LinkButton ID="lnkLoadPicture" runat="server" Font-Underline="False" OnClick="lnkLoadPicture_Click">Import Picture</asp:LinkButton>
                                 </asp:Panel>
                             </td>
                         </tr>
@@ -123,19 +101,13 @@
                     </table>
                 </asp:Panel>
                 <asp:Panel ID="PanelSearchGrid" runat="server" ScrollBars="Auto" Visible="False">
-
-                    <asp:TextBox ID="txtStudID0" runat="server" Style="text-align: left"
-                        Visible="False" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="txtStudID0" runat="server" Style="text-align: left" Visible="False" Width="128px"></asp:TextBox>
                 </asp:Panel>
-                <br />
-                <br />
-                <br />
                 <asp:Panel ID="PanelStudRecord" runat="server" Height="304px" Visible="False">
                     <table bgcolor="#E4E4E4" class="style5">
                         <tr>
                             <td align="center" bgcolor="#006600" class="style17" colspan="8">
-                                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Medium"
-                                    ForeColor="White"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="White"></asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -156,8 +128,7 @@
                             <td align="left" class="style153"></td>
                             <td align="left" class="style152">Surname</td>
                             <td align="left" class="style154">
-                                <asp:TextBox ID="txtSname" runat="server" CssClass="style39" Font-Bold="True"
-                                    Width="170px"></asp:TextBox>
+                                <asp:TextBox ID="txtSname" runat="server" CssClass="style39" Font-Bold="True" Width="170px"></asp:TextBox>
                             </td>
                             <td align="left" class="style154"></td>
                             <td align="left" class="style155"></td>
@@ -221,8 +192,7 @@
                                     <asp:ListItem>30</asp:ListItem>
                                     <asp:ListItem>31</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="DropDownListMonth" runat="server" CssClass="style39"
-                                    Height="22px" Width="90px">
+                                <asp:DropDownList ID="DropDownListMonth" runat="server" CssClass="style39" Height="22px" Width="90px">
                                     <asp:ListItem></asp:ListItem>
                                     <asp:ListItem>January</asp:ListItem>
                                     <asp:ListItem>February</asp:ListItem>
@@ -276,12 +246,10 @@
                             </td>
                             <td align="left" class="style150"></td>
                             <td align="left" class="style151">
-                                <asp:TextBox ID="txtDateUpdated" runat="server" CssClass="style28"
-                                    Visible="False" Width="100px"></asp:TextBox>
+                                <asp:TextBox ID="txtDateUpdated" runat="server" CssClass="style28" Visible="False" Width="100px"></asp:TextBox>
                             </td>
                             <td align="left" class="style150">
-                                <asp:TextBox ID="txtUserUpdated" runat="server" CssClass="style28"
-                                    Visible="False" Width="100px"></asp:TextBox>
+                                <asp:TextBox ID="txtUserUpdated" runat="server" CssClass="style28" Visible="False" Width="100px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -289,32 +257,12 @@
                         </tr>
                         <tr>
                             <td align="left" class="style137" colspan="8">
-                                <asp:Button ID="btnSave" runat="server" CssClass="style28" Font-Bold="True"
-                                    Font-Size="Medium" ForeColor="Black" OnClick="btnSave_Click"
-                                    Style="text-align: center" Text="Save" Width="90px" />
-                                &nbsp;
-                            <asp:Button ID="btnCancel" runat="server" CssClass="style28" Font-Bold="True"
-                                Font-Size="Medium" ForeColor="Black" OnClick="btnCancel_Click" Text="Cancel"
-                                Width="88px" />
+                                <asp:Button ID="btnSave" runat="server" CssClass="style28" Font-Bold="True" Font-Size="Medium" ForeColor="Black" OnClick="btnSave_Click" Style="text-align: center" Text="Save" Width="90px" />
+                            <asp:Button ID="btnCancel" runat="server" CssClass="style28" Font-Bold="True" Font-Size="Medium" ForeColor="Black" OnClick="btnCancel_Click" Text="Cancel" Width="88px" />
                             </td>
                         </tr>
                     </table>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </asp:Panel>
-                <br />
-                <br />
-                <br />
-                <br />
             </td>
         </tr>
     </table>--%>

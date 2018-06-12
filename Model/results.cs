@@ -2,15 +2,13 @@
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
-namespace Data
+namespace Model
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class results
+    public class results
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -5,12 +5,33 @@
 namespace View.Student
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public interface IViewStudentView : IViewBase
     {
+        string GetQueryStringValue(string key);
+
+        void ShowError(string v);
+
+        void ShowException(Exception ex);
+
+        void SetIdentifier(long identifier);
+
+        void SetFirstName(string firstName);
+
+        void SetMiddleName(string middleName);
+
+        void SetLastName(string lastName);
+
+        void SetBirthDate(DateTime? birthDate);
+
+        void SetPhone(string phone);
+
+        void SetEmail(string email);
+
+        void SetLevel(string level);
+
+        void SetSession(string session);
+
+        void SetProgram(string program);
     }
 }

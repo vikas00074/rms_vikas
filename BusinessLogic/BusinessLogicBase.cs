@@ -1,8 +1,8 @@
-﻿// <copyright file="Person.cs" company="RMS">
+﻿// <copyright file="BusinessLogicBase.cs" company="RMS">
 // Copyright (c) RMS. All rights reserved.
 // </copyright>
 
-namespace Model
+namespace BusinessLogic
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +10,10 @@ namespace Model
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Person : Entity<ulong>
+    internal abstract class BusinessLogicBase : IBusinessLogicBase
     {
+        public BusinessLogicBase()
+        {
+        }
     }
 }
