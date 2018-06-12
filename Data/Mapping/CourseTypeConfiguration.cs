@@ -14,8 +14,7 @@ namespace Data.Mapping
             Property(e => e.course_title)
                 .IsFixedLength();
 
-            Property(e => e.course_level)
-                .IsFixedLength();
+            Property(e => e.course_level);
         }
     }
 }

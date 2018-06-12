@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Course\IListCourseView.cs" />
     <Compile Include="Course\IViewCourseView.cs" />
-    <Compile Include="IAddCourseView.cs" />
+    <Compile Include="Course\IAddCourseView.cs" />
     <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
     <Compile Include="RegisterCourse\IRegisterCourseView.cs" />

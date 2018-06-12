@@ -9,29 +9,11 @@ namespace RMS.Course
     using Presenter;
     using View;
 
-    public partial class Add : Page, IAddCourseView
+    public partial class AddCourse : Page, IAddCourseView
     {
         private readonly AddCoursePresenter _presenter;
 
-        public string CourseTitle
-        {
-            get { return txtCourseTitle.Text; }
-            set { txtCourseTitle.Text = value; }
-        }
-
-        public string FormTitle
-        {
-            get { return litTitle.Text; }
-            set { litTitle.Text = value; }
-        }
-
-        public string Level
-        {
-            get { return ddlLevel.Text; }
-            set { ddlLevel.Text = value; }
-        }
-
-        public Add()
+        public AddCourse()
         {
             _presenter = new AddCoursePresenter(this);
         }
@@ -47,25 +29,26 @@ namespace RMS.Course
 
         protected void btnCanc_Click(object sender, EventArgs e)
         {
-            ClearFields();
-        }
-
-        public void ClearExceptions()
-        {
-            lblError.Visible = false;
-            lblError.Text = string.Empty;
         }
 
         public void ShowException(Exception err)
         {
-            lblError.Visible = true;
-            lblError.Text = "Error: " + err.Message;
+            ((ISiteView)Master).ShowError(err);
         }
 
-        public void ClearFields()
+        public string GetTitle()
         {
-            txtCourseTitle.Text = string.Empty;
-            ddlLevel.Text = string.Empty;
+            return txtCourseTitle.Text;
+        }
+
+        public int GetLevel()
+        {
+            return int.Parse(ddlLevel.SelectedValue);
+        }
+
+        public void ShowError(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

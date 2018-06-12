@@ -17,7 +17,7 @@ namespace Data.Seed
                 new Course()
                 {
                     course_title = "A",
-                    course_level = "1",
+                    course_level = 100,
                     date_created = new DateTime(1998, 5, 5)
                 },
             };

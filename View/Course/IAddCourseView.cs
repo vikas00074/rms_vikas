@@ -12,12 +12,12 @@ namespace View
 
     public interface IAddCourseView : IViewBase
     {
-        string CourseTitle { get; set; }
-        string FormTitle { get; set; }
-        string Level { get; set; }
-
-        void ClearExceptions();
         void ShowException(Exception err);
-        void ClearFields();
+
+        string GetTitle();
+
+        int GetLevel();
+
+        void ShowError(string v);
     }
 }

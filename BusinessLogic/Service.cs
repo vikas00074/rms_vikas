@@ -4,11 +4,6 @@
 
 namespace BusinessLogic
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using BusinessLogic.Contracts;
     using Unity;
 
@@ -21,6 +16,7 @@ namespace BusinessLogic
             _container = new UnityContainer();
 
             _container.RegisterSingleton<IStudentBusinessLogic, StudentBusinessLogic>();
+            _container.RegisterSingleton<ICourseBusinessLogic, CourseBusinessLogic>();
         }
 
         public static T Get<T>()
