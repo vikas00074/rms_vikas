@@ -314,7 +314,5 @@ namespace RMS.Student
         {
             return txtEmail.Text;
         }
-
-
     }
 }
