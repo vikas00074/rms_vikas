@@ -47,20 +47,15 @@
     <Compile Include="Course\IListCourseView.cs" />
     <Compile Include="Course\IViewCourseView.cs" />
     <Compile Include="Course\IAddCourseView.cs" />
-    <Compile Include="ILoginView.cs" />
     <Compile Include="INewResultView.cs" />
     <Compile Include="RegisterCourse\IRegisterCourseView.cs" />
-    <Compile Include="User\INewUserView.cs" />
     <Compile Include="ISiteView.cs" />
-    <Compile Include="User\IListUserView.cs" />
     <Compile Include="IViewBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student\IListStudentView.cs" />
     <Compile Include="Student\INewStudentView.cs" />
     <Compile Include="Student\IUpdateStudentView.cs" />
     <Compile Include="Student\IViewStudentView.cs" />
-    <Compile Include="User\IUpdateUserView.cs" />
-    <Compile Include="User\IViewUserView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />

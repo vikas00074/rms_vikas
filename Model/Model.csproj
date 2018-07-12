@@ -55,7 +55,6 @@
     <Compile Include="registered_courses.cs" />
     <Compile Include="results.cs" />
     <Compile Include="Student.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

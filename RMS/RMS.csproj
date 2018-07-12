@@ -330,7 +330,6 @@
     <Content Include="Course\Add.aspx" />
     <Content Include="Course\View.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -354,7 +353,6 @@
     <Content Include="Student\New.aspx" />
     <Content Include="Student\View.aspx" />
     <Content Include="Student\Update.aspx" />
-    <Content Include="User\New.aspx" />
     <Content Include="RegisteredCourse\RegisterCourses.aspx" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\Accordion.debug.js" />
     <Content Include="Scripts\AjaxControlToolkit\Debug\AjaxFileUpload.debug.js" />
@@ -672,13 +670,10 @@
     <Content Include="Global.asax" />
     <Content Include="Result\New.aspx" />
     <Content Include="Result\Update.aspx" />
-    <Content Include="User\List.aspx" />
     <Content Include="Course\List.aspx" />
     <Content Include="RegisteredCourse\ViewRegisteredCourses.aspx" />
     <Content Include="Result\List.aspx" />
     <Content Include="Student\List.aspx" />
-    <Content Include="User\Update.aspx" />
-    <Content Include="User\View.aspx" />
     <Content Include="Web.config" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
@@ -703,13 +698,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
@@ -742,13 +730,6 @@
     </Compile>
     <Compile Include="Student\Update.aspx.designer.cs">
       <DependentUpon>Update.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\New.aspx.cs">
-      <DependentUpon>New.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\New.aspx.designer.cs">
-      <DependentUpon>New.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -796,13 +777,6 @@
     <Compile Include="Result\Update.aspx.designer.cs">
       <DependentUpon>Update.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Course\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -830,20 +804,6 @@
     </Compile>
     <Compile Include="Student\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\Update.aspx.cs">
-      <DependentUpon>Update.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Update.aspx.designer.cs">
-      <DependentUpon>Update.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\View.aspx.cs">
-      <DependentUpon>View.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\View.aspx.designer.cs">
-      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -891,11 +851,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

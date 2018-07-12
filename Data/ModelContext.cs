@@ -29,14 +29,11 @@ namespace Data
 
         public virtual DbSet<Student> Students { get; set; }
 
-        public virtual DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CourseTypeConfiguration());
             modelBuilder.Configurations.Add(new StudentTypeConfiguration());
             modelBuilder.Configurations.Add(new ResultTypeConfiguration());
-            modelBuilder.Configurations.Add(new UserTypeConfiguration());
             modelBuilder.Configurations.Add(new RegisteredCoursesTypeConfiguration());
         }
     }
