@@ -43,7 +43,7 @@
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <DocumentationFile>bin\result-management-system.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>result-management-system.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\result-management-system.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

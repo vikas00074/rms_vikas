@@ -5,10 +5,6 @@
 namespace View
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public interface ISiteView : IViewBase
     {
@@ -16,14 +12,12 @@ namespace View
 
         T GetSessionValue<T>(string value);
 
-        void SetLoggedUser(string userLogger);
-
         void Redirect(string v);
 
         void ShowError(Exception aex);
 
-        void ShowSucess(string message);
+        void ShowWarning(string message);
 
-        void FinishSession();
+        void ShowSucess(string message);
     }
 }

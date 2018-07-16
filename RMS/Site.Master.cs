@@ -19,16 +19,7 @@ namespace RMS
             _presenter = new SitePresenter(this);
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            _presenter.InitCacheConfiguration();
-            _presenter.CheckIsUserLogged();
-        }
-
-        protected void lnkLogout_Click(object sender, EventArgs e)
-        {
-            _presenter.PerformLogOut();
-        }
+        // VIew implementation
 
         public void InitCacheConfiguration()
         {
@@ -42,11 +33,6 @@ namespace RMS
             return (T)Session[value];
         }
 
-        public void SetLoggedUser(string userLogger)
-        {
-            //hlLogUser.Text = userLogger;
-        }
-
         public void Redirect(string v)
         {
             Response.Redirect(v);
@@ -58,16 +44,25 @@ namespace RMS
             lblError.Text = aex.ToString();
         }
 
+        public void ShowWarning(string message)
+        {
+            pnlWarning.Visible = true;
+            lblWarning.Text = message;
+        }
+
         public void ShowSucess(string message)
         {
             pnlSuccess.Visible = true;
             lblSuccess.Text = message;
         }
 
-        public void FinishSession()
+        // Handled events
+
+        protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Session.Clear();
+            _presenter.InitCacheConfiguration();
         }
+
+        // Private Methods
     }
 }
