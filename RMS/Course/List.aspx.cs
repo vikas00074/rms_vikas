@@ -5,12 +5,13 @@
 namespace RMS.Course
 {
     using System;
-    using System.Data;
+    using System.Collections.Generic;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using Presenter.Course;
     using View;
     using View.Course;
+    using ViewModel.Course;
 
     public partial class List : Page, IListCourseView
     {
@@ -81,35 +82,6 @@ namespace RMS.Course
             GridView1.PageIndex = ((DropDownList)sender).SelectedIndex;
         }
 
-        protected void GridView1_DataBound(object sender, EventArgs e)
-        {
-            var pagerRow = GridView1.BottomPagerRow;
-            var pagerList = pagerRow.Cells[0].FindControl("ddlPageSelector") as DropDownList;
-            var pagerLbl = pagerRow.Cells[0].FindControl("lblCurrentPage") as Label;
-
-            if (pagerList != null)
-            {
-                for (int index = 0; index == GridView1.PageCount - 1; index++)
-                {
-                    int pagNumber = index + 1;
-                    ListItem item = new ListItem(pagNumber.ToString());
-
-                    if (GridView1.PageIndex == index)
-                    {
-                        item.Selected = true;
-                    }
-
-                    pagerList.Items.Add(item);
-                }
-            }
-
-            if (pagerLbl != null)
-            {
-                int currPag = GridView1.PageIndex + 1;
-                pagerLbl.Text = string.Format("Pagina {0} de {1}.", currPag, GridView1.PageCount);
-            }
-        }
-
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             Trace.Write("GridView1_RowEditing");
@@ -146,9 +118,9 @@ namespace RMS.Course
             Trace.Write("GridView1_RowCancelingEdit");
         }
 
-        public void FillGrid(DataTable dataTable)
+        public void SetGridData(IEnumerable<ListCourseGridViewModel> vm)
         {
-            GridView1.DataSource = dataTable;
+            GridView1.DataSource = vm;
             GridView1.DataBind();
         }
 

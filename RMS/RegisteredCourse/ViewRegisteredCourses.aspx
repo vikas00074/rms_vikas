@@ -4,15 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <p align="center">
-        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True"
-            Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
+        <asp:Label ID="lblError" runat="server" BackColor="Red" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White" Text="E" Visible="False"></asp:Label>
     </p>
-    <br />
     <table class="style147">
         <tr>
             <td>
-                <asp:Panel ID="Panel3" runat="server" Height="331px" Style="margin-left: 0px"
-                    Width="1173px">
+                <asp:Panel ID="Panel3" runat="server" Width="1173px">
                     <table class="style147" align="center">
                         <tr>
                             <td class="style169" bgcolor="#006600" colspan="5" style="text-align: center">
@@ -54,8 +51,7 @@
                         </tr>
                         <tr>
                             <td class="style181" bgcolor="#E4E4E4">
-                                <asp:Button ID="btnSearchStud" runat="server" OnClick="btnSearchStud_Click"
-                                    Text="Search Student" />
+                                <asp:Button ID="btnSearchStud" runat="server" OnClick="btnSearchStud_Click" Text="Search Student" />
                             </td>
                             <td class="style160" bgcolor="#E4E4E4">
                                 <span class="style170"></span></td>
@@ -65,35 +61,27 @@
                         </tr>
                         <tr>
                             <td class="style156" colspan="5">
-                                <asp:Panel ID="PanelStudGrid" runat="server" Height="174px" Visible="False"
-                                    Width="773px" ScrollBars="Vertical">
+                                <asp:Panel ID="PanelStudGrid" runat="server" Height="174px" Visible="False" Width="773px" ScrollBars="Vertical">
                                     <table class="style14">
                                         <tr>
                                             <td align="left" class="style196">
-                                                <asp:LinkButton ID="lnkCancel" runat="server" Font-Underline="True"
-                                                    ForeColor="Black" OnClick="lnkCancel_Click">Cancel</asp:LinkButton>
+                                                <asp:LinkButton ID="lnkCancel" runat="server" Font-Underline="True" ForeColor="Black" OnClick="lnkCancel_Click">Cancel</asp:LinkButton>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="style196">
                                                 <asp:GridView ID="grdStudent" runat="server" AutoGenerateColumns="False" EnableSortingAndPagingCallbacks="True"
-                                                    HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" Height="16px"
+                                                    HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
                                                     PageSize="5"
-                                                    Style="text-align: justify" Width="260px"
                                                     OnSelectedIndexChanged="grdStudent_SelectedIndexChanged">
                                                     <Columns>
-                                                        <asp:BoundField DataField="Id" HeaderText="Student_Id"
-                                                            ItemStyle-Width="150">
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:BoundField>
+                                                        <asp:BoundField DataField="Id" HeaderText="Student_Id" />
                                                         <asp:BoundField DataField="Lastname" HeaderText="Lastname" />
                                                         <asp:BoundField DataField="Firstname" HeaderText="Firstname" />
                                                         <asp:BoundField DataField="Program" HeaderText="Program" />
                                                         <asp:BoundField DataField="Level" HeaderText="Level" />
                                                         <asp:BoundField DataField="Session" HeaderText="Session" />
-                                                        <asp:ButtonField CommandName="Select" ItemStyle-Width="150" Text="Select">
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:ButtonField>
+                                                        <asp:ButtonField CommandName="Select" Text="Select" />
                                                     </Columns>
                                                 </asp:GridView>
                                             </td>
@@ -103,21 +91,6 @@
                             </td>
                         </tr>
                     </table>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </asp:Panel>
             </td>
         </tr>

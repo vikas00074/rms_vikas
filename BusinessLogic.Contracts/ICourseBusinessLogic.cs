@@ -4,15 +4,14 @@
 
 namespace BusinessLogic.Contracts
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Dto.Filters;
     using ViewModel.Course;
 
     public interface ICourseBusinessLogic : IBusinessLogicBase
     {
         void AddCourse(CourseViewModel course);
+
+        IEnumerable<ListCourseGridViewModel> GetCourses(CourseFilter filter);
     }
 }

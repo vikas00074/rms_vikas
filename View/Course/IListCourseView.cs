@@ -5,11 +5,12 @@
 namespace View.Course
 {
     using System;
-    using System.Data;
+    using System.Collections.Generic;
+    using ViewModel.Course;
 
     public interface IListCourseView : IViewBase
     {
-        void FillGrid(DataTable dataTable);
+        void SetGridData(IEnumerable<ListCourseGridViewModel> vm);
 
         void ShowError(Exception ex);
 

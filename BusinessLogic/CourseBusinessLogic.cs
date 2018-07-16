@@ -5,8 +5,11 @@
 namespace BusinessLogic
 {
     using System;
+    using System.Linq;
+    using System.Collections.Generic;
     using BusinessLogic.Contracts;
     using Data;
+    using Dto.Filters;
     using Model;
     using ViewModel.Course;
 
@@ -25,6 +28,27 @@ namespace BusinessLogic
 
                 ctx.SaveChanges();
             }
+        }
+
+        public IEnumerable<ListCourseGridViewModel> GetCourses(CourseFilter filter)
+        {
+            IEnumerable<ListCourseGridViewModel> result = null;
+
+            using (var ctx = new ModelContext())
+            {
+                var query = ctx.Courses.AsQueryable();
+
+                result = query
+                    .Select(x => new ListCourseGridViewModel
+                    {
+                        Id = x.Id,
+                        Title = x.course_title,
+                        Level = x.course_level
+                    })
+                    .ToArray();
+            }
+
+            return result;
         }
     }
 }
