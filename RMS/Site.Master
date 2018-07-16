@@ -52,7 +52,6 @@
                         <asp:MenuItem NavigateUrl="~/Result/Update.aspx" Text="Update" Value="Update Results"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Result/List.aspx" Text="List" Value="View Results"></asp:MenuItem>
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Send Notification" Value="Send Notification" NavigateUrl="~/Send_Mail.aspx"></asp:MenuItem>
                 </Items>
                 <StaticMenuItemStyle CssClass="nav-link" />
                 <StaticMenuStyle CssClass="navbar-nav mr-auto" />

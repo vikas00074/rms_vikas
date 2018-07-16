@@ -666,7 +666,6 @@
     <Content Include="Scripts\AjaxControlToolkit\Release\ToggleButton.js" />
     <Content Include="Scripts\AjaxControlToolkit\Release\UpdatePanelAnimation.js" />
     <Content Include="Scripts\AjaxControlToolkit\Release\ValidatorCallout.js" />
-    <Content Include="SendMail.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Result\New.aspx" />
     <Content Include="Result\Update.aspx" />
@@ -748,13 +747,6 @@
     </Compile>
     <Compile Include="RegisteredCourse\RegisterCourses.aspx.designer.cs">
       <DependentUpon>RegisterCourses.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SendMail.aspx.cs">
-      <DependentUpon>SendMail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SendMail.aspx.designer.cs">
-      <DependentUpon>SendMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
