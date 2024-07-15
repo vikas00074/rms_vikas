@@ -48,7 +48,6 @@ jobs:
         run: |
           Invoke-WebRequest -Uri "https://download.microsoft.com/download/2/4/C/24C31E8F-568F-4825-BE2E-7D7484E603E3/NDP461-DevPack-ENU.exe" -OutFile "$env:TEMP\NDP461-DevPack-ENU.exe"
           Start-Process -FilePath "$env:TEMP\NDP461-DevPack-ENU.exe" -ArgumentList "/quiet", "/norestart" -Wait
-        id: 'Install .NET Framework 4.6.1 Developer Pack'
 
       - name: Login to Azure
         uses: azure/login@v2
