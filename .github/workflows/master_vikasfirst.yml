@@ -63,4 +63,18 @@ jobs:
           app-name: 'vikasfirst'
           slot-name: 'Production'
           package: .
+
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Download and install the .NET Framework 4.6.1 Developer Pack
+            Invoke-WebRequest -Uri "https://download.microsoft.com/download/2/4/C/24C31E8F-568F-4825-BE2E-7D7484E603E3/NDP461-DevPack-ENU.exe" -OutFile "$env:TEMP\NDP461-DevPack-ENU.exe"
+            Start-Process -FilePath "$env:TEMP\NDP461-DevPack-ENU.exe" -ArgumentList "/quiet", "/norestart" -Wait
+        displayName: 'Install .NET Framework 4.6.1 Developer Pack'
+      
+      - script: |
+          echo "Building the project..."
+          msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+        displayName: 'Build the project'
           
